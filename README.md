@@ -35,7 +35,7 @@ Please note, for the Google Knowledge Graph APIs and the Merriam-Webster Diction
     (get-wikidata-entity) : function to get all statements for a particular URI in Wikidata. To request just insert as argument the URI you are looking for. For more information about URI in Wikidata, please see https://www.wikidata.org/wiki/Help:Statements 
     (query-words-api) : function to query Words API. To query just insert as argument the definition you are looking for. 
     (query-merriam-webster-dictionary) : function to query Merriam-Webster Dictionary API. To query just insert as argument the definition you are looking for. 
-    (query-merriam-webster-thesaurus)  function to query Merriam-Webster Thesaurus API. To query just insert as argument the definition you are looking for. 
+    (query-merriam-webster-thesaurus) : function to query Merriam-Webster Thesaurus API. To query just insert as argument the definition you are looking for. 
     
 
 
