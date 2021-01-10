@@ -18,7 +18,7 @@
 
 (defsystem :apis
   :description "A system querying KG APIs in Common Lisp"
-  :depends-on (:drakma :yason :cl-user :common-lisp :cl-ppcre :test-framework :monitors :network)
+  :depends-on (:drakma :yason :common-lisp :cl-ppcre :test-framework :monitors :network)
   :components 
   ((:file "package")
    (:file "query")))
