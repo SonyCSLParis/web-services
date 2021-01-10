@@ -9,21 +9,21 @@ A Package to query different APIs in Common Lisp. The APIs accessible with this 
          3.1. Words API (https://www.wordsapi.com/)
          3.2. Merriam-Webster Dictionary API (https://dictionaryapi.com/)
 
-Contributors:
+## Contributors:
 
     Dr. Remi van Trijp
     Martina Galletti
     
-Dependencies
+## Dependencies
 
 The Lisp-APIs code depends on:
 
     Drakma (can be installed using Quicklisp, or see https://edicl.github.io/drakma/)
     Yason (can be installed using Quicklisp, or see https://github.com/phmarek/yason)
 
-1. Interfacing Common Lisp with APIs
+## 1. Interfacing Common Lisp with APIs
 
-1.1 Package
+### 1.1 Package
 
 The different APIs can be queried using some specific helper functions which send a request to the APIs specified and encode the results. 
 
