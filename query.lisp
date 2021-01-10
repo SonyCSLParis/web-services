@@ -84,17 +84,6 @@
                            ("props" . "descriptions"))))
 ;; (get-wikidata-entity "Q16825889")
 
-(defun get-wikidata-statements (entity &key (languages "en") &allow-other-keys)
-  "If you know the entity IDS, get the statements about it"
-  (query-api "https://www.wikidata.org/w/api.php?"
-             :parameters `(("action" . "wbgetclaims")
-                           ("entity" . ,entity)
-                           ("languages" . ,languages)
-                           ("format" . "json")
-                           ("property" . "P106")))) ;; specify property you want (for ex. P.106 = occupation)
-
-;; (get-wikidata-statements "Q7186")
-
 
 ;; *************************************************************************************************************
 ;; Querying dictionaries and thesauri:
