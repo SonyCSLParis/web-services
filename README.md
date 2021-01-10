@@ -29,13 +29,27 @@ The different APIs can be queried using some specific helper functions which sen
 
 Please note, for the Google Knowledge Graph APIs and the Merriam-Webster Dictionary API, you have to specify your personal "API key" to send the request. For information about they can be obtained, please see https://dictionaryapi.com/register/index for the Merriam-Webster Dictionary and https://developers.google.com/knowledge-graph/how-tos/authorizing for the Google Knowledge Graph API. 
 
-    (query-google-knowledge-graph) : function to query Google Knowledge Graph APIs. To request just insert as argument the string you are looking for. 
-    (search-wikipedia) : function to query wikipedia. To query just insert as argument the string you are looking for. 
-    (search-entity-in-wikidata) : function to query wikidata. To query just insert as argument the string you are looking for. 
-    (get-wikidata-entity) : function to get all statements for a particular URI in Wikidata. To request just insert as argument the URI you are looking for. For more information about URI in Wikidata, please see https://www.wikidata.org/wiki/Help:Statements 
-    (query-words-api) : function to query Words API. To query just insert as argument the definition you are looking for. 
-    (query-merriam-webster-dictionary) : function to query Merriam-Webster Dictionary API. To query just insert as argument the definition you are looking for. 
-    (query-merriam-webster-thesaurus) : function to query Merriam-Webster Thesaurus API. To query just insert as argument the definition you are looking for. 
+    (query-google-knowledge-graph) : function to query Google Knowledge Graph APIs. 
+    To request just insert as argument the string you are looking for.
+    
+    (search-wikipedia) : function to query wikipedia. 
+    To query just insert as argument the string you are looking for. 
+    
+    (search-entity-in-wikidata) : function to query wikidata. 
+    To query just insert as argument the string you are looking for. 
+    
+    (get-wikidata-entity) : function to get all statements for a particular URI in Wikidata. 
+    To request just insert as argument the URI you are looking for. 
+    For more information about URI in Wikidata, please see https://www.wikidata.org/wiki/Help:Statements 
+    
+    (query-words-api) : function to query Words API. 
+    To query just insert as argument the definition you are looking for. 
+    
+    (query-merriam-webster-dictionary) : function to query Merriam-Webster Dictionary API. 
+    To query just insert as argument the definition you are looking for. 
+    
+    (query-merriam-webster-thesaurus) : function to query Merriam-Webster Thesaurus API. 
+    To query just insert as argument the definition you are looking for. 
     
 
 
