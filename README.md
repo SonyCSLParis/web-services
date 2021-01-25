@@ -4,10 +4,10 @@ A Package to query different APIs in Common Lisp. The APIs accessible with this 
 
       1. Google Knowledge Graph API (https://developers.google.com/knowledge-graph), 
       2. MediaWiki API(https://www.mediawiki.org/wiki/API:Main_page), 
-      3. Wikidata API(https://www.wikidata.org/wiki/Wikidata:Data_access)
+      3. Wikidata API(https://www.wikidata.org/wiki/Wikidata:Data_access),
       3. Dictionaries and Thesaurus such as 
-         3.1. Words API (https://www.wordsapi.com/)
-         3.2. Merriam-Webster Dictionary API (https://dictionaryapi.com/)
+         3.1. Words API (https://www.wordsapi.com/),
+         3.2. Merriam-Webster Dictionary API (https://dictionaryapi.com/).
 
 ## Contributors:
 
@@ -18,8 +18,9 @@ A Package to query different APIs in Common Lisp. The APIs accessible with this 
 
 The Lisp-APIs code depends on:
 
-    Drakma (can be installed using Quicklisp, or see https://edicl.github.io/drakma/)
-    Yason (can be installed using Quicklisp, or see https://github.com/phmarek/yason)
+    Drakma (can be installed using Quicklisp, see https://edicl.github.io/drakma/)
+    Yason (can be installed using Quicklisp, see https://github.com/phmarek/yason)
+    Cl-ppcre (can be installed using Quicklisp, see http://edicl.github.io/cl-ppcre/)
 
 ## 1. Interfacing Common Lisp with APIs
 
