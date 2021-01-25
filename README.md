@@ -52,6 +52,6 @@ Please note, for the Google Knowledge Graph APIs and the Merriam-Webster Diction
     (query-merriam-webster-thesaurus) : function to query Merriam-Webster Thesaurus API. 
     To query just insert as argument the definition you are looking for. 
     
-    (vua-kg-api-request) : function to access a saved SPARQL query on the Catasto dataset                                       https://druid.datalegend.net/muhaiuser/-/queries/example-query/ (the API to call is shown under "API Variable", i.e.  https://api.druid.datalegend.net/queries/muhaiuser/example-query/run )
+    (vua-kg-api-request) : function to access a saved SPARQL query on the Catasto dataset https://druid.datalegend.net/muhaiuser/-/queries/example-query/ (the API to call is shown under "API Variable", i.e.  https://api.druid.datalegend.net/queries/muhaiuser/example-query/run )
 
 
