@@ -68,21 +68,21 @@ Please note, for the Google Knowledge Graph APIs and the Merriam-Webster Diction
 #### 3. MediaWiki API(https://www.mediawiki.org/wiki/API:Main_page): 
 
     (search-wikipedia): function to query wikipedia. 
-    To query just insert as argument the string you are looking for. 
+    To query just insert as an argument the string you are looking for. 
  
 #### 4. Wikidata API(https://www.wikidata.org/wiki/Wikidata:Data_access):
 
     (search-entity-in-wikidata): function to query wikidata. 
-    To query just insert as argument the string you are looking for. 
+    To query just insert as an argument the string you are looking for. 
     
     (get-wikidata-entity): function to get all statements for a particular URI in Wikidata. 
-    To request just insert as argument the URI you are looking for. 
+    To request just insert as an argument the URI you are looking for. 
     For more information about URI in Wikidata, please see https://www.wikidata.org/wiki/Help:Statements 
     
 #### 5. Google Knowledge Graph API (https://developers.google.com/knowledge-graph): 
  
     (query-google-knowledge-graph): function to query Google Knowledge Graph APIs. 
-    To request just insert as argument the string you are looking for.
+    To request just insert as an argument the string you are looking for.
 
 #### 6. VUA API (https://stories.datalegend.net): 
  
