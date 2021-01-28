@@ -98,4 +98,4 @@ Please note, for the Google Knowledge Graph APIs and the Merriam-Webster Diction
     
     (query-country-filter-mealDB): Search for all the meals traditional of a particular country
     
-    (query-hungry-random-mealDB): I am hungy, what should I eat tonight?
+    (query-hungry-random-mealDB): I am hungry, what should I eat tonight?
