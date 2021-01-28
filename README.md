@@ -32,14 +32,14 @@ The different APIs can be queried using some specific helper functions which sen
 
 Please note, for the Google Knowledge Graph APIs and the Merriam-Webster Dictionary API, you have to specify your personal "API key" to send the request. For information about they can be obtained, please see https://dictionaryapi.com/register/index for the Merriam-Webster Dictionary and https://developers.google.com/knowledge-graph/how-tos/authorizing for the Google Knowledge Graph API. 
 
-1. Dictionaries and Thesaurus such as 
+#### 1. Dictionaries and Thesaurus such as 
 
-  1.1. Words API (https://www.wordsapi.com/): 
+#####  1.1. Words API (https://www.wordsapi.com/): 
     
     (query-words-api) : function to query Words API. 
     To query just insert as argument the definition you are looking for. 
  
- 1.2. Merriam-Webster Dictionary API (https://dictionaryapi.com/):   
+##### 1.2. Merriam-Webster Dictionary API (https://dictionaryapi.com/):   
  
     (query-merriam-webster-dictionary) : function to query Merriam-Webster Dictionary API. 
     To query just insert as argument the definition you are looking for. 
@@ -47,7 +47,7 @@ Please note, for the Google Knowledge Graph APIs and the Merriam-Webster Diction
     (query-merriam-webster-thesaurus) : function to query Merriam-Webster Thesaurus API. 
     To query just insert as argument the definition you are looking for. 
     
- 2. Datamuse API (https://www.datamuse.com/api/):
+#### 2. Datamuse API (https://www.datamuse.com/api/):
     
     (query-rhyme-datamuse): Search all the words that rhyme with a certain token in datamuse.
     
@@ -65,12 +65,12 @@ Please note, for the Google Knowledge Graph APIs and the Merriam-Webster Diction
     
     (query-often-follow-start-by-datamuse): Search for all the words that more likely follow a word-1 and start by a particular letter.
     
-3. MediaWiki API(https://www.mediawiki.org/wiki/API:Main_page): 
+#### 3. MediaWiki API(https://www.mediawiki.org/wiki/API:Main_page): 
 
     (search-wikipedia): function to query wikipedia. 
     To query just insert as argument the string you are looking for. 
  
-4. Wikidata API(https://www.wikidata.org/wiki/Wikidata:Data_access):
+#### 4. Wikidata API(https://www.wikidata.org/wiki/Wikidata:Data_access):
 
     (search-entity-in-wikidata): function to query wikidata. 
     To query just insert as argument the string you are looking for. 
@@ -79,16 +79,16 @@ Please note, for the Google Knowledge Graph APIs and the Merriam-Webster Diction
     To request just insert as argument the URI you are looking for. 
     For more information about URI in Wikidata, please see https://www.wikidata.org/wiki/Help:Statements 
     
- 5. Google Knowledge Graph API (https://developers.google.com/knowledge-graph): 
+#### 5. Google Knowledge Graph API (https://developers.google.com/knowledge-graph): 
  
     (query-google-knowledge-graph): function to query Google Knowledge Graph APIs. 
     To request just insert as argument the string you are looking for.
 
- 6. VUA API (https://stories.datalegend.net): 
+#### 6. VUA API (https://stories.datalegend.net): 
  
     (vua-kg-api-request): function to access a saved SPARQL query on the Catasto dataset https://druid.datalegend.net/muhaiuser/-  /queries/example-query/ (the API to call is shown under "API Variable", i.e.  https://api.druid.datalegend.net/queries/muhaiuser/example-query/run )
     
- 7. Meal DB API (https://www.datamuse.com/api/)
+#### 7. Meal DB API (https://www.datamuse.com/api/)
 
     (query-mealDB): Search for a Recipe in the MealDB
     
