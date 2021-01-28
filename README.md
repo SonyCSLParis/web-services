@@ -50,12 +50,19 @@ Please note, for the Google Knowledge Graph APIs and the Merriam-Webster Diction
  2. Datamuse API (https://www.datamuse.com/api/):
     
     (query-rhyme-datamuse): Search all the words that rhyme with a certain token in datamuse.
+    
     (query-related-to-datamuse):  function to query the Datamuse API and find a token semantically related for a particular token.
+    
     (query-rhyme-related-to-datamuse): Search all the words that rhyme with a certain word-1 in datamuse and are semantically related to another word-2
+    
     (query-adjectives-datamuse): Search for adjectives mostly used with a word-1.
+    
     (query-adjectives-related-to-datamuse): Search for adjectives mostly used with a word-1 and semantically related to a word-2.
+    
     (query-nouns-datamuse): Search for the most used nouns with an adjective.
+    
     (query-often-follow-datamuse): Search for all the words that more likely follow a word-1.
+    
     (query-often-follow-start-by-datamuse): Search for all the words that more likely follow a word-1 and start by a particular letter.
     
 3. MediaWiki API(https://www.mediawiki.org/wiki/API:Main_page): 
@@ -84,7 +91,11 @@ Please note, for the Google Knowledge Graph APIs and the Merriam-Webster Diction
  7. Meal DB API (https://www.datamuse.com/api/)
 
     (query-mealDB): Search for a Recipe in the MealDB
+    
     (query-ingredient-filter-mealDB): Search for a recipe in the MealDB with a main ingredient X
+    
     (query-category-filter-mealDB): Search for all the meals in a particular category
+    
     (query-country-filter-mealDB): Search for all the meals traditional of a particular country
+    
     (query-hungry-random-mealDB): I am hungy, what should I eat tonight?
