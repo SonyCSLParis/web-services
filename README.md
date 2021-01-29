@@ -1,4 +1,4 @@
-# Lisp-APIs
+# Web-Services
 
 A Package to query different APIs in Common Lisp. The APIs accessible with this package are : 
       1. Dictionaries and Thesaurus such as 
@@ -10,6 +10,7 @@ A Package to query different APIs in Common Lisp. The APIs accessible with this 
       5. Google Knowledge Graph API (https://developers.google.com/knowledge-graph), 
       6. VUA API (https://stories.datalegend.net), 
       7. Meal DB API (https://www.themealdb.com/api.php)
+      8. Mediastack (https://mediastack.com/)
        
 ## Contributors:
 
@@ -30,40 +31,44 @@ The Lisp-APIs code depends on:
 
 The different APIs can be queried using some specific helper functions which send a request to the APIs specified and encode the results. 
 
-Please note, for the Google Knowledge Graph APIs and the Merriam-Webster Dictionary API, you have to specify your personal "API key" to send the request. For information about they can be obtained, please see https://dictionaryapi.com/register/index for the Merriam-Webster Dictionary and https://developers.google.com/knowledge-graph/how-tos/authorizing for the Google Knowledge Graph API. 
+Please note, for the Google Knowledge Graph APIs, the Mediastack APIs and the Merriam-Webster Dictionary API, you have to specify your personal "API key" to send the request. For information about they can be obtained, please see : 
+
+- https://dictionaryapi.com/register/index for the Merriam-Webster Dictionary,
+- https://developers.google.com/knowledge-graph/how-tos/authorizing for the Google Knowledge Graph API,
+- https://mediastack.com/quickstart for the Mediastack API.
 
 #### 1. Dictionaries and Thesaurus such as 
 
 #####  1.1. Words API (https://www.wordsapi.com/): 
     
-    (query-words-api) : function to query Words API. 
+    (request-words-api) : function to query Words API. 
     To query just insert as argument the definition you are looking for. 
  
 ##### 1.2. Merriam-Webster Dictionary API (https://dictionaryapi.com/):   
  
-    (query-merriam-webster-dictionary) : function to query Merriam-Webster Dictionary API. 
+    (request-merriam-webster-dictionary) : function to query Merriam-Webster Dictionary API. 
     To query just insert as argument the definition you are looking for. 
     
-    (query-merriam-webster-thesaurus) : function to query Merriam-Webster Thesaurus API. 
+    (request-merriam-webster-thesaurus) : function to query Merriam-Webster Thesaurus API. 
     To query just insert as argument the definition you are looking for. 
     
 #### 2. Datamuse API (https://www.datamuse.com/api/):
     
-    (query-rhyme-datamuse): Search all the words that rhyme with a certain token in datamuse.
+    (request-rhyme-datamuse): Search all the words that rhyme with a certain token in datamuse.
     
-    (query-related-to-datamuse):  function to query the Datamuse API and find a token semantically related for a particular token.
+    (request-related-to-datamuse):  function to query the Datamuse API and find a token semantically related for a particular token.
     
-    (query-rhyme-related-to-datamuse): Search all the words that rhyme with a certain word-1 in datamuse and are semantically related to another word-2
+    (request-rhyme-related-to-datamuse): Search all the words that rhyme with a certain word-1 in datamuse and are semantically related to another word-2
     
-    (query-adjectives-datamuse): Search for adjectives mostly used with a word-1.
+    (request-adjectives-datamuse): Search for adjectives mostly used with a word-1.
     
-    (query-adjectives-related-to-datamuse): Search for adjectives mostly used with a word-1 and semantically related to a word-2.
+    (request-adjectives-related-to-datamuse): Search for adjectives mostly used with a word-1 and semantically related to a word-2.
     
-    (query-nouns-datamuse): Search for the most used nouns with an adjective.
+    (request-nouns-datamuse): Search for the most used nouns with an adjective.
     
-    (query-often-follow-datamuse): Search for all the words that more likely follow a word-1.
+    (request-often-follow-datamuse): Search for all the words that more likely follow a word-1.
     
-    (query-often-follow-start-by-datamuse): Search for all the words that more likely follow a word-1 and start by a particular letter.
+    (request-often-follow-start-by-datamuse): Search for all the words that more likely follow a word-1 and start by a particular letter.
     
 #### 3. MediaWiki API(https://www.mediawiki.org/wiki/API:Main_page): 
 
@@ -81,7 +86,7 @@ Please note, for the Google Knowledge Graph APIs and the Merriam-Webster Diction
     
 #### 5. Google Knowledge Graph API (https://developers.google.com/knowledge-graph): 
  
-    (query-google-knowledge-graph): function to query Google Knowledge Graph APIs. 
+    (request-google-knowledge-graph): function to query Google Knowledge Graph APIs. 
     To request just insert as an argument the string you are looking for.
 
 #### 6. VUA API (https://stories.datalegend.net): 
@@ -90,12 +95,12 @@ Please note, for the Google Knowledge Graph APIs and the Merriam-Webster Diction
     
 #### 7. Meal DB API (https://www.datamuse.com/api/)
 
-    (query-mealDB): Search for a Recipe in the MealDB
+    (request-mealDB): Search for a Recipe in the MealDB
     
-    (query-ingredient-filter-mealDB): Search for a recipe in the MealDB with a main ingredient X
+    (request-ingredient-filter-mealDB): Search for a recipe in the MealDB with a main ingredient X
     
-    (query-category-filter-mealDB): Search for all the meals in a particular category
+    (request-category-filter-mealDB): Search for all the meals in a particular category
     
-    (query-country-filter-mealDB): Search for all the meals traditional of a particular country
+    (request-country-filter-mealDB): Search for all the meals traditional of a particular country
     
-    (query-hungry-random-mealDB): I am hungry, what should I eat tonight?
+    (request-hungry-random-mealDB): I am hungry, what should I eat tonight?
