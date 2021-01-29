@@ -1,6 +1,7 @@
 # Web-Services
 
 A Package to query different APIs in Common Lisp. The APIs accessible with this package are : 
+
      -  1. Dictionaries and Thesaurus such as 
          1.1. Words API (https://www.wordsapi.com/),
          1.2. Merriam-Webster Dictionary API (https://dictionaryapi.com/).
