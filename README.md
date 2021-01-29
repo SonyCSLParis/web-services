@@ -2,16 +2,16 @@
 
 A Package to query different APIs in Common Lisp. The APIs accessible with this package are : 
 
-     -  1. Dictionaries and Thesaurus such as 
+      1. Dictionaries and Thesaurus such as 
          1.1. Words API (https://www.wordsapi.com/),
          1.2. Merriam-Webster Dictionary API (https://dictionaryapi.com/).
-     -  2. Datamuse API (https://www.datamuse.com/api/)
-     -  3. MediaWiki API(https://www.mediawiki.org/wiki/API:Main_page), 
-     -  4. Wikidata API(https://www.wikidata.org/wiki/Wikidata:Data_access),
-     -  5. Google Knowledge Graph API (https://developers.google.com/knowledge-graph), 
-     -  6. VUA API (https://stories.datalegend.net), 
-     -  7. Meal DB API (https://www.themealdb.com/api.php)
-     -  8. Mediastack (https://mediastack.com/)
+       2. Datamuse API (https://www.datamuse.com/api/)
+       3. MediaWiki API(https://www.mediawiki.org/wiki/API:Main_page), 
+       4. Wikidata API(https://www.wikidata.org/wiki/Wikidata:Data_access),
+       5. Google Knowledge Graph API (https://developers.google.com/knowledge-graph), 
+       6. VUA API (https://stories.datalegend.net), 
+       7. Meal DB API (https://www.themealdb.com/api.php)
+       8. Mediastack (https://mediastack.com/)
        
 ## Contributors:
 
