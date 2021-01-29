@@ -93,7 +93,7 @@ Please note, for the Google Knowledge Graph APIs, the Mediastack APIs and the Me
  
     (vua-kg-api-request): function to access a saved SPARQL query on the Catasto dataset https://druid.datalegend.net/muhaiuser/-  /queries/example-query/ (the API to call is shown under "API Variable", i.e.  https://api.druid.datalegend.net/queries/muhaiuser/example-query/run )
     
-#### 7. Meal DB API (https://www.datamuse.com/api/)
+#### 7. Meal DB API (https://www.themealdb.com/api.php)
 
     (request-mealDB): Search for a Recipe in the MealDB
     
@@ -104,3 +104,6 @@ Please note, for the Google Knowledge Graph APIs, the Mediastack APIs and the Me
     (request-country-filter-mealDB): Search for all the meals traditional of a particular country
     
     (request-hungry-random-mealDB): I am hungry, what should I eat tonight?
+    
+#### 8. Mediastack (https://mediastack.com/quickstart)
+
