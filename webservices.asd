@@ -19,7 +19,7 @@
   :depends-on (:utils :drakma :yason :cl-ppcre :test-framework)
   :components ((:file "package")
                (:file "general_request")
-   ;; All files for interacing with the Catasto knowledge graph
+   ;; All files
    (:module dictionaries
     :components ((:file "datamuse")
                  (:file "merriam_webster")
@@ -34,5 +34,7 @@
                  (:file "wikipedia_wikidata")))
    ;; All Knowledge Graph Api
    (:module news
-    :components ((:file "mediastack")))))
+    :components ((:file "mediastack")))
+   ;; All news
+   ))
 
