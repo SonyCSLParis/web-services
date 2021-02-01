@@ -18,6 +18,21 @@
   :description "A system querying KG APIs in Common Lisp"
   :depends-on (:utils :drakma :yason :cl-ppcre :test-framework)
   :components ((:file "package")
-               (:file "start")
-               (:file "general_request")))
+               (:file "general_request")
+   ;; All files for interacing with the Catasto knowledge graph
+   (:module dictionaries
+    :components ((:file "datamuse")
+                 (:file "merriam_webster")
+                 (:file "words")))
+   ;; All Dictionaries and Thesaurus api
+   (:module food
+    :components ((:file "meal_db")))
+   ;; All food-related Api
+   (:module kg
+    :components ((:file "catasto")
+                 (:file "google_kg")
+                 (:file "wikipedia_wikidata")))
+   ;; All Knowledge Graph Api
+   (:module news
+    :components ((:file "mediastack")))))
 

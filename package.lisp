@@ -22,4 +22,5 @@
         :cl-ppcre
         :drakma
         :yason)
+  (:export :web-services)   
   (:shadow parse split))
