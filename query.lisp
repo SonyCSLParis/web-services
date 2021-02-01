@@ -22,10 +22,10 @@
 ;; General Function for Querying an API
 ;; +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-(defun clean-query (query)
-  (regex-replace-all " " query "%20"))
+(defun clean-request (request)
+  (regex-replace-all " " request "%20"))
 
-(defun query-api (api-url &key (content-type "application/json")
+(defun request-api (api-url &key (content-type "application/json")
                           additional-headers parameters)
   "Interfacing with an API and encode the result in Lisp List"
   (let ((stream (http-request api-url
@@ -47,9 +47,9 @@
 
 (defun request-words-api (word &key (x-rapidapi-key "ef0b0b01fbmshe99d52e360999bcp116ad7jsn90dcbb775019"))
   "Search for a particular token in Words API. "
-  (let* ((cleaned-word (clean-query word))
+  (let* ((cleaned-word (clean-request word))
          (url (format nil "https://wordsapiv1.p.rapidapi.com/words/~a/definitions" cleaned-word)))
-    (query-api url
+    (request-api url
                :additional-headers `(("x-rapidapi-key" . ,x-rapidapi-key)
                                      ("x-rapidapi-host" . "wordsapiv1.p.rapidapi.com")
                                      ("useQueryString" . "true")))))
@@ -60,13 +60,13 @@
 
 (defun request-merriam-webster-dictionary (word &optional (api-key "8fe92f45-0f31-4ec1-8b3f-c11cb403d657"))
     "Search for a particular token in Merriam-Webster Dictionary API"
-  (let ((url (format nil "https://www.dictionaryapi.com/api/v3/references/collegiate/json/~a?key=~a" (clean-query word) api-key)))
-    (query-api url)))
+  (let ((url (format nil "https://www.dictionaryapi.com/api/v3/references/collegiate/json/~a?key=~a" (clean-request word) api-key)))
+    (request-api url)))
 
 (defun request-merriam-webster-thesaurus (word &optional (api-key "da135313-5c0b-4819-91d6-dc4bf0d4d09c"))
      "Search for a particular token in the Merriam-Webster Thesaurus API"
-  (let ((url (format nil "https://www.dictionaryapi.com/api/v3/references/thesaurus/json/~a?key=~a" (clean-query word) api-key)))
-    (query-api url)))
+  (let ((url (format nil "https://www.dictionaryapi.com/api/v3/references/thesaurus/json/~a?key=~a" (clean-request word) api-key)))
+    (request-api url)))
 
 ;; -------------------------------------------------------------------------------------------------------------
 ;; 1.3. Datamuse
@@ -74,44 +74,44 @@
 
 (defun request-rhyme-datamuse (word)
   "Search all the tokens that rhyme with a certain token in Datamuse"
-  (let ((url (format nil "https://api.datamuse.com/words?rel_rhy=~a" (clean-query word))))
-    (query-api url)))
+  (let ((url (format nil "https://api.datamuse.com/words?rel_rhy=~a" (clean-request word))))
+    (request-api url)))
 
 (defun request-related-to-datamuse (word)
   "Search all tokens semantically related to a particular token"
-    (let ((url (format nil "https://api.datamuse.com/words?ml=~a" (clean-query word))))
-    (query-api url)))
+    (let ((url (format nil "https://api.datamuse.com/words?ml=~a" (clean-request word))))
+    (request-api url)))
 
 (defun request-rhyme-related-to-datamuse (word &key related-to)
   "Search a token semantically related to another particular token in Datamuse."
-  (query-api "https://api.datamuse.com/words?"
+  (request-api "https://api.datamuse.com/words?"
              :parameters `(("rel_rhy" . ,word)
                            ,@(when related-to `(("ml" . ,related-to))))))
 
 (defun request-adjectives-datamuse (word)
     "Search for adjectives mostly used with a particular token"
-    (let ((url (format nil "https://api.datamuse.com/words?rel_jjb=~a" (clean-query word))))
-    (query-api url)))
+    (let ((url (format nil "https://api.datamuse.com/words?rel_jjb=~a" (clean-request word))))
+    (request-api url)))
 
 (defun request-adjectives-related-to-datamuse (word &key related-to)
     "Search the adjectives mostly used with a particular token-1 and semantically related to another token-2"
-  (query-api "https://api.datamuse.com/words?"
+  (request-api "https://api.datamuse.com/words?"
              :parameters `(("rel_jjb" . ,word)
                            ,@(when related-to `(("ml" . ,related-to))))))
 
 (defun request-nouns-datamuse (word)
   "Search the most used nouns with a particular adjective"
-  (let ((url (format nil "https://api.datamuse.com/words?rel_jja=~a" (clean-query word))))
-    (query-api url)))
+  (let ((url (format nil "https://api.datamuse.com/words?rel_jja=~a" (clean-request word))))
+    (request-api url)))
 
 (defun request-often-follow-datamuse(word)
   "Search all the tokens that more likely follow a token-1"
-  (let ((url (format nil "https://api.datamuse.com/words?lc=~a" (clean-query word))))
-    (query-api url)))
+  (let ((url (format nil "https://api.datamuse.com/words?lc=~a" (clean-request word))))
+    (request-api url)))
 
 (defun request-often-follow-start-by-datamuse(word &key start-by)
   "Search  all the tokens that more likely follow a word-1 and start by a particular letter"
-  (query-api "https://api.datamuse.com/words?"
+  (request-api "https://api.datamuse.com/words?"
              :parameters `(("lc" . ,word)
                            ,@(when start-by `(("sp" . ,start-by))))))
 
@@ -126,28 +126,28 @@
 
 (defun request-mealDB (meal &optional (api-key "1"))
  "Search for a Recipe in the MealDB"
-  (let ((url (format nil "https://www.themealdb.com/api/json/v1/1/search.php?s=~a" (clean-query meal) api-key)))
-    (query-api url)))
+  (let ((url (format nil "https://www.themealdb.com/api/json/v1/1/search.php?s=~a" (clean-request meal) api-key)))
+    (request-api url)))
 
-(defun request-ingredient-mealDB(ingredient &optional (api-key "1"))
+(defun request-mealDB-ingredient(ingredient &optional (api-key "1"))
   "Search for a recipe in the MealDB with a main ingredient X"
-  (let ((url (format nil "https://www.themealdb.com/api/json/v1/1/filter.php?i=~a" (clean-query ingredient))))
-    (query-api url)))
+  (let ((url (format nil "https://www.themealdb.com/api/json/v1/1/filter.php?i=~a" (clean-request ingredient))))
+    (request-api url)))
 
-(defun request-category-filter-mealDB(category &optional (api-key "1"))
+(defun request-mealDB-category-filter(category &optional (api-key "1"))
   "Search for all the meals in a particular category"
-  (let ((url (format nil "https://www.themealdb.com/api/json/v1/1/filter.php?c=~a" (clean-query category))))
-    (query-api url)))
+  (let ((url (format nil "https://www.themealdb.com/api/json/v1/1/filter.php?c=~a" (clean-request category))))
+    (request-api url)))
 
-(defun request-country-filter-mealDB(country &optional (api-key "1"))
+(defun request-mealDB-country-filter(country &optional (api-key "1"))
   "Search for all the meals traditional of a particular country"
-  (let ((url (format nil "https://www.themealdb.com/api/json/v1/1/filter.php?a=~a" (clean-query country))))
-    (query-api url)))
+  (let ((url (format nil "https://www.themealdb.com/api/json/v1/1/filter.php?a=~a" (clean-request country))))
+    (request-api url)))
 
-(defun request-hungry-random-mealDB(&optional (api-key "1"))
+(defun request-mealDB-hungry-random(&optional (api-key "1"))
   "I am hungy, what should I eat tonight?"
   (let ((url (format nil "https://www.themealdb.com/api/json/v1/1/random.php")))
-    (query-api url)))
+    (request-api url)))
 
 ;; ------------------------------------------------------------------------------------------------------------
 ;; 2.2. Mediastack
@@ -155,7 +155,7 @@
 
 (defun request-live-news-Mediastack (search &key (access_key "357acde6d8d40889c97558fc6581649e") categories countries languages limit sort)
   "Search for Live News in the Mediastack APIs"
-  (query-api "http://api.mediastack.com/v1/sources/?access_key=~a"
+  (request-api "http://api.mediastack.com/v1/sources/?access_key=~a"
                :parameters `(("keywords" . ,search)
                              ("access_key" . ,access_key)
                              ,@(when categories `(("categories" . ,categories)))
@@ -167,7 +167,7 @@
 
 (defun request-historical-news-Mediastack (search &key (access_key "357acde6d8d40889c97558fc6581649e") date sources categories countries languages limit sort)
   "Search for historical news in the Mediastack APIs"
-  (query-api "http://api.mediastack.com/v1/sources/?access_key=~a"
+  (request-api "http://api.mediastack.com/v1/sources/?access_key=~a"
                :parameters `(("keywords" . ,search)
                              ("access_key" . ,access_key)
                              ,@(when date `(("date" . ,date)))
@@ -176,7 +176,7 @@
                              ,@(when countries `(("countries" . ,countries)))
                              ,@(when languages `(("languages" . ,languages)))
                              ,@(when limit `(("limit" . ,limit)))
-                             ,@(when sort `(("sort" . ,sort)))))). ;; it won't work for now because we have a free plan --> upgrade to use it. 
+                             ,@(when sort `(("sort" . ,sort)))))) ;; it won't work for now because we have a free plan --> upgrade to use it. 
 
 ;; ***********************************************************************************************************
 ;; 3. KG APIs
@@ -186,29 +186,29 @@
 ;; 3.1. Mediawiki
 ;; -----------------------------------------------------------------------------------------------------------
 
-(defun search-wikipedia (search-string)
+(defun request-wikipedia (search-string)
   "Function to search for a token in Wikipedia"
-  (query-api "https://en.wikipedia.org/w/api.php?"
+  (request-api "https://en.wikipedia.org/w/api.php?"
              :parameters `(("action" . "query")
                            ("list" . "search")
-                           ("srsearch" . ,(clean-query search-string))
+                           ("srsearch" . ,(clean-request search-string))
                            ("format" . "json"))))
 
 ;; -----------------------------------------------------------------------------------------------------------
 ;; 3.2. Wikidata
 ;; -----------------------------------------------------------------------------------------------------------
 
-(defun search-entity-in-wikidata (entity &key (language "en"))
+(defun request-wikidata-entity (entity &key (language "en"))
   "Search for a token in Wikidata"
-  (query-api "https://www.wikidata.org/w/api.php?"
+  (request-api "https://www.wikidata.org/w/api.php?"
              :parameters `(("action" . "wbsearchentities")
-                           ("search" . ,(clean-query entity))
+                           ("search" . ,(clean-request entity))
                            ("language" . ,language)
                            ("format" . "json"))))
 
-(defun get-wikidata-entity (ids &key (languages "en"))
+(defun request-wikidata-URI (ids &key (languages "en"))
   "If you know the entity URI, get it directly."
-  (query-api "https://www.wikidata.org/w/api.php?"
+  (request-api "https://www.wikidata.org/w/api.php?"
              :parameters `(("action" . "wbgetentities")
                            ("ids" . ,ids)
                            ("languages" . ,languages)
@@ -219,12 +219,12 @@
 ;; 3.4. Google KG API
 ;; -----------------------------------------------------------------------------------------------------------
 
-(defun request-google-knowledge-graph (query &key (api-key "AIzaSyAyAJvAjxrryYlHBSwGFoHvKzmJWG2KQOo") ;; Use your own API key
+(defun request-google-knowledge-graph (request &key (api-key "AIzaSyAyAJvAjxrryYlHBSwGFoHvKzmJWG2KQOo") ;; Use your own API key
                                            (limit "2") (languages "en") types)
   "Search a token in the Google Knowledge Graph APIs"
-  (let ((cleaned-query (regex-replace-all " " query "+")))
-    (query-api "https://kgsearch.googleapis.com/v1/entities:search?"
-               :parameters `(("query" . ,cleaned-query)
+  (let ((cleaned-request (regex-replace-all " " request "+")))
+    (request-api "https://kgsearch.googleapis.com/v1/entities:search?"
+               :parameters `(("query" . ,cleaned-request)
                              ("key" . ,api-key)
                              ("limit" . ,limit)
                              ("languages" . ,languages)
@@ -235,7 +235,7 @@
 ;; 3.5. Catasto
 ;; -----------------------------------------------------------------------------------------------------------
 
-(defun catasto-request (&key (content-type "application/json"))
+(defun request-catasto (&key (content-type "application/json"))
   "Function to query the Catasto knowledge graph API"
   (let* ((http-request (format nil "https://api.druid.datalegend.net/queries/muhaiuser/example-query/run"))
          (stream (drakma:http-request http-request :method :get :content-type content-type 
