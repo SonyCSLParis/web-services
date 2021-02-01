@@ -13,10 +13,13 @@
 ;; See the License for the specific language governing permissions and
 ;; limitations under the License.
 ;;=========================================================================
+(ql:quickload :utils)
+
 (in-package :asdf)
+
 (defsystem :web-services
   :description "A system querying KG APIs in Common Lisp"
-  :depends-on (:utils :drakma :yason :cl-ppcre :test-framework)
+  :depends-on (:drakma :yason :cl-user :common-lisp :cl-ppcre :test-framework :monitors :network)
   :components ((:file "package")
                (:file "query")))
 
