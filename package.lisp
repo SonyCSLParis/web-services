@@ -14,7 +14,6 @@
 ;; limitations under the License.
 ;;=========================================================================
 (in-package :common-lisp-user)
-
 (defpackage :web-services
   (:use :cl-user
 	:common-lisp
@@ -22,5 +21,14 @@
 	:test-framework
         :cl-ppcre
         :drakma
-        :yason)
+        :yason
+        :request-api
+        :datamuse
+        :mediastack
+        :wiki
+        :google-kg
+        :mealDB
+        :catasto
+        :words
+        :merriam-webster)
   (:shadow parse split))

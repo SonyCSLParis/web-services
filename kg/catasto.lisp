@@ -16,7 +16,9 @@
 ;; limitations under the License.
 ;;=========================================================================
 
-(in-package :web-services)
+(defpackage :catasto
+  (:use :common-lisp)
+  (:export :request-catasto))
 
 ;; -----------------------------------------------------------------------------------------------------------
 ;; Catasto

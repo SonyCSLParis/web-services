@@ -16,7 +16,9 @@
 ;; limitations under the License.
 ;;=========================================================================
 
-(in-package :web-services)
+(defpackage :google-kg
+  (:use :common-lisp)
+  (:export :request-google-knowledge-graph))
 
 ;; -----------------------------------------------------------------------------------------------------------
 ;; Google KG API

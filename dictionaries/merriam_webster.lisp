@@ -16,10 +16,13 @@
 ;; limitations under the License.
 ;;=========================================================================
 
+(defpackage :merriam-webster
+  (:use :common-lisp)
+  (:export :request-merriam-webster-dictionary
+           :request-merriam-webster-thesaurus))
 ;; -------------------------------------------------------------------------------------------------------------
 ;; Merriam Webster
 ;; -------------------------------------------------------------------------------------------------------------
-
 
 (defun request-merriam-webster-dictionary (word &optional (api-key "8fe92f45-0f31-4ec1-8b3f-c11cb403d657"))
     "Search for a particular token in Merriam-Webster Dictionary API"
