@@ -38,7 +38,8 @@ The Lisp-APIs code depends on:
 
 The different APIs can be queried using some specific helper functions which send a request to the APIs specified and encode the results into a Lisp list. 
 
-Please note, for the Google Knowledge Graph APIs, the Mediastack APIs and the Merriam-Webster Dictionary API, you have to specify your personal "API key" to send the request. For information about they can be obtained, please see : 
+Please note, for the Google Knowledge Graph APIs, the Mediastack APIs and the Merriam-Webster Dictionary API, you have to specify your personal "API key" 
+to send the request. For information about they can be obtained, please see : 
 
 - https://dictionaryapi.com/register/index for the Merriam-Webster Dictionary,
 - https://developers.google.com/knowledge-graph/how-tos/authorizing for the Google Knowledge Graph API,
@@ -81,7 +82,8 @@ The Datamuse API is a word-finding query engine for developers. You can use it i
     
     (request-often-follow-datamuse "drink"): Search all the tokens that more likely follow a token-1 in Datamuse
     
-    (request-often-follow-start-by-datamuse "drink" :start-by "w*"): Search  all the tokens that more likely follow a word-1 and start by a particular letter in Datamuse.
+    (request-often-follow-start-by-datamuse "drink" :start-by "w*"): Search  all the tokens that more likely follow a word-1 and start by a particular letter 
+    in Datamuse.
 
 ### 2. Open access APIs related to a certain area: 
 
@@ -99,9 +101,12 @@ The Datamuse API is a word-finding query engine for developers. You can use it i
     
 #### 2.2. Mediastack (https://mediastack.com/quickstart)
 
-    (request-live-news-Mediastack "Barcelona" :categories "sport" :languages "it" :countries "it" :limit "2" :sort "published_asc"): search for the full set of available real-time news articles can be accessed using a simple API request to the mediastack API's news endpoint. Please note that account subscribed to the Free Plan will receive live news only with a 30-minute delay.
+    (request-live-news-Mediastack "Barcelona" :categories "sport" :languages "it" :countries "it" :limit "2" :sort "published_asc"): 
+    search for the full set of available real-time news articles can be accessed using a simple API request to the mediastack API's news endpoint. 
+    Please note that account subscribed to the Free Plan will receive live news only with a 30-minute delay.
     
-    (request-historical-news-Mediastack "Barcelona" :date "29-01-20" :sources "cnn" :categories "sport" :countries "us" :languages "en" :limit "2":sort "published_asc"): if you are subscribed to the Standard Plan or higher, you will be able to access historical news data by specifying a historical date using the API's date parameter in YYYY-MM-DD format.
+    (request-historical-news-Mediastack "Barcelona" :date "29-01-20" :sources "cnn" :categories "sport" :countries "us" :languages "en" :limit "2":sort "published_asc"): 
+    if you are subscribed to the Standard Plan or higher, you will be able to access historical news data by specifying a historical date using the API's date parameter in YYYY-MM-DD format.
 
 ### 3. KG APIs :
 
