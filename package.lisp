@@ -21,9 +21,6 @@
         :utils
 	:test-framework
         :cl-ppcre
-	:test-framework
-        :monitors
-        :network
         :drakma
         :yason)
   (:shadow parse split))
