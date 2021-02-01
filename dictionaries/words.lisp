@@ -16,9 +16,7 @@
 ;; limitations under the License.
 ;;=========================================================================;; ---------------------------------------------------------------
 
-(defpackage :words
-  (:use :common-lisp)
-  (:export :request-words-api))
+(in-package :web-services)
 
 ;; ----------------------------------------------
 ;;  Words API

@@ -16,10 +16,8 @@
 ;; limitations under the License.
 ;;=========================================================================
 
-(defpackage :merriam-webster
-  (:use :common-lisp)
-  (:export :request-merriam-webster-dictionary
-           :request-merriam-webster-thesaurus))
+(in-package :web-services)
+
 ;; -------------------------------------------------------------------------------------------------------------
 ;; Merriam Webster
 ;; -------------------------------------------------------------------------------------------------------------

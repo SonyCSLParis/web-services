@@ -16,13 +16,7 @@
 ;; limitations under the License.
 ;;=========================================================================
 
-(defpackage :mealDB
-  (:use :common-lisp)
-  (:export :request-mealDB
-           :request-mealDB-ingredient
-           :request-mealDB-category-filter
-           :request-mealDB-country-filter
-           :request-mealDB-hungry-random))
+(in-package :web-services)
 
 ;; ------------------------------------------------------------------------------------------------------------
 ;; MealDB

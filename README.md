@@ -28,9 +28,9 @@ The APIs accessible with this package are :
 
 The Lisp-APIs code depends on:
 
-    Drakma (can be installed using Quicklisp, see https://edicl.github.io/drakma/)
-    Yason (can be installed using Quicklisp, see https://github.com/phmarek/yason)
-    Cl-ppcre (can be installed using Quicklisp, see http://edicl.github.io/cl-ppcre/)
+  * Drakma (can be installed using Quicklisp, see https://edicl.github.io/drakma/)
+  * Yason (can be installed using Quicklisp, see https://github.com/phmarek/yason)
+  * Cl-ppcre (can be installed using Quicklisp, see http://edicl.github.io/cl-ppcre/)
 
 ## 1. Interfacing Common Lisp with Web Services
 

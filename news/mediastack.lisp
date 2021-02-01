@@ -18,11 +18,6 @@
 
 (in-package :web-services)
 
-(defpackage :mediastack
-  (:use :common-lisp)
-  (:export :request-Mediastack-live-news
-           :request-Mediastack-historical-news))
-
 ;; ------------------------------------------------------------------------------------------------------------
 ;; Mediastack
 ;; ------------------------------------------------------------------------------------------------------------

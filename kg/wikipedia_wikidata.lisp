@@ -16,11 +16,7 @@
 ;; limitations under the License.
 ;;=========================================================================
 
-(defpackage :wiki
-  (:use :common-lisp)
-  (:export :request-wikipedia
-           :request-wikidata-entity
-           :request-wikidata-URI))
+(in-package :web-services)
 
 ; -----------------------------------------------------------------------------------------------------------
 ;; Mediawiki

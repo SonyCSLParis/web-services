@@ -16,16 +16,7 @@
 ;; limitations under the License.
 ;;=========================================================================
 
-(defpackage :datamuse
-  (:use :common-lisp)
-  (:export :request-datamuse-rhyme  
-           :request-datamuse-related-to
-           :request-datamuse-rhyme-related-to
-           :request-datamuse-adjectives
-           :request-datamuse-adjectives-related-to
-           :request-datamuse-nouns
-           :request-datamuse-often-follow
-           :request-datamuse-often-follow-start-by))
+(in-package :web-services)
 
 ;; -------------------------------------------------------------------------------------------------------------
 ;; Datamuse

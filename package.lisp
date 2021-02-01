@@ -21,14 +21,5 @@
 	:test-framework
         :cl-ppcre
         :drakma
-        :yason
-        :request-api
-        :datamuse
-        :mediastack
-        :wiki
-        :google-kg
-        :mealDB
-        :catasto
-        :words
-        :merriam-webster)
+        :yason)
   (:shadow parse split))
