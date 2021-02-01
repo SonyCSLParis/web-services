@@ -9,15 +9,17 @@ The APIs accessible with this package are :
         * 1.2. Merriam-Webster Dictionary API (https://dictionaryapi.com/)
         * 1.3. Datamuse API (https://www.datamuse.com/api/).
          
-      2. Open access APIs related to a certain area: 
+      2. Food API: 
         * 2.1. Meal DB API (https://www.themealdb.com/api.php),
-        * 2.2. Mediastack (https://mediastack.com/).
-         
+
       3. KG APIs: 
         * 3.1. MediaWiki API(https://www.mediawiki.org/wiki/API:Main_page), 
         * 3.2. Wikidata API(https://www.wikidata.org/wiki/Wikidata:Data_access),
         * 3.3. Google Knowledge Graph API (https://developers.google.com/knowledge-graph), 
         * 3.4. VUA API (https://stories.datalegend.net), 
+
+      4. News API: 
+        * 4.1. Mediastack (https://mediastack.com/).
        
 ## Contributors:
 
@@ -64,39 +66,55 @@ The Merriam-Webster Dictionary API gives developers access to a comprehensive re
 specialized medical, Spanish, ESL, and student-friendly vocabulary. 
 
     * (request-merriam-webster-dictionary "singer") 
-      function to search for a particular token in Merriam-Webster Dictionary API. To search, just insert as argument the token whose definition you are looking for. 
+      function to search for a particular token in Merriam-Webster Collegiate Dictionary API. To search, just insert as argument the token whose definition you are looking for. 
     
     * (request-merriam-webster-thesaurus "singer") 
-      function to search for a particular token in the Merriam-Webster Thesaurus API. To search, just insert as argument the token whose definition you are looking for. 
+      function to search for a particular token in the Merriam-Webster Collegiate Thesaurus API. To search, just insert as argument the token whose definition you are looking for. 
+
+    * (request-merriam-webster-spanish-dictionary "casa") 
+      function to search for a particular token in the Merriam-Webster in the Spanish Dictionary API. To search, just insert as argument the token whose definition you are looking for. 
+
+    * (request-merriam-webster-doctor-dictionary "doctor") 
+      function to search for a particular token in the Merriam-Webster in the Medical Dictionary API. To search, just insert as argument the token whose definition you are looking for. 
+
+    * (request-merriam-webster-learners-dictionary "singer") 
+      function to search for a particular token in the Merriam-Webster Learners Dictionary API. To search, just insert as argument the token whose definition you are looking for. 
+
+    * (request-merriam-webster-elementary-dictionary "singer") 
+      function to search for a particular token in the Merriam-Wbster Elementary Dictionary API. To search, just insert as argument the token whose definition you are looking for. 
+
+   * (request-merriam-webster-intermediate-thesaurus "singer") 
+      function to search for a particular token in the Merriam-Webster Intermediate Thesaurus API. To search, just insert as argument the token whose definition you are looking for. 
+
+   * (request-merriam-webster-school-dictionary "singer") 
+      function to search for a particular token in the Merriam-Webster School Dictionary API. To search, just insert as argument the token whose definition you are looking for. 
     
 ##### 1.3. Datamuse API (http://www.datamuse.com/api/?ref=producthunt):
  
-The Datamuse API is a word-finding query engine for developers. You can use it in your apps to find words that match a given set 
-of constraints and that are likely in a given context. You can specify a wide variety of constraints on meaning, spelling, sound, 
-and vocabulary in your queries, in any combination. 
+The Datamuse API is a word-finding query engine for developers. You can use it in your apps to find words that match a given set of constraints and that are likely in a given context. You can specify a wide variety of constraints on meaning, spelling, sound, and vocabulary in your queries, in any combination. Search all the tokens that rhyme with a certain token in Datamuse.
 
-    * (request-rhyme-datamuse "vice")
-      Search all the tokens that rhyme with a certain token in Datamuse.
-    
-    * (request-related-to-datamuse "vice") 
+    * (request-datamuse :related-to "duck" :start-by "b*" :limit "2")
+      Search all tokens semantically related to a particular token and start by a given letter in Datamuse. Return a fixed number of results. 
+     
+    * (request-datamuse :rhyme "vice")
       Search all tokens semantically related to a particular token in Datamuse.
     
-    * (request-rhyme-related-to-datamuse "vice" :related-to "temperature")
+    * (request-datamuse :rhyme "vice" :related-to "food") 
       Search a token semantically related to another particular token in Datamuse.
     
-    * (request-adjectives-datamuse "ocean") 
-       Search for adjectives mostly used with a particular token in Datamuse.
+    * (request-datamuse :frequent-adj "ocean")
+      Search for adjectives mostly used with a particular token in Datamuse.
     
-    *  (request-adjectives-related-to-datamuse "ocean" :related-to "temperature")
+    * (request-datamuse :frequent-adj "ocean" :related-to "temperature")
        Search the adjectives mostly used with a particular token-1 and semantically related to another token-2 in Datamuse.
     
-    * (request-nouns-datamuse "yellow") 
+    * (request-datamuse :frequent-noun "yellow")
        Search the most used nouns with a particular adjective in Datamuse
     
-    * (request-often-follow-datamuse "drink")
+    * (request-datamuse :frequent-follow "drink")
       Search all the tokens that more likely follow a token-1 in Datamuse
     
-    * (request-often-follow-start-by-datamuse "drink" :start-by "w*")
+    * (request-datamuse :frequent-follow "drink" :start-by "w*")
        Search  all the tokens that more likely follow a word-1 and start by a particular letter in Datamuse.
 
 ### 2. Open access APIs related to a certain area: 
@@ -106,13 +124,13 @@ and vocabulary in your queries, in any combination.
     * (request-mealDB "Carbonara")
       Search for a Recipe in the MealDB
     
-    * (request-ingredient-filter-mealDB "chicken_breast")
+    * (request-mealDB-filter :ingredient "Tuna")
       Search for a recipe in the MealDB with a main ingredient X
     
-    * (request-category-filter-mealDB "Seafood")
+    * (request-mealDB-filter :category "Seafood")
       Search for all the meals in a particular category
     
-    * (request-country-filter-mealDB "Italian")
+    * (request-mealDB-filter :country "Italian")
       Search for all the meals traditional of a particular country
     
     (request-hungry-random-mealDB): I am hungry, what should I eat tonight?
