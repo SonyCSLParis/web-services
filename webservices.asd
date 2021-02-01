@@ -18,6 +18,12 @@
   :description "A system querying KG APIs in Common Lisp"
   :depends-on (:utils :drakma :yason :cl-ppcre :test-framework)
   :components ((:file "package")
-               (:file "query")))
+               (:file "general_request")
+               (:file "catasto")
+               (:file "datamuse")
+               (:file "google_kg")
+               (:file "meal_db")
+               (:file "mediastack")
+               (:file "merriam_webster")))
 
 
