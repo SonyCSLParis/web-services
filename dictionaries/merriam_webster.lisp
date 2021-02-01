@@ -17,17 +17,55 @@
 ;;=========================================================================
 
 (in-package :web-services)
+(export '(request-merriam-webster-collegiate-dictionary request-merriam-webster-collegiate-thesaurus request-merriam-webster-spanish-dictionary request-merriam-webster-doctor-dictionary request-merriam-webster-learners-dictionary request-merriam-webster-elementary-dictionary request-merriam-webster-intermediate-dictionary request-merriam-webster-intermediate-thesaurus request-merriam-webster-school-dictionary))
+
 
 ;; -------------------------------------------------------------------------------------------------------------
 ;; Merriam Webster
 ;; -------------------------------------------------------------------------------------------------------------
 
-(defun request-merriam-webster-dictionary (word &optional (api-key "8fe92f45-0f31-4ec1-8b3f-c11cb403d657"))
+(defun request-merriam-webster-collegiate-dictionary (word &optional (api-key "8fe92f45-0f31-4ec1-8b3f-c11cb403d657"))
     "Search for a particular token in Merriam-Webster Dictionary API"
   (let ((url (format nil "https://www.dictionaryapi.com/api/v3/references/collegiate/json/~a?key=~a" (clean-request word) api-key)))
     (request-api url)))
 
-(defun request-merriam-webster-thesaurus (word &optional (api-key "da135313-5c0b-4819-91d6-dc4bf0d4d09c"))
+
+(defun request-merriam-webster-collegiate-thesaurus (word &optional (api-key "da135313-5c0b-4819-91d6-dc4bf0d4d09c"))
      "Search for a particular token in the Merriam-Webster Thesaurus API"
   (let ((url (format nil "https://www.dictionaryapi.com/api/v3/references/thesaurus/json/~a?key=~a" (clean-request word) api-key)))
+    (request-api url)))
+
+(defun request-merriam-webster-spanish-dictionary (word &optional (api-key "8fe92f45-0f31-4ec1-8b3f-c11cb403d657"))
+    "Search for a particular token in Merriam-Webster Dictionary API"
+  (let ((url (format nil "https://www.dictionaryapi.com/api/v3/references/spanish/json/~a?key=~a" (clean-request word) api-key)))
+    (request-api url)))
+
+(defun request-merriam-webster-doctor-dictionary (word &optional (api-key "8fe92f45-0f31-4ec1-8b3f-c11cb403d657"))
+    "Search for a particular token in Merriam-Webster Dictionary API"
+  (let ((url (format nil "https://www.dictionaryapi.com/api/v3/references/medical/json/~a?key=~a" (clean-request word) api-key)))
+    (request-api url)))
+
+(defun request-merriam-webster-learners-dictionary (word &optional (api-key "8fe92f45-0f31-4ec1-8b3f-c11cb403d657"))
+    "Search for a particular token in Merriam-Webster Dictionary API"
+  (let ((url (format nil "https://www.dictionaryapi.com/api/v3/references/learners/json/~a?key=~a" (clean-request word) api-key)))
+    (request-api url)))
+
+(defun request-merriam-webster-elementary-dictionary (word &optional (api-key "8fe92f45-0f31-4ec1-8b3f-c11cb403d657"))
+    "Search for a particular token in Merriam-Webster Dictionary API"
+  (let ((url (format nil "https://www.dictionaryapi.com/api/v3/references/sd2/json/~a?key=~a" (clean-request word) api-key)))
+    (request-api url)))
+
+(defun request-merriam-webster-intermediate-dictionary (word &optional (api-key "8fe92f45-0f31-4ec1-8b3f-c11cb403d657"))
+    "Search for a particular token in Merriam-Webster Dictionary API"
+  (let ((url (format nil "https://www.dictionaryapi.com/api/v3/references/sd3/json/~a?key=~a" (clean-request word) api-key)))
+    (request-api url)))
+
+(defun request-merriam-webster-intermediate-thesaurus (word &optional (api-key "8fe92f45-0f31-4ec1-8b3f-c11cb403d657"))
+    "Search for a particular token in Merriam-Webster Dictionary API"
+  (let ((url (format nil "https://www.dictionaryapi.com/api/v3/references/ithesaurus/json/~a?key=~a" (clean-request word) api-key)))
+    (request-api url)))
+
+(defun request-merriam-webster-school-dictionary (word &optional (api-key "8fe92f45-0f31-4ec1-8b3f-c11cb403d657"))
+    "Search for a particular token in Merriam-Webster Dictionary API"
+  (let ((url (format nil "https://www.dictionaryapi.com/api/v3/references/sd4/json/~a?key=~a" (clean-request word) api-key)))
     (request-api url)))

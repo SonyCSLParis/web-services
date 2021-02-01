@@ -17,50 +17,37 @@
 ;;=========================================================================
 
 (in-package :web-services)
-
+(export 'request-datamuse)
 ;; -------------------------------------------------------------------------------------------------------------
-;; Datamuse
+;; Datamuse Function
 ;; -------------------------------------------------------------------------------------------------------------
 
-(defun request-datamuse-rhyme (word)
-  "Search all the tokens that rhyme with a certain token in Datamuse"
-  (let ((url (format nil "https://api.datamuse.com/words?rel_rhy=~a" (clean-request word))))
-    (request-api url)))
+(defun request-datamuse (&key rhyme related-to frequent-adj frequent-noun frequent-follow frequent-preceed strongly-assoc synonyms antonyms kind-of gen com part-of frequent-follower frequent-pred approx-rhy homophone cons-match topic spelled-similarly suggestions vocab limit metadata start-by)
+    "Find words that match a given set of constraints and that are likely in a given context"
+    (request-api "https://api.datamuse.com/words"
+               :parameters `(,@(when rhyme `(("rel_rhy" . ,rhyme)))
+                             ,@(when related-to `(("ml" . ,related-to)))
+                             ,@(when frequent-adj `(("rel_jjb" . ,frequent-adj)))
+                             ,@(when frequent-noun `(("rel_jja" . ,frequent-noun)))
+                             ,@(when frequent-follow `(("lc" . ,frequent-follow)))
+                             ,@(when frequent-preceed `(("rc" . ,frequent-preceed)))
+                             ,@(when strongly-assoc `(("rel_trg" . ,strongly-assoc)))
+                             ,@(when synonyms `(("rel_syn" . ,synonyms)))
+                             ,@(when antonyms `(("rel_ant" . ,antonyms)))
+                             ,@(when kind-of `(("rel_spc" . ,kind-of)))
+                             ,@(when gen `(("rel_gen" . ,gen)))
+                             ,@(when com `(("rel_com" . ,com)))
+                             ,@(when part-of `(("rel_par" . ,part-of)))
+                             ,@(when frequent-follower `(("rel_bga" . ,frequent-follower)))
+                             ,@(when frequent-pred `(("rel_bgb" . ,frequent-pred)))
+                             ,@(when approx-rhy `(("rel_nry" . ,approx-rhy)))
+                             ,@(when homophone `(("hom" . ,homophone)))
+                             ,@(when cons-match `(("cns" . ,cons-match)))
+                             ,@(when topic `(("topics" . ,topic)))
+                             ,@(when spelled-similarly `(("sp" . ,spelled-similarly)))
+                             ,@(when suggestions `(("s" . ,suggestions)))
+                             ,@(when vocab `(("v" . ,vocab)))
+                             ,@(when limit `(("max" . ,limit)))
+                             ,@(when metadata `(("md" . ,metadata)))
+                             ,@(when start-by `(("sp" . ,start-by))))))
 
-(defun request-datamuse-related-to (word)
-  "Search all tokens semantically related to a particular token"
-    (let ((url (format nil "https://api.datamuse.com/words?ml=~a" (clean-request word))))
-    (request-api url)))
-
-(defun request-datamuse-rhyme-related-to (word &key related-to)
-  "Search a token semantically related to another particular token in Datamuse."
-  (request-api "https://api.datamuse.com/words?"
-             :parameters `(("rel_rhy" . ,word)
-                           ,@(when related-to `(("ml" . ,related-to))))))
-
-(defun request-datamuse-adjectives (word)
-    "Search for adjectives mostly used with a particular token"
-    (let ((url (format nil "https://api.datamuse.com/words?rel_jjb=~a" (clean-request word))))
-    (request-api url)))
-
-(defun request-datamuse-adjectives-related-to (word &key related-to)
-    "Search the adjectives mostly used with a particular token-1 and semantically related to another token-2"
-  (request-api "https://api.datamuse.com/words?"
-             :parameters `(("rel_jjb" . ,word)
-                           ,@(when related-to `(("ml" . ,related-to))))))
-
-(defun request-datamuse-nouns (word)
-  "Search the most used nouns with a particular adjective"
-  (let ((url (format nil "https://api.datamuse.com/words?rel_jja=~a" (clean-request word))))
-    (request-api url)))
-
-(defun request-datamuse-often-follow(word)
-  "Search all the tokens that more likely follow a token-1"
-  (let ((url (format nil "https://api.datamuse.com/words?lc=~a" (clean-request word))))
-    (request-api url)))
-
-(defun request-datamuse-often-follow-start-by(word &key start-by)
-  "Search  all the tokens that more likely follow a word-1 and start by a particular letter"
-  (request-api "https://api.datamuse.com/words?"
-             :parameters `(("lc" . ,word)
-                           ,@(when start-by `(("sp" . ,start-by))))))

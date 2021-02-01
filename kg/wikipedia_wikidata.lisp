@@ -17,6 +17,7 @@
 ;;=========================================================================
 
 (in-package :web-services)
+(export '(request-wikipedia request-wikidata-entity request-wikidata-URI))
 
 ; -----------------------------------------------------------------------------------------------------------
 ;; Mediawiki
@@ -34,19 +35,25 @@
 ;; Wikidata
 ;; -----------------------------------------------------------------------------------------------------------
 
-(defun request-wikidata-entity (entity &key (language "en"))
+(defun request-wikidata-entity (entity &key language limit props type)
   "Search for a token in Wikidata"
   (request-api "https://www.wikidata.org/w/api.php?"
              :parameters `(("action" . "wbsearchentities")
                            ("search" . ,(clean-request entity))
-                           ("language" . ,language)
+                           ,@(when language `(("language" . ,language)))
+                           ,@(when limit `(("limit" . ,limit)))
+                           ,@(when props `(("props" . ,props)))
+                           ,@(when type `(("type" . ,type)))
                            ("format" . "json"))))
 
-(defun request-wikidata-URI (ids &key (languages "en"))
+(defun request-wikidata-URI (ids &key redirects titles sites language props)
   "If you know the entity URI, get it directly."
   (request-api "https://www.wikidata.org/w/api.php?"
              :parameters `(("action" . "wbgetentities")
                            ("ids" . ,ids)
-                           ("languages" . ,languages)
-                           ("format" . "json")
-                           ("props" . "descriptions"))))
+                           ,@(when redirects `(("redirects" . ,redirects)))
+                           ,@(when titles `(("titles" . ,titles)))
+                           ,@(when sites `(("sites" . ,sites)))
+                           ,@(when language `(("language" . ,language)))
+                           ,@(when props `(("props" . ,props)))
+                           ("format" . "json"))))

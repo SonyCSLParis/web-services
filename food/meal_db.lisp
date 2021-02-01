@@ -17,32 +17,27 @@
 ;;=========================================================================
 
 (in-package :web-services)
-(export '(request-mealDB))
+(export '(request-mealDB request-mealDB-filter request-mealDB-hungry-random))
 ;; ------------------------------------------------------------------------------------------------------------
 ;; MealDB
 ;; ------------------------------------------------------------------------------------------------------------
 
 (defun request-mealDB (meal &optional (api-key "1"))
  "Search for a Recipe in the MealDB"
-  (let ((url (format nil "https://www.themealdb.com/api/json/v1/1/search.php?s=~a" (clean-request meal) api-key)))
+  (let ((url (format nil "https://www.themealdb.com/api/json/v1/1/search.php?s=~a" meal api-key)))
     (request-api url)))
 
-(defun request-mealDB-ingredient(ingredient &optional (api-key "1"))
-  "Search for a recipe in the MealDB with a main ingredient X"
-  (let ((url (format nil "https://www.themealdb.com/api/json/v1/1/filter.php?i=~a" (clean-request ingredient))))
-    (request-api url)))
-
-(defun request-mealDB-category-filter(category &optional (api-key "1"))
-  "Search for all the meals in a particular category"
-  (let ((url (format nil "https://www.themealdb.com/api/json/v1/1/filter.php?c=~a" (clean-request category))))
-    (request-api url)))
-
-(defun request-mealDB-country-filter(country &optional (api-key "1"))
-  "Search for all the meals traditional of a particular country"
-  (let ((url (format nil "https://www.themealdb.com/api/json/v1/1/filter.php?a=~a" (clean-request country))))
-    (request-api url)))
+(defun request-mealDB-filter (&key (api-key "1") ingredient category country)
+ "Search for a Recipe in the MealDB on the basis of some constraints"
+  (let ((url (format nil "https://www.themealdb.com/api/json/v1/1/filter.php?s=~a" api-key)))
+    (request-api url
+                 :parameters `(("api-key" . ,api-key)
+                              ,@(when ingredient `(("i" . ,ingredient)))
+                              ,@(when category `(("c" . ,category)))
+                              ,@(when country `(("a" . ,country)))))))
 
 (defun request-mealDB-hungry-random(&optional (api-key "1"))
   "I am hungy, what should I eat tonight?"
   (let ((url (format nil "https://www.themealdb.com/api/json/v1/1/random.php")))
     (request-api url)))
+

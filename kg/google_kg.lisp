@@ -17,18 +17,20 @@
 ;;=========================================================================
 
 (in-package :web-services)
+(export 'request-google-knowledge-graph)
 
 ;; -----------------------------------------------------------------------------------------------------------
 ;; Google KG API
 ;; -----------------------------------------------------------------------------------------------------------
 
 (defun request-google-knowledge-graph (request &key (api-key "AIzaSyAyAJvAjxrryYlHBSwGFoHvKzmJWG2KQOo") ;; Use your own API key
-                                           (limit "2") (languages "en") types)
+                                           indent limit languages types)
   "Search a token in the Google Knowledge Graph APIs"
   (let ((cleaned-request (regex-replace-all " " request "+")))
     (request-api "https://kgsearch.googleapis.com/v1/entities:search?"
                :parameters `(("query" . ,cleaned-request)
                              ("key" . ,api-key)
-                             ("limit" . ,limit)
-                             ("languages" . ,languages)
+                             ,@(when indent `(("indent" . ,indent)))
+                             ,@(when limit `(("limit" . ,limit)))
+                             ,@(when languages `(("languages" . ,languages)))
                              ,@(when types `(("types" . ,types)))))))

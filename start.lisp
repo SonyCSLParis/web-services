@@ -27,14 +27,15 @@
 ;;words
 (request-words-api "singer")
 ;;datamuse
-(request-datamuse-rhyme "vice")
-(request-datamuse-related-to "vice")
-(request-datamuse-rhyme-related-to "vice" :related-to "food") 
-(request-datamuse-adjectives "ocean")
-(request-datamuse-adjectives-related-to "ocean" :related-to "temperature")
-(request-datamuse-nouns "yellow")
-(request-datamuse-often-follow "drink")
-(request-datamuse-often-follow-start-by "drink" :start-by "w*")
+(request-datamuse :related-to "duck" :start-by "b*" :limit "2")
+(request-datamuse :rhyme "vice")
+(request-datamuse :rhyme "vice" :related-to "food") 
+(request-datamuse :frequent-adj "ocean")
+(request-datamuse :frequent-adj "ocean" :related-to "temperature")
+(request-datamuse :frequent-noun "yellow")
+(request-datamuse :spelled-similarly "yellow")
+(request-datamuse :frequent-follow "drink")
+(request-datamuse :frequent-follow "drink" :start-by "w*")
 
 ;; -------------------------------------------------------------------------------------------------------------
 ;; 2. Some example of searches for Open access APIs related to a certain area
@@ -42,9 +43,9 @@
 
 ;; food - Meal DB
 (request-mealDB "Carbonara")
-(request-mealDB-ingredient "chicken_breast")
-(request-mealDB-category-filter "Seafood")
-(request-mealDB-country-filter "Italian")
+(request-mealDB-filter :category "Seafood")
+(request-mealDB-filter :country "Italian")
+(request-mealDB-filter :ingredient "Tuna")
 (request-mealDB-hungry-random)
 
 ;; newspapers - Mediastack 
