@@ -58,32 +58,36 @@ It's an API for the English Language which enables you to find definitions, rela
 
 The Merriam-Webster Dictionary API gives developers access to a comprehensive resource of dictionary and thesaurus content as well as specialized medical, Spanish, ESL, and student-friendly vocabulary. 
 
-    (request-merriam-webster-dictionary "singer") : function to search for a particular token in Merriam-Webster Dictionary API. 
-    To search, just insert as argument the token whose definition you are looking for. 
+    (request-merriam-webster-dictionary "singer") : function to search for a particular token in Merriam-Webster Dictionary 
+    API. To search, just insert as argument the token whose definition you are looking for. 
     
-    (request-merriam-webster-thesaurus "singer") : function to search for a particular token in the Merriam-Webster Thesaurus API. 
-    To search, just insert as argument the token whose definition you are looking for. 
+    (request-merriam-webster-thesaurus "singer") : function to search for a particular token in the Merriam-Webster Thesaurus 
+    API.To search, just insert as argument the token whose definition you are looking for. 
     
 ##### 1.3. Datamuse API (https://www.datamuse.com/api/):
  
-The Datamuse API is a word-finding query engine for developers. You can use it in your apps to find words that match a given set of constraints and that are likely in a given context. You can specify a wide variety of constraints on meaning, spelling, sound, and vocabulary in your queries, in any combination. 
+The Datamuse API is a word-finding query engine for developers. You can use it in your apps to find words that match a given set 
+of constraints and that are likely in a given context. You can specify a wide variety of constraints on meaning, spelling, sound, 
+and vocabulary in your queries, in any combination. 
 
     (request-rhyme-datamuse "vice"): Search all the tokens that rhyme with a certain token in Datamuse.
     
     (request-related-to-datamuse "vice"): Search all tokens semantically related to a particular token in Datamuse.
     
-    (request-rhyme-related-to-datamuse "vice" :related-to "temperature"): Search a token semantically related to another particular token in Datamuse.
+    (request-rhyme-related-to-datamuse "vice" :related-to "temperature"): Search a token semantically related to another particular 
+    token in Datamuse.
     
     (request-adjectives-datamuse "ocean"): Search for adjectives mostly used with a particular token in Datamuse.
     
-    (request-adjectives-related-to-datamuse "ocean" :related-to "temperature"): Search the adjectives mostly used with a particular token-1 and semantically related to another token-2 in Datamuse.
+    (request-adjectives-related-to-datamuse "ocean" :related-to "temperature"): Search the adjectives mostly used with a particular 
+    token-1 and semantically related to another token-2 in Datamuse.
     
     (request-nouns-datamuse "yellow"): Search the most used nouns with a particular adjective in Datamuse
     
     (request-often-follow-datamuse "drink"): Search all the tokens that more likely follow a token-1 in Datamuse
     
-    (request-often-follow-start-by-datamuse "drink" :start-by "w*"): Search  all the tokens that more likely follow a word-1 and start by a particular letter 
-    in Datamuse.
+    (request-often-follow-start-by-datamuse "drink" :start-by "w*"): Search  all the tokens that more likely follow a word-1 
+    and start by a particular letter in Datamuse.
 
 ### 2. Open access APIs related to a certain area: 
 
@@ -102,24 +106,29 @@ The Datamuse API is a word-finding query engine for developers. You can use it i
 #### 2.2. Mediastack (https://mediastack.com/quickstart)
 
     (request-live-news-Mediastack "Barcelona" :categories "sport" :languages "it" :countries "it" :limit "2" :sort "published_asc"): 
-    search for the full set of available real-time news articles can be accessed using a simple API request to the mediastack API's news endpoint. 
-    Please note that account subscribed to the Free Plan will receive live news only with a 30-minute delay.
+    search for the full set of available real-time news articles can be accessed using a simple API request to the mediastack API's 
+    news endpoint. Please note that account subscribed to the Free Plan will receive live news only with a 30-minute delay.
     
-    (request-historical-news-Mediastack "Barcelona" :date "29-01-20" :sources "cnn" :categories "sport" :countries "us" :languages "en" :limit "2":sort "published_asc"): 
-    if you are subscribed to the Standard Plan or higher, you will be able to access historical news data by specifying a historical date using the API's date parameter in YYYY-MM-DD format.
+    (request-historical-news-Mediastack "Barcelona" :date "29-01-20" :sources "cnn" :categories "sport" :countries "us" :languages "en" 
+    :limit "2":sort "published_asc"): if you are subscribed to the Standard Plan or higher, you will be able to access historical news data 
+    by specifying a historical date using the API's date parameter in YYYY-MM-DD format.
 
 ### 3. KG APIs :
 
 #### 3.1. MediaWiki API(https://www.mediawiki.org/wiki/API:Main_page): 
 
-The MediaWiki Action API is a web service that allows access to some wiki-features like authentication, page operations, and search. It can provide meta information about the wiki and the logged-in user. 
+The MediaWiki Action API is a web service that allows access to some wiki-features like authentication, page operations, and search. 
+It can provide meta information about the wiki and the logged-in user. 
 
     (search-wikipedia "Steve McQueen"): function to search for a token in Wikipedia. 
     To query just insert as an argument the string you are looking for. 
  
 #### 3.2. Wikidata API(https://www.wikidata.org/wiki/Wikidata:Data_access):
 
-Wikidata is a free and open knowledge base that can be read and edited by both humans and machines. Wikidata acts as central storage for the structured data of its Wikimedia sister projects including Wikipedia, Wikivoyage, Wiktionary, Wikisource, and others. Wikidata also provides support to many other sites and services beyond just Wikimedia projects! The content of Wikidata is available under a free license, exported using standard formats, and can be interlinked to other open data sets on the linked data web.
+Wikidata is a free and open knowledge base that can be read and edited by both humans and machines. Wikidata acts as central storage 
+for the structured data of its Wikimedia sister projects including Wikipedia, Wikivoyage, Wiktionary, Wikisource, and others.  
+The content of Wikidata is available under a free license, exported using standard formats, and can be interlinked to other open data 
+sets on the linked data web.
 
     (search-entity-in-wikidata "Steve McQueen" ): function to search for a token in Wikidata. 
     To use it, just insert as an argument the string you are looking for. 
@@ -130,10 +139,11 @@ Wikidata is a free and open knowledge base that can be read and edited by both h
     
 #### 3.3. Google Knowledge Graph API (https://developers.google.com/knowledge-graph): 
  
-The Knowledge Graph Search API lets you find entities in the Google Knowledge Graph. The API uses standard schema.org types and is compliant with the JSON-LD specification.
+The Knowledge Graph Search API lets you find entities in the Google Knowledge Graph. The API uses standard schema.org types and 
+is compliant with the JSON-LD specification.
  
-    (request-google-knowledge-graph "Steve McQueen" :types "person"): function to search a token in the Google Knowledge Graph APIs while specifying the type. 
-    To use it, just insert as an argument the string you are looking for.
+    (request-google-knowledge-graph "Steve McQueen" :types "person"): function to search a token in the Google Knowledge Graph APIs 
+    while specifying the type. To use it, just insert as an argument the string you are looking for.
 
 #### 3.4. Catasto Datastories (https://stories.datalegend.net/catasto/): 
 
