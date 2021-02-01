@@ -99,6 +99,9 @@ The Datamuse API is a word-finding query engine for developers. You can use it i
     
 #### 2.2. Mediastack (https://mediastack.com/quickstart)
 
+    (request-live-news-Mediastack "Barcelona" :categories "sport" :languages "it" :countries "it" :limit "2" :sort "published_asc"): search for the full set of available real-time news articles can be accessed using a simple API request to the mediastack API's news endpoint. Please note that account subscribed to the Free Plan will receive live news only with a 30-minute delay.
+    
+    (request-historical-news-Mediastack "Barcelona" :date "29-01-20" :sources "cnn" :categories "sport" :countries "us" :languages "en" :limit "2":sort "published_asc"): if you are subscribed to the Standard Plan or higher, you will be able to access historical news data by specifying a historical date using the API's date parameter in YYYY-MM-DD format.
 
 ### 3. KG APIs :
 
