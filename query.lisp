@@ -166,7 +166,7 @@
 
 
 (defun request-historical-news-Mediastack (search &key (access_key "357acde6d8d40889c97558fc6581649e") date sources categories countries languages limit sort)
-  "Search for news in the Mediastack APIs"
+  "Search for historical news in the Mediastack APIs"
   (query-api "http://api.mediastack.com/v1/sources/?access_key=~a"
                :parameters `(("keywords" . ,search)
                              ("access_key" . ,access_key)
@@ -176,7 +176,7 @@
                              ,@(when countries `(("countries" . ,countries)))
                              ,@(when languages `(("languages" . ,languages)))
                              ,@(when limit `(("limit" . ,limit)))
-                             ,@(when sort `(("sort" . ,sort))))))
+                             ,@(when sort `(("sort" . ,sort)))))). ;; it won't work for now because we have a free plan --> upgrade to use it. 
 
 ;; ***********************************************************************************************************
 ;; 3. KG APIs
