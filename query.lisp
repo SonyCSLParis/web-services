@@ -72,44 +72,44 @@
 ;; 1.3. Datamuse
 ;; -------------------------------------------------------------------------------------------------------------
 
-(defun request-rhyme-datamuse (word)
+(defun request-datamuse-rhyme (word)
   "Search all the tokens that rhyme with a certain token in Datamuse"
   (let ((url (format nil "https://api.datamuse.com/words?rel_rhy=~a" (clean-request word))))
     (request-api url)))
 
-(defun request-related-to-datamuse (word)
+(defun request-datamuse-related-to (word)
   "Search all tokens semantically related to a particular token"
     (let ((url (format nil "https://api.datamuse.com/words?ml=~a" (clean-request word))))
     (request-api url)))
 
-(defun request-rhyme-related-to-datamuse (word &key related-to)
+(defun request-datamuse-rhyme-related-to (word &key related-to)
   "Search a token semantically related to another particular token in Datamuse."
   (request-api "https://api.datamuse.com/words?"
              :parameters `(("rel_rhy" . ,word)
                            ,@(when related-to `(("ml" . ,related-to))))))
 
-(defun request-adjectives-datamuse (word)
+(defun request-datamuse-adjectives (word)
     "Search for adjectives mostly used with a particular token"
     (let ((url (format nil "https://api.datamuse.com/words?rel_jjb=~a" (clean-request word))))
     (request-api url)))
 
-(defun request-adjectives-related-to-datamuse (word &key related-to)
+(defun request-datamuse-adjectives-related-to (word &key related-to)
     "Search the adjectives mostly used with a particular token-1 and semantically related to another token-2"
   (request-api "https://api.datamuse.com/words?"
              :parameters `(("rel_jjb" . ,word)
                            ,@(when related-to `(("ml" . ,related-to))))))
 
-(defun request-nouns-datamuse (word)
+(defun request-datamuse-nouns (word)
   "Search the most used nouns with a particular adjective"
   (let ((url (format nil "https://api.datamuse.com/words?rel_jja=~a" (clean-request word))))
     (request-api url)))
 
-(defun request-often-follow-datamuse(word)
+(defun request-datamuse-often-follow(word)
   "Search all the tokens that more likely follow a token-1"
   (let ((url (format nil "https://api.datamuse.com/words?lc=~a" (clean-request word))))
     (request-api url)))
 
-(defun request-often-follow-start-by-datamuse(word &key start-by)
+(defun request-datamuse-often-follow-start-by(word &key start-by)
   "Search  all the tokens that more likely follow a word-1 and start by a particular letter"
   (request-api "https://api.datamuse.com/words?"
              :parameters `(("lc" . ,word)
@@ -153,7 +153,7 @@
 ;; 2.2. Mediastack
 ;; ------------------------------------------------------------------------------------------------------------
 
-(defun request-live-news-Mediastack (search &key (access_key "357acde6d8d40889c97558fc6581649e") categories countries languages limit sort)
+(defun request-Mediastack-live-news (search &key (access_key "357acde6d8d40889c97558fc6581649e") categories countries languages limit sort)
   "Search for Live News in the Mediastack APIs"
   (request-api "http://api.mediastack.com/v1/sources/?access_key=~a"
                :parameters `(("keywords" . ,search)
@@ -165,7 +165,7 @@
                              ,@(when sort `(("sort" . ,sort))))))
 
 
-(defun request-historical-news-Mediastack (search &key (access_key "357acde6d8d40889c97558fc6581649e") date sources categories countries languages limit sort)
+(defun request-Mediastack-historical-news (search &key (access_key "357acde6d8d40889c97558fc6581649e") date sources categories countries languages limit sort)
   "Search for historical news in the Mediastack APIs"
   (request-api "http://api.mediastack.com/v1/sources/?access_key=~a"
                :parameters `(("keywords" . ,search)
@@ -236,7 +236,7 @@
 ;; -----------------------------------------------------------------------------------------------------------
 
 (defun request-catasto (&key (content-type "application/json"))
-  "Function to query the Catasto knowledge graph API"
+  "Function to search in the Catasto knowledge graph API, given a saved SPARQL query"
   (let* ((http-request (format nil "https://api.druid.datalegend.net/queries/muhaiuser/example-query/run"))
          (stream (drakma:http-request http-request :method :get :content-type content-type 
                                       :want-stream t)))

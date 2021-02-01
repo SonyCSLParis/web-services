@@ -26,14 +26,14 @@
 ;;words
 (request-words-api "singer")
 ;;datamuse
-(request-rhyme-datamuse "vice")
-(request-related-to-datamuse "vice")
-(request-rhyme-related-to-datamuse "vice" :related-to "food") 
-(request-adjectives-datamuse "ocean")
-(request-adjectives-related-to-datamuse "ocean" :related-to "temperature")
-(request-nouns-datamuse "yellow")
-(request-often-follow-datamuse "drink")
-(request-often-follow-start-by-datamuse "drink" :start-by "w*")
+(request-datamuse-rhyme "vice")
+(request-datamuse-related-to "vice")
+(request-datamuse-rhyme-related-to "vice" :related-to "food") 
+(request-datamuse-adjectives "ocean")
+(request-datamuse-adjectives-related-to "ocean" :related-to "temperature")
+(request-datamuse-nouns "yellow")
+(request-datamuse-often-follow "drink")
+(request-datamuse-often-follow-start-by "drink" :start-by "w*")
 
 ;; -------------------------------------------------------------------------------------------------------------
 ;; 2. Some example of searches for Open access APIs related to a certain area
@@ -41,24 +41,24 @@
 
 ;; food - Meal DB
 (request-mealDB "Carbonara")
-(request-ingredient-mealDB "chicken_breast")
-(request-category-filter-mealDB "Seafood")
-(request-country-filter-mealDB "Italian")
-(request-hungry-random-mealDB)
+(request-mealDB-ingredient "chicken_breast")
+(request-mealDB-category-filter "Seafood")
+(request-mealDB-country-filter "Italian")
+(request-mealDB-hungry-random)
 
 ;; newspapers - Mediastack 
-(request-live-news-Mediastack "Barcelona" :categories "sport" :languages "it" :countries "it" :limit "2" :sort "published_asc")
-(request-historical-news-Mediastack "Barcelona" :date "29-01-20" :sources "cnn" :categories "sport" :countries "us" :languages "en" :limit "2":sort "published_asc") ;; it won't work for now because we have a free plan --> upgrade to use it. 
+(request-Mediastack-live-news "Barcelona" :categories "sport" :languages "it" :countries "it" :limit "2" :sort "published_asc")
+(request-Mediastack-historical-news "Barcelona" :date "29-01-20" :sources "cnn" :categories "sport" :countries "us" :languages "en" :limit "2":sort "published_asc") ;; it won't work for now because we have a free plan --> upgrade to use it. 
 ;; -------------------------------------------------------------------------------------------------------------
 ;; 2. Some example of searches for KG APIs
 ;; -------------------------------------------------------------------------------------------------------------
 
 ;; Mediawiki
-(search-wikipedia "Steve McQueen")
+(request-wikipedia "Steve McQueen")
 ;; Wikidata
-(search-entity-in-wikidata "Steve McQueen")
-(get-wikidata-entity "Q159347")
+(request-wikidata-entity "Steve McQueen")
+(request-wikidata-URI "Q159347")
 ;; Google
 (request-google-knowledge-graph "Steve McQueen" :types "person")
 ;; Catasto
-(catasto-request)
+(request-catasto)
