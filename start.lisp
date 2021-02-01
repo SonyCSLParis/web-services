@@ -48,8 +48,7 @@
 
 ;; newspapers - Mediastack 
 (request-live-news-Mediastack "Barcelona" :categories "sport" :languages "it" :countries "it" :limit "2" :sort "published_asc")
-(request-historical-news-Mediastack "Barcelona" :date "29-01-20" :sources "cnn" :categories "sport" :countries "us" :languages "en" :limit "2":sort "published_asc")
-
+(request-historical-news-Mediastack "Barcelona" :date "29-01-20" :sources "cnn" :categories "sport" :countries "us" :languages "en" :limit "2":sort "published_asc") ;; it won't work for now because we have a free plan --> upgrade to use it. 
 ;; -------------------------------------------------------------------------------------------------------------
 ;; 2. Some example of searches for KG APIs
 ;; -------------------------------------------------------------------------------------------------------------
