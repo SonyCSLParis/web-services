@@ -22,22 +22,25 @@
 ;; MealDB
 ;; ------------------------------------------------------------------------------------------------------------
 
-(defun request-mealDB (meal &optional (api-key "1"))
+(defun request-mealDB (meal &optional (api-key))
  "Search for a Recipe in the MealDB"
+  (let* ((api-key (retrieve-api-key :meal))
   (let ((url (format nil "https://www.themealdb.com/api/json/v1/1/search.php?s=~a" meal api-key)))
-    (request-api url)))
+    (request-api url)))))
 
-(defun request-mealDB-filter (&key (api-key "1") ingredient category country)
+(defun request-mealDB-filter (&key (api-key) ingredient category country)
  "Search for a Recipe in the MealDB on the basis of some constraints"
+  (let* ((api-key (retrieve-api-key :meal))
   (let ((url (format nil "https://www.themealdb.com/api/json/v1/1/filter.php?s=~a" api-key)))
     (request-api url
                  :parameters `(("api-key" . ,api-key)
                               ,@(when ingredient `(("i" . ,ingredient)))
                               ,@(when category `(("c" . ,category)))
-                              ,@(when country `(("a" . ,country)))))))
+                              ,@(when country `(("a" . ,country)))))))))
 
-(defun request-mealDB-hungry-random(&optional (api-key "1"))
+(defun request-mealDB-hungry-random(&optional (api-key))
   "I am hungy, what should I eat tonight?"
+  (let* ((api-key (retrieve-api-key :meal))
   (let ((url (format nil "https://www.themealdb.com/api/json/v1/1/random.php")))
-    (request-api url)))
+    (request-api url)))))
 

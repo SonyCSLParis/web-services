@@ -16,16 +16,17 @@
 ;; limitations under the License.
 ;;=========================================================================
 
-(in-package :web-services)
+(in-package :web-services)x
 (export 'request-google-knowledge-graph)
 
 ;; -----------------------------------------------------------------------------------------------------------
 ;; Google KG API
 ;; -----------------------------------------------------------------------------------------------------------
 
-(defun request-google-knowledge-graph (request &key (api-key "AIzaSyAyAJvAjxrryYlHBSwGFoHvKzmJWG2KQOo") ;; Use your own API key
+(defun request-google-knowledge-graph (request &key api-key ;; Use your own API key
                                            indent limit languages types)
   "Search a token in the Google Knowledge Graph APIs"
+  (let* ((api-key (retrieve-api-key :google))
   (let ((cleaned-request (regex-replace-all " " request "+")))
     (request-api "https://kgsearch.googleapis.com/v1/entities:search?"
                :parameters `(("query" . ,cleaned-request)
@@ -33,4 +34,4 @@
                              ,@(when indent `(("indent" . ,indent)))
                              ,@(when limit `(("limit" . ,limit)))
                              ,@(when languages `(("languages" . ,languages)))
-                             ,@(when types `(("types" . ,types)))))))
+                             ,@(when types `(("types" . ,types)))))))))

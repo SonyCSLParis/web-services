@@ -22,8 +22,9 @@
 ;; Mediastack
 ;; ------------------------------------------------------------------------------------------------------------
 
-(defun request-Mediastack-live-news (search &key (access_key "357acde6d8d40889c97558fc6581649e") categories countries languages limit sort)
+(defun request-Mediastack-live-news (search &key access_key categories countries languages limit sort)
   "Search for Live News in the Mediastack APIs"
+  (let* ((access_key (retrieve-api-key :mediastack))
   (request-api "http://api.mediastack.com/v1/sources/?access_key=~a"
                :parameters `(("keywords" . ,search)
                              ("access_key" . ,access_key)
@@ -31,7 +32,7 @@
                              ,@(when languages `(("languages" . ,languages)))
                              ,@(when countries `(("countries" . ,countries)))
                              ,@(when limit `(("limit" . ,limit)))
-                             ,@(when sort `(("sort" . ,sort))))))
+                             ,@(when sort `(("sort" . ,sort))))))))
 
 
 (defun request-Mediastack-historical-news (search &key (access_key "357acde6d8d40889c97558fc6581649e") date sources categories countries languages limit sort)

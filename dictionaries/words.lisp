@@ -23,11 +23,31 @@
 ;;  Words API
 ;; -------------------------------------------------------------------------------------------------------------
 
-(defun request-words-api (word &key (x-rapidapi-key "ef0b0b01fbmshe99d52e360999bcp116ad7jsn90dcbb775019"))
+(defun request-api (api-url &key (content-type "application/json")
+                          additional-headers parameters)
+  "Interfacing with an API and encode the result in Lisp List"
+  (let ((stream (http-request api-url
+                              :additional-headers additional-headers
+                              :parameters parameters
+                              :method :get
+                              :content-type content-type
+                              :want-stream t)))
+    (setf (flexi-streams:flexi-stream-external-format stream) :utf-8)
+    (yason:parse stream :object-as :alist)))
+
+(defun request-words-api (word &optional (api-key))
   "Search for a particular token in Words API. "
+  (let* ((api-key (retrieve-api-key :words))
   (let* ((cleaned-word (clean-request word))
          (url (format nil "https://wordsapiv1.p.rapidapi.com/words/~a/definitions" cleaned-word)))
     (request-api url
-               :additional-headers `(("x-rapidapi-key" . ,x-rapidapi-key)
+               :additional-headers `(,@(when api-key `(("x-rapidapi-key" . ,api-key)))
                                      ("x-rapidapi-host" . "wordsapiv1.p.rapidapi.com")
-                                     ("useQueryString" . "true")))))
+                                     ("useQueryString" . "true")))))))
+
+(request-words-api "singer")
+
+
+
+
+

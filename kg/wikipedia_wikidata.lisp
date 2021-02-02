@@ -57,3 +57,19 @@
                            ,@(when language `(("language" . ,language)))
                            ,@(when props `(("props" . ,props)))
                            ("format" . "json"))))
+
+(defun request-wikimedia-categories (search-results)
+  (loop for result in search-results
+        unless (string= (rest (assoc "snippet" result :test #'string=))
+                        "Wikimedia category")
+        collect result))
+
+(defun wikidata-search-entity (entity &key (feeling-lucky t) (filter-wikimedia-categories t))
+  (let* ((query (wikidata-query entity))
+         (search-results (rest (assoc "search" (rest (assoc "query" query :test #'string=))
+                              :test #'string=))))
+    (when filter-wikimedia-categories
+      (setf search-results (filter-wikimedia-categories search-results)))
+    (if feeling-lucky
+      (wikidata-get-entity (rest (assoc "title" (first search-results) :test #'string=)))
+      search-results)))
