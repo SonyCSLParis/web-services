@@ -27,8 +27,8 @@
       (setf store (cons new-key store)))
     store))
 
-(defun retrieve-api-key (name key &key (store *api-keys*) key)
-  (let ((key (assoc name store)))
+(defun retrieve-api-key (name &optional (store *api-keys*))
+  (let ((key (second (assoc name store))))
              (assert key)
     key))
 
@@ -39,6 +39,6 @@
 (store-api-key :mediastack "357acde6d8d40889c97558fc6581649e") ;; Martina's API key mediastack
 
 ;;test
-(retrieve-api-key :google *api-keys*)
+(retrieve-api-key :meal)
 
 
