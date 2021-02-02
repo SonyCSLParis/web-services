@@ -47,8 +47,10 @@ For information about they can be obtained, please see :
 * https://dictionaryapi.com/register/index for the Merriam-Webster Dictionary,
 * https://developers.google.com/knowledge-graph/how-tos/authorizing for the Google Knowledge Graph API,
 * https://mediastack.com/quickstart for the Mediastack API.
+* https://www.themealdb.com/api.php for the MealDB API.
+* https://www.wordsapi.com for the Words Dictionary API.
 
-Once you obtained them, you need to specify them in the get-api-key helper function. 
+Once you obtained them, you need to copy paste them in the api_keys.lisp file and save them by pressing ctrl+x+e.
 
 #### 1.Dictionaries and Thesaurus:
 
