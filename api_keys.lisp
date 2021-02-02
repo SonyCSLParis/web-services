@@ -15,30 +15,17 @@
 ;;=========================================================================
 (in-package :web-services)
 
-(defparameter *api-keys* nil "List you API-keys here.")
+(defparameter *api-key-google* nil "Set your own Google Knowledge Graph API key.")
+(setf *api-key-google* "AIzaSyDR9MVg0_Zh6QrKD3M7SzZqQJ9Tn9I7GxY") ;; Please insert here your API key
 
-(defun store-api-key (name key &key (store *api-keys*))
-  (let ((new-key (list name key))
-        (old-key (assoc name store))) ;; Check whether one already exists
-    ;; If so, substitute it:
-    (if old-key
-      (setf store (substitute new-key old-key store :test #'equal))
-      ;; If not, simply cons it:
-      (setf store (cons new-key store)))
-    store))
+(defparameter *api-key-merriam* nil "Set your own Merriam-Webster API key.")
+(setf *api-key-merriam* "8fe92f45-0f31-4ec1-8b3f-c11cb403d657") ;; Please insert here your API key
 
-(defun retrieve-api-key (name &optional (store *api-keys*))
-  (let ((key (second (assoc name store))))
-             (assert key)
-    key))
+(defparameter *api-key-words* nil "Set your own Words Dictionary API key.")
+(setf *api-key-words* "ef0b0b01fbmshe99d52e360999bcp116ad7jsn90dcbb775019") ;; Please insert here your API key
 
-(store-api-key :google "AIzaSyDR9MVg0_Zh6QrKD3M7SzZqQJ9Tn9I7GxY") ;; Martina's API key Google 
-(store-api-key :merriam  "8fe92f45-0f31-4ec1-8b3f-c11cb403d657") ;; Remi's API key Merriam Webster
-(store-api-key :words "ef0b0b01fbmshe99d52e360999bcp116ad7jsn90dcbb775019") ;; Remi's API key words
-(store-api-key :meal "1") ;; test API key meal DB 
-(store-api-key :mediastack "357acde6d8d40889c97558fc6581649e") ;; Martina's API key mediastack
+(defparameter *api-key-mediastack* nil "Set your own Mediastack API key.")
+(setf *api-key* "357acde6d8d40889c97558fc6581649e") ;; Please insert here your API key
 
-;;test
-(retrieve-api-key :meal)
-
-
+(defparameter *api-key-meal* nil "Set your own MealDB API key.")
+(setf *api-key-meal* "1") ;; Please insert here your API key
