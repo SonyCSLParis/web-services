@@ -19,6 +19,7 @@
   :depends-on (:utils :drakma :yason :cl-ppcre :test-framework)
   :components ((:file "package")
                (:file "general_request")
+               (:file "helper-functions")
                (:file "api_keys")
    ;; All files
    (:module dictionaries

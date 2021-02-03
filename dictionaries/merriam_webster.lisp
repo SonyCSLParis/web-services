@@ -17,55 +17,74 @@
 ;;=========================================================================
 
 (in-package :web-services)
-(export '(request-merriam-webster-collegiate-dictionary request-merriam-webster-collegiate-thesaurus request-merriam-webster-spanish-dictionary request-merriam-webster-doctor-dictionary request-merriam-webster-learners-dictionary request-merriam-webster-elementary-dictionary request-merriam-webster-intermediate-dictionary request-merriam-webster-intermediate-thesaurus request-merriam-webster-school-dictionary))
 
+(export '(request-merriam-webster-collegiate-dictionary
+          request-merriam-webster-collegiate-thesaurus
+          request-merriam-webster-spanish-dictionary
+          request-merriam-webster-medical-dictionary
+          request-merriam-webster-learners-dictionary
+          request-merriam-webster-elementary-dictionary
+          request-merriam-webster-intermediate-dictionary
+          request-merriam-webster-intermediate-thesaurus
+          request-merriam-webster-school-dictionary))
 
 ;; ---------------------------------------------------------------------------------------------------------------------------------------------------
 ;; Merriam Webster
+;; https://www.dictionaryapi.com/
 ;; ---------------------------------------------------------------------------------------------------------------------------------------------------
 
+;; Remi: 1/ I noticed that all of the merriam-webster functions used the same URI but only a different ressource.
+;;          I therefore created a general function to which you can pass the ressource.
+;;       2/ Instead of pointing directly to the API-key variable, I used the helper function (get-api-key :merriam-webster).
+;;          Since the key is a parameter in the Merriam-Webster API, I put it in the parameters.
+;;       3/ I leave the possibility open to pass parameters and additional-headers.
+(defun request-merriam-webster (ressource word &key additional-headers parameters)
+  "General function for requesting information from the Merriam Webster API."
+  (let ((uri (format nil "https://www.dictionaryapi.com/api/v3/references/~a/json/~a"
+                     ressource (clean-request word))))
+    (request-api uri
+                 :additional-headers additional-headers
+                 :parameters `(("key" . ,(get-api-key :merriam-webster))
+                               ,@parameters))))
+;; Example:
+;; --------
+;; (request-merriam-webster "collegiate" "singer")
 
-(defun request-merriam-webster-collegiate-dictionary (word &optional (api-key *api-key-merriam*))
-    "Search for a particular token in Merriam-Webster Dictionary API"
-  (let ((url (format nil "https://www.dictionaryapi.com/api/v3/references/collegiate/json/~a?key=~a" (clean-request word) api-key)))
-    (request-api url)))
+;; Remi: All of the helper functions were doing the exact same thing but only changed which ressource was
+;;       used. So I defined the following macro, which generates the defuns so we don't have to write them
+;;       separately anymore.
+;;       The macro does not only avoid me to copy-paste and change each function, but also gives me a central
+;;       location if I want to change the definitions, which will make the code more adaptive.
+;;
+;;       Two warnings, however: if you change the macro, you might have to re-compile everything or do a "clean"
+;;       of the code if you see the code doesn't behave as expected. Secondly, you cannot jump to its source
+;;       definition.
 
-(defun request-merriam-webster-collegiate-thesaurus (word &optional (api-key *api-key-merriam*))
-     "Search for a particular token in the Merriam-Webster Thesaurus API"
-  (let ((url (format nil "https://www.dictionaryapi.com/api/v3/references/thesaurus/json/~a?key=~a" (clean-request word) api-key)))
-    (request-api url)))
+(defmacro define-merriam-webster-helper-functions (list-of-names-and-ressources)
+  `(progn
+     ,@(loop for lst in list-of-names-and-ressources
+             collect `(defun ,(first lst) (word &key additional-headers parameters)
+                        (request-merriam-webster ,(second lst) word
+                                                 :additional-headers additional-headers
+                                                 :parameters parameters)))))
 
-(defun request-merriam-webster-spanish-dictionary (word &optional (api-key *api-key-merriam*))
-    "Search for a particular token in Merriam-Webster Spanish Dictionary API"
-  (let ((url (format nil "https://www.dictionaryapi.com/api/v3/references/spanish/json/~a?key=~a" (clean-request word) api-key)))
-    (request-api url)))
+;; Here I call the macro. A macro is a code-creation tool: it "expands" into code that only then gets
+;; evaluated by Lisp. So for each pair, it creates a defun with that name and with that ressource to
+;; pass to the general request-merriam-webster function.
+(define-merriam-webster-helper-functions ((request-merriam-webster-collegiate-dictionary "collegiate")
+                                          (request-merriam-webster-collegiate-thesaurus "thesaurus")
+                                          (request-merriam-webster-spanish-dictionary "spanish")
+                                          (request-merriam-webster-medical-dictionary "medical")
+                                          (request-merriam-webster-learners-dictionary "learners")
+                                          (request-merriam-webster-elementary-dictionary "sd2")
+                                          (request-merriam-webster-intermediary-dictionary "sd3")
+                                          (request-merriam-webster-intermediate-thesaurus "ithesaurus")
+                                          (request-merriam-webster-school-dictionary "sd4")))
 
-(defun request-merriam-webster-doctor-dictionary (word &optional (api-key *api-key-merriam*))
-    "Search for a particular token in Merriam-Webster Medical Dictionary API"
-  (let ((url (format nil "https://www.dictionaryapi.com/api/v3/references/medical/json/~a?key=~a" (clean-request word) api-key)))
-    (request-api url)))
+;; Here is an example of how a created function looks like:
+;;; (defun request-merriam-webster-collegiate-dictionary (word &key additional-headers parameters)
+;;;     (request-merriam-webster "collegiate" word :additional-headers additional-headers :parameters parameters))
 
-(defun request-merriam-webster-learners-dictionary (word &optional (api-key *api-key-merriam*))
-    "Search for a particular token in Merriam-Webster Learners Dictionary API"
-  (let ((url (format nil "https://www.dictionaryapi.com/api/v3/references/learners/json/~a?key=~a" (clean-request word) api-key)))
-    (request-api url)))
 
-(defun request-merriam-webster-elementary-dictionary (word &optional (api-key *api-key-merriam*))
-    "Search for a particular token in Merriam-Webster Elementary Dictionary API"
-  (let ((url (format nil "https://www.dictionaryapi.com/api/v3/references/sd2/json/~a?key=~a" (clean-request word) api-key)))
-    (request-api url)))
-
-(defun request-merriam-webster-intermediate-dictionary (word &optional (api-key *api-key-merriam*))
-    "Search for a particular token in Merriam-Webster Intermediate Dictionary API"
-  (let ((url (format nil "https://www.dictionaryapi.com/api/v3/references/sd3/json/~a?key=~a" (clean-request word) api-key)))
-    (request-api url)))
-
-(defun request-merriam-webster-intermediate-thesaurus (word &optional (api-key *api-key-merriam*))
-    "Search for a particular token in Merriam-Webster Intermediate Thesaurus API"
-  (let ((url (format nil "https://www.dictionaryapi.com/api/v3/references/ithesaurus/json/~a?key=~a" (clean-request word) api-key)))
-    (request-api url)))
-
-(defun request-merriam-webster-school-dictionary (word &optional (api-key *api-key-merriam*))
-    "Search for a particular token in Merriam-Webster School Dictionary API"
-  (let ((url (format nil "https://www.dictionaryapi.com/api/v3/references/sd4/json/~a?key=~a" (clean-request word) api-key)))
-    (request-api url)))
+;; And you can always test what a macro creates by calling macroexpand-1 as follows:
+;; (macroexpand-1 '(define-merriam-webster-helper-functions ((request-merriam-webster-collegiate-dictionary "collegiate"))))
