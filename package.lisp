@@ -13,6 +13,9 @@
 ;; See the License for the specific language governing permissions and
 ;; limitations under the License.
 ;;=========================================================================
+(ql:quickload :drakma)
+(ql:quickload :yason)
+
 (in-package :common-lisp-user)
 (defpackage :web-services
   (:use :cl-user
