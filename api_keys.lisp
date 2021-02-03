@@ -13,8 +13,19 @@
 ;; See the License for the specific language governing permissions and
 ;; limitations under the License.
 ;;=========================================================================
+
 (in-package :web-services)
 
+;; Please replace these API keys with your own:
+(set-api-keys :google-knowledge-graph "AIzaSyDR9MVg0_Zh6QrKD3M7SzZqQJ9Tn9I7GxY"
+              :merriam-webster "8fe92f45-0f31-4ec1-8b3f-c11cb403d657"
+              :words "ef0b0b01fbmshe99d52e360999bcp116ad7jsn90dcbb775019"
+              :mediastack "357acde6d8d40889c97558fc6581649e"
+              :DBMeal "1")
+
+
+;; Old: to be replaced:
+;; ---------------------
 (defparameter *api-key-google* nil "Set your own Google Knowledge Graph API key.")
 (setf *api-key-google* "AIzaSyDR9MVg0_Zh6QrKD3M7SzZqQJ9Tn9I7GxY") ;; Please insert here your API key
 
