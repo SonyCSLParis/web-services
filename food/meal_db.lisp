@@ -17,10 +17,14 @@
 ;;=========================================================================
 
 (in-package :web-services)
-(export '(request-mealDB request-mealDB-filter request-mealDB-hungry-random))
+
+(export '(request-mealDB request-mealDB-search request-mealDB-filter
+                         request-mealDB-categories request-mealDB-random-meal
+                         request-mealDB-lookup request-mealDB-list))
 
 ;; ------------------------------------------------------------------------------------------------------------
 ;; MealDB
+;; https://www.themealdb.com/api.php
 ;; ------------------------------------------------------------------------------------------------------------
 
 (defun request-mealDB (api-method &key parameters additional-headers)
