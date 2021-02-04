@@ -21,7 +21,7 @@
               :merriam-webster "8fe92f45-0f31-4ec1-8b3f-c11cb403d657"
               :words "ef0b0b01fbmshe99d52e360999bcp116ad7jsn90dcbb775019"
               :mediastack "357acde6d8d40889c97558fc6581649e"
-              :DBMeal "1")
+              :MealDB "1")
 
 
 ;; Old: to be replaced:
