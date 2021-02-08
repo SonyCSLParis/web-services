@@ -66,7 +66,7 @@
 ;; Wikidata
 (request-wikidata-entity "Steve McQueen" :language "en")
 (request-wikidata-URI "Q159347")
-;; Google
-(request-google-knowledge-graph "Steve McQueen" :types "person")
 ;; Catasto
 (request-catasto)
+;; Google
+(request-google-knowledge-graph "Steve McQueen" :types "person" :limit "2")

@@ -54,7 +54,7 @@
                            ,@(when redirects `(("redirects" . ,redirects)))
                            ,@(when titles `(("titles" . ,titles)))
                            ,@(when sites `(("sites" . ,sites)))
-                           ,@(when language `(("language" . ,language)))
+                           ,@(when language `(("languages" . ,language)))
                            ,@(when props `(("props" . ,props)))
                            ("format" . "json"))))
 
