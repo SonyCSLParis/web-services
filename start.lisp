@@ -54,7 +54,7 @@
 (request-mealdb-list 'ingredients)
 
 ;; newspapers - Mediastack 
-(request-Mediastack-live-news "Barcelona" :categories "sport" :languages "it" :countries "it" :limit "2" :sort "published_asc")
+(request-Mediastack-live-news "Barcelona" :categories "sport" :languages "it" :countries "it" :limit "2" :sort "published_asc") ;; problem: efficiency
 (request-Mediastack-historical-news "Barcelona" :date "29-01-20" :sources "cnn" :categories "sport" :countries "us" :languages "en" :limit "2":sort "published_asc") ;; it won't work for now because we have a free plan --> upgrade to use it. 
 
 ;; -------------------------------------------------------------------------------------------------------------
@@ -64,7 +64,7 @@
 ;; Mediawiki
 (request-wikipedia "Steve McQueen")
 ;; Wikidata
-(request-wikidata-entity "Steve McQueen")
+(request-wikidata-entity "Steve McQueen" :language "en")
 (request-wikidata-URI "Q159347")
 ;; Google
 (request-google-knowledge-graph "Steve McQueen" :types "person")

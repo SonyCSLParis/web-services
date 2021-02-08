@@ -15,7 +15,7 @@
 ;;=========================================================================
 (in-package :asdf)
 (defsystem :web-services
-  :description "A system querying KG APIs in Common Lisp"
+  :description "A system querying APIs in Common Lisp"
   :depends-on (:utils :drakma :yason :cl-ppcre :test-framework)
   :components ((:file "package")
                (:file "general_request")
