@@ -43,24 +43,19 @@
                                                `(("s" . ,name-or-first-letter))))
                                          ,@parameters)
                   :additional-headers additional-headers))
-;; (request-mealdb-search "a")
-;; (request-mealdb-search "omelette")
 
 (defun request-mealDB-categories ()
   "Return all categories of MealDB."
   (request-mealDB "categories"))
-;; (request-mealdb-categories)
 
 (defun request-mealdb-random-meal ()
   "I'm feeling hungry and lucky."
   (request-mealDB "random"))
-;; (request-mealdb-random-meal)
 
 (defun request-mealdb-lookup (id)
   "Lookup a meal by ID."
   (assert (stringp id))
   (request-mealDB "lookup" :parameters `(("i" . ,id))))
-;; (request-mealdb-lookup "52772")
 
 (defun request-mealDB-filter (&key ingredients category country parameters additional-headers)
  "Search for a Recipe in the MealDB on the basis of some constraints"
@@ -77,10 +72,8 @@
                                             nil))
                                         ,@parameters)
                  :additional-headers additional-headers))
-;; (request-mealdb-filter :ingredients "chicken breast")
+
 ;; (request-mealdb-filter :ingredients '("salt" "garlic")) ;; Doesn't work? Problem with the comma?
-;; (request-mealdb-filter :category "Seafood")
-;; (request-mealdb-filter :country "Italian")
 
 (defun request-mealDB-list (categories-countries-or-ingredients)
   "Request a list of all categories, countries or ingredients."
@@ -94,7 +87,5 @@
                                            (t
                                             (error "Please specify whether you want to list categories, countries or ingredients.")))
                                         . "list"))))
-;; (request-mealdb-list 'categories)
-;; (request-mealdb-list 'countries)
-;; (request-mealdb-list 'ingredients)
-;; (request-mealdb-list 'error)
+
+

@@ -23,20 +23,3 @@
               :mediastack "357acde6d8d40889c97558fc6581649e"
               :MealDB "1")
 
-
-;; Old: to be replaced:
-;; ---------------------
-(defparameter *api-key-google* nil "Set your own Google Knowledge Graph API key.")
-(setf *api-key-google* "AIzaSyDR9MVg0_Zh6QrKD3M7SzZqQJ9Tn9I7GxY") ;; Please insert here your API key
-
-(defparameter *api-key-merriam* nil "Set your own Merriam-Webster API key.")
-(setf *api-key-merriam* "8fe92f45-0f31-4ec1-8b3f-c11cb403d657") ;; Please insert here your API key
-
-(defparameter *api-key-words* nil "Set your own Words Dictionary API key.")
-(setf *api-key-words* "ef0b0b01fbmshe99d52e360999bcp116ad7jsn90dcbb775019") ;; Please insert here your API key
-
-(defparameter *api-key-mediastack* nil "Set your own Mediastack API key.")
-(setf *api-key* "357acde6d8d40889c97558fc6581649e") ;; Please insert here your API key
-
-(defparameter *api-key-meal* nil "Set your own MealDB API key.")
-(setf *api-key-meal* "1") ;; Please insert here your API key

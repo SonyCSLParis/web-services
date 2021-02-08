@@ -22,11 +22,11 @@
 ;; Mediastack
 ;; ------------------------------------------------------------------------------------------------------------
 
-(defun request-Mediastack-live-news (search &key (access_key *api-key-mediastack*) categories countries languages limit sort)
+(defun request-Mediastack-live-news (search &key categories countries languages limit sort)
   "Search for Live News in the Mediastack APIs"
   (request-api "http://api.mediastack.com/v1/sources/?access_key=~a"
                :parameters `(("keywords" . ,search)
-                             ("access_key" . ,access_key)
+                             ("access_key" . ,(get-api-key :mediastack))
                              ,@(when categories `(("categories" . ,categories)))
                              ,@(when languages `(("languages" . ,languages)))
                              ,@(when countries `(("countries" . ,countries)))
@@ -34,11 +34,11 @@
                              ,@(when sort `(("sort" . ,sort))))))
 
 
-(defun request-Mediastack-historical-news (search &key (access_key *api-key-mediastack*) date sources categories countries languages limit sort)
+(defun request-Mediastack-historical-news (search &key date sources categories countries languages limit sort)
   "Search for historical news in the Mediastack APIs"
   (request-api "http://api.mediastack.com/v1/sources/?access_key=~a"
                :parameters `(("keywords" . ,search)
-                             ("access_key" . ,access_key)
+                              ("access_key" . ,(get-api-key :mediastack))
                              ,@(when date `(("date" . ,date)))
                              ,@(when sources `(("sources" . ,sources)))
                              ,@(when categories `(("categories" . ,categories)))

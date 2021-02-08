@@ -22,8 +22,7 @@
 ;; -------------------------------------------------------------------------------------------------------------
 
 ;;merriam-webster
-(request-merriam-webster-dictionary "singer")
-(request-merriam-webster-thesaurus "singer")
+(request-merriam-webster "collegiate" "singer")
 ;;words
 (request-words-api "singer")
 ;;datamuse
@@ -42,11 +41,17 @@
 ;; -------------------------------------------------------------------------------------------------------------
 
 ;; food - Meal DB
-(request-mealDB "Carbonara")
-(request-mealDB-filter :category "Seafood")
-(request-mealDB-filter :country "Italian")
-(request-mealDB-filter :ingredient "Tuna")
-(request-mealDB-hungry-random)
+(request-mealdb-search "Carbonara")
+(request-mealdb-search "omelette")
+(request-mealdb-categories)
+(request-mealdb-random-meal)
+(request-mealdb-lookup "52772")
+(request-mealdb-filter :ingredients "chicken breast")
+(request-mealdb-filter :category "Seafood")
+(request-mealdb-filter :country "Italian")
+(request-mealdb-list 'categories)
+(request-mealdb-list 'countries)
+(request-mealdb-list 'ingredients)
 
 ;; newspapers - Mediastack 
 (request-Mediastack-live-news "Barcelona" :categories "sport" :languages "it" :countries "it" :limit "2" :sort "published_asc")

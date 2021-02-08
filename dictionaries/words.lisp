@@ -23,12 +23,12 @@
 ;;  Words API
 ;; ---------------------------------------------------------------------------------------------------------------------------------------------------
 
-(defun request-words-api (word &optional (x-rapidapi-key *api-key-words*))
+(defun request-words-api (word)
   "Search for a particular token in Words API. "
   (let* ((cleaned-word (clean-request word))
-         (url (format nil "https://wordsapiv1.p.rapidapi.com/words/~a/definitions" cleaned-word x-rapidapi-key)))
+         (url (format nil "https://wordsapiv1.p.rapidapi.com/words/~a/definitions" cleaned-word)))
     (request-api url
-               :additional-headers `(,@(when x-rapidapi-key `(("x-rapidapi-key" . ,x-rapidapi-key)))
+               :additional-headers `(("x-rapidapi-key" . ,(get-api-key :words))
                                      ("x-rapidapi-host" . "wordsapiv1.p.rapidapi.com")
                                      ("useQueryString" . "true")))))
 
