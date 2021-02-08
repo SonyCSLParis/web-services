@@ -1,3 +1,4 @@
 *.lisp~
 /.DS_Store
 *.64xfasl
+*.asd~
