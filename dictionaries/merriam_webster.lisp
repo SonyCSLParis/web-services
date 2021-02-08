@@ -18,15 +18,7 @@
 
 (in-package :web-services)
 
-(export '(request-merriam-webster-collegiate-dictionary
-          request-merriam-webster-collegiate-thesaurus
-          request-merriam-webster-spanish-dictionary
-          request-merriam-webster-medical-dictionary
-          request-merriam-webster-learners-dictionary
-          request-merriam-webster-elementary-dictionary
-          request-merriam-webster-intermediate-dictionary
-          request-merriam-webster-intermediate-thesaurus
-          request-merriam-webster-school-dictionary))
+(export '(request-merriam-webster))
 
 ;; ---------------------------------------------------------------------------------------------------------------------------------------------------
 ;; Merriam Webster
