@@ -24,7 +24,7 @@
 ;;merriam-webster
 (request-merriam-webster "collegiate" "singer")
 ;;words
-(request-words-api "singer")
+(request-words-api "pioneer")
 ;;datamuse
 (request-datamuse :related-to "duck" :start-by "b*" :limit "2")
 (request-datamuse :rhyme "vice")
@@ -41,21 +41,17 @@
 ;; -------------------------------------------------------------------------------------------------------------
 
 ;; food - Meal DB
-(request-mealdb-search "Carbonara")
-(request-mealdb-search "omelette")
-(request-mealdb-categories)
-(request-mealdb-random-meal)
-(request-mealdb-lookup "52772")
-(request-mealdb-filter :ingredients "chicken breast")
-(request-mealdb-filter :category "Seafood")
-(request-mealdb-filter :country "Italian")
-(request-mealdb-list 'categories)
-(request-mealdb-list 'countries)
-(request-mealdb-list 'ingredients)
-
-;; newspapers - Mediastack 
-(request-Mediastack-live-news "Barcelona" :categories "sport" :languages "it" :countries "it" :limit "2" :sort "published_asc") ;; problem: efficiency
-(request-Mediastack-historical-news "Barcelona" :date "29-01-20" :sources "cnn" :categories "sport" :countries "us" :languages "en" :limit "2":sort "published_asc") ;; it won't work for now because we have a free plan --> upgrade to use it. 
+(request-mealDB-search "Carbonara")
+(request-mealDB-search "omelette")
+(request-mealDB-categories)
+(request-mealDB-random-meal)
+(request-mealDB-lookup "52772")
+(request-mealDB-filter :ingredients "chicken breast")
+(request-mealDB-filter :category "Seafood")
+(request-mealDB-filter :country "Italian")
+(request-mealDB-list 'categories)
+(request-mealDB-list 'countries)
+(request-mealDB-list 'ingredients)
 
 ;; -------------------------------------------------------------------------------------------------------------
 ;; 2. Some example of searches for KG APIs

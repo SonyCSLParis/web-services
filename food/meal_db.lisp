@@ -37,7 +37,7 @@
 (defun request-mealDB-search (name-or-first-letter &key parameters additional-headers)
   "Search for a meal by name or first letter."
   (assert (stringp name-or-first-letter))
-  (request-mealdb "search" :parameters `(,@(when name-or-first-letter
+  (request-mealDB "search" :parameters `(,@(when name-or-first-letter
                                              (if (= 1 (length name-or-first-letter))
                                                `(("f" . ,name-or-first-letter))
                                                `(("s" . ,name-or-first-letter))))
@@ -77,7 +77,7 @@
 
 (defun request-mealDB-list (categories-countries-or-ingredients)
   "Request a list of all categories, countries or ingredients."
-  (request-mealdb "list" :parameters `((,(case categories-countries-or-ingredients
+  (request-mealDB "list" :parameters `((,(case categories-countries-or-ingredients
                                            (category "c")
                                            (categories "c")
                                            (country "a")
