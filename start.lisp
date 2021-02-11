@@ -21,8 +21,6 @@
 ;; 1. Some example of searches for dictionaries and thesaurus
 ;; -------------------------------------------------------------------------------------------------------------
 
-;;merriam-webster
-(request-merriam-webster "collegiate" "singer")
 ;;words
 (request-words-api "pioneer")
 ;;datamuse

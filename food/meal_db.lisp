@@ -18,9 +18,7 @@
 
 (in-package :web-services)
 
-(export '(request-mealDB request-mealDB-search request-mealDB-filter
-                         request-mealDB-categories request-mealDB-random-meal
-                         request-mealDB-lookup request-mealDB-list))
+(export '(request-mealDB-s request-mealDB-filter request-mealDB-categories request-mealDB-random-meal request-mealDB-lookup request-mealDB-list))
 
 ;; ------------------------------------------------------------------------------------------------------------
 ;; MealDB
@@ -34,7 +32,7 @@
                  :parameters parameters
                  :additional-headers additional-headers)))
 
-(defun request-mealDB-search (name-or-first-letter &key parameters additional-headers)
+(defun request-mealDB-s (name-or-first-letter &key parameters additional-headers)
   "Search for a meal by name or first letter."
   (assert (stringp name-or-first-letter))
   (request-mealDB "search" :parameters `(,@(when name-or-first-letter
@@ -48,11 +46,11 @@
   "Return all categories of MealDB."
   (request-mealDB "categories"))
 
-(defun request-mealdb-random-meal ()
+(defun request-mealDB-random-meal ()
   "I'm feeling hungry and lucky."
   (request-mealDB "random"))
 
-(defun request-mealdb-lookup (id)
+(defun request-mealDB-lookup (id)
   "Lookup a meal by ID."
   (assert (stringp id))
   (request-mealDB "lookup" :parameters `(("i" . ,id))))
