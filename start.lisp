@@ -17,50 +17,120 @@
 (ql:quickload :web-services)
 (in-package :web-services)
 
+;; +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+;; 1. Introduction and the explanation of goal of the package.
+;; +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+;; The goal of this package is to interface Babel with different web services APIs. The different APIs can be queried using some specific functions which send a request to the APIs specified and encode the results into a Lisp list. 
+
+;; Please note, for the Google Knowledge Graph APIs, the Mediastack APIs, the Words API, the MealDB API and the Merriam-Webster Dictionary API, you have to specify your personal "API key" to send the request. For information about they can be obtained, please see : 
+
+       ;; For the Merriam-Webster Dictionary: https://dictionaryapi.com/register/index
+
+       ;; For the Google Knowledge Graph API: https://developers.google.com/knowledge-graph/how-tos/authorizing
+
+       ;; For the Mediastack API: https://mediastack.com/quickstart for the Mediastack API.
+
+       ;; For the MealDB API:  https://www.themealdb.com/api.php for the MealDB API.
+
+       ;; For the Words API: https://www.wordsapi.com for the Words Dictionary API.
+
+;; Once you obtained them, you need to copy paste them in the api_keys.lisp file that you can find in the main directory and evaluate them by pressing ctrl+x+e.
+
+;; +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+;; 2. Installation
+;; +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+
+
+;; +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+;; 3. Functionality (interface to your package, how to use it, examples
+;; +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+;; -------------------------------------------------------------------------
+;; 3.1. Some example of searches for dictionaries and thesaurus
+;; -------------------------------------------------------------------------
+
+
+;; 3.1.1. Words API (https://www.wordsapi.com/docs/)
+
+;; request a definition from the words API
+(request-words-api "singer")
+
+
+;; 3.1.2. Merriam Webster APIs (https://www.dictionaryapi.com/products/json, https://dictionaryapi.com/products/api-collegiate-thesaurus)
+
+;;request a definition from the Merriam-Webster dictionary 
+(request-merriam-webster-dictionary "singer")
+
+;;request a definition from the Merriam-Webster thesaurus 
+(request-merriam-webster-thesaurus "singer")
+
+
+;; 3.1.3. Datamuse API (http://www.datamuse.com/api/?ref=producthunt)
+
+(request-datamuse :related-to "duck" :start-by "b*" :limit "2") ;;  Search all tokens semantically related to a particular token and start by a given letter in Datamuse. Return a fixed number of results.  
+(request-datamuse :rhyme "vice") ;; Search all tokens semantically related to a particular token in Datamuse.
+
+(request-datamuse :rhyme "vice" :related-to "food") ;; Search a token semantically related to another particular token in Datamuse.
+
+(request-datamuse :frequent-adj "ocean") ;; Search for adjectives mostly used with a particular token in Datamuse.
+
+(request-datamuse :frequent-adj "ocean" :related-to "temperature") ;; Search the adjectives mostly used with a particular token-1 and semantically related to another token-2 in Datamuse.
+
+(request-datamuse :frequent-noun "yellow") ;; Search the most used nouns with a particular adjective in Datamuse
+
+(request-datamuse :spelled-similarly "yellow") ;; Search the most words spelled similarly to another one in Datamuse
+
+(request-datamuse :frequent-follow "drink") ;; Search all the tokens that more likely follow a token-1 in Datamuse
+
+(request-datamuse :frequent-follow "drink" :start-by "w*") ;; Search  all the tokens that more likely follow a word-1 and start by a particular letter in Datamuse.
+
+
 ;; -------------------------------------------------------------------------------------------------------------
-;; 1. Some example of searches for dictionaries and thesaurus
+;; 3.2. Some example of searches for APIs related to a certain area
 ;; -------------------------------------------------------------------------------------------------------------
 
-;;words
-(request-words-api "pioneer")
-;;datamuse
-(request-datamuse :related-to "duck" :start-by "b*" :limit "2")
-(request-datamuse :rhyme "vice")
-(request-datamuse :rhyme "vice" :related-to "food") 
-(request-datamuse :frequent-adj "ocean")
-(request-datamuse :frequent-adj "ocean" :related-to "temperature")
-(request-datamuse :frequent-noun "yellow")
-(request-datamuse :spelled-similarly "yellow")
-(request-datamuse :frequent-follow "drink")
-(request-datamuse :frequent-follow "drink" :start-by "w*")
+;; 3.2.1. MealDB API (https://www.themealdb.com/api.php)
+
+(request-mealDB "Carbonara") ;; Search for a Recipe in the MealDB
+
+(request-mealDB-filter :category "Seafood") ;; Search for all the meals in a particular category
+
+(request-mealDB-filter :country "Italian") ;;Search for all the meals traditional of a particular country
+
+(request-mealDB-filter :ingredient "Tuna") ;; Search for a recipe in the MealDB with a main ingredient X
+(request-mealDB-hungry-random) ;; Search for a random recipes to have some inspiration 
+
+
+;; 3.2.2. MealDB API (https://mediastack.com/documentation)
+
+;; newspapers - Mediastack 
+(request-Mediastack-live-news "Barcelona" :categories "sport" :languages "it" :countries "it" :limit "2" :sort "published_asc") ;; it won't work for now because we have a free plan --> upgrade to use it
+(request-Mediastack-historical-news "Barcelona" :date "29-01-20" :sources "cnn" :categories "sport" :countries "us" :languages "en" :limit "2":sort "published_asc") ;; it won't work for now because we have a free plan --> upgrade to use it. 
+
 
 ;; -------------------------------------------------------------------------------------------------------------
-;; 2. Some example of searches for Open access APIs related to a certain area
+;; 3.3. Some example of searches for KG APIs
 ;; -------------------------------------------------------------------------------------------------------------
 
-;; food - Meal DB
-(request-mealDB-search "Carbonara")
-(request-mealDB-search "omelette")
-(request-mealDB-categories)
-(request-mealDB-random-meal)
-(request-mealDB-lookup "52772")
-(request-mealDB-filter :ingredients "chicken breast")
-(request-mealDB-filter :category "Seafood")
-(request-mealDB-filter :country "Italian")
-(request-mealDB-list 'categories)
-(request-mealDB-list 'countries)
-(request-mealDB-list 'ingredients)
+;; 3.3.1. MediaWiki API (https://www.wikidata.org/wiki/Wikidata:WikiProject_Documentation)
 
-;; -------------------------------------------------------------------------------------------------------------
-;; 2. Some example of searches for KG APIs
-;; -------------------------------------------------------------------------------------------------------------
-
-;; Mediawiki
 (request-wikipedia "Steve McQueen")
-;; Wikidata
-(request-wikidata-entity "Steve McQueen" :language "en")
-(request-wikidata-URI "Q159347")
-;; Catasto
-(request-catasto)
-;; Google
-(request-google-knowledge-graph "Steve McQueen" :types "person" :limit "2")
+
+;; 3.3.2. Wikidata API(https://www.wikidata.org/wiki/Wikidata:WikiProject_Documentation)
+
+(request-wikidata-entity "Steve McQueen") ;; function to search for a token in Wikidata. To use it, just insert as an argument the string you are looking for.
+
+(request-wikidata-URI "Q159347") ;; function to get all statements for a particular URI in Wikidata. To use it, just insert as an argument the URI you are looking for. For more information about URI in Wikidata, please see https://www.wikidata.org/wiki/Help:Statements 
+
+
+;; 3.3.3. Google Knowledge Graph API (https://developers.google.com/knowledge-graph)
+
+(request-google-knowledge-graph "Steve McQueen" :types "person") ;; function to search a token in the Google Knowledge Graph APIs while specifying the type. To use it, just insert as an argument the string you are looking for.
+
+
+;; 3.3.4. Catasto Datastories (https://stories.datalegend.net/catasto/)
+
+(request-catasto) ;; function to access a saved SPARQL query on the Catasto dataset. The endpoint to call is shown under "API Variable".
