@@ -21,8 +21,8 @@
                (:file "api_keys")
    ;; All files
    (:module helper
-    :components ((:file "helper-functions")
-                 (:file "general_request")))           
+    :components ((:file "general_request")
+                 (:file "helper-functions")))           
    ;; Helper functions
    (:module dictionaries
     :components ((:file "datamuse")

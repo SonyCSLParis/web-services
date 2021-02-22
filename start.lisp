@@ -21,22 +21,10 @@
 ;; 1. Introduction and Installation.
 ;; +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-;; The goal of this package is to interface Babel with different web services APIs. The different APIs can be queried using some specific functions which send a request to the APIs specified and encode the results into a Lisp list. 
+;; The goal of this package is to interface Babel with different web services APIs. The different APIs can be queried using some specific functions which send a request to the APIs specified and encode the results into a Lisp list.
 
 ;; +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-;; 1.1. Installation
-;; +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-;; After you obtained your API-keys, you need to install the three dependencies of this package:
-
-   ;; Drakma (can be installed using Quicklisp, see https://edicl.github.io/drakma/)
-   ;; Yason (can be installed using Quicklisp, see https://github.com/phmarek/yason)
-   ;; Cl-ppcre (can be installed using Quicklisp, see http://edicl.github.io/cl-ppcre/)
-
-;; 
-
-;; +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-;; 1.2. Getting your own API Keys
+;; 1.1. Getting your own API Keys
 ;; +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 ;; Please note, in order to use some functionalities of this package, you would need to have some API keys. This would be necessary to request data from the Words API, the Merriam-Webster Dictionary API, the MealDB API, the Mediastack API and the Google Knowledge Graph APIs. For these APIs you will you have to specify your personal "API key" to send the request.
@@ -53,7 +41,23 @@
 
        ;; For the Google Knowledge Graph API: https://developers.google.com/knowledge-graph/how-tos/authorizing
 
-;; Once you obtained them, you need to copy paste them in the api_keys.lisp file that you can find in the main directory and evaluate them by pressing ctrl+x+e.
+;; Once you obtained them, you need to copy paste them in the api_keys.lisp file that you can find in the main directory and save your edits.
+
+;; +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+;; 1.2. Getting Started
+;; +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+;; To use the package, you would need to : 
+  
+    ;; -  Open the "web-services.asd" file in your editor and evaluate it, starting by (in-package :asdf) and later by (defsystem :web-services).
+
+    ;; -  open the "package.lisp" file in your editor and evaluate it, making sure to starting by loading the dependencies of this packages by evaluate (ql:quickload :drakma) and (ql:quickload :yason). 
+
+    ;; -  open the "start.lisp" file in your editor. First, evaluate the (ql:quickload :web-services), you should see :=> (:WEB-SERVICES) at the bottom of your screen. Secondly, evaluate (in-package :web-services), you should see => #<The WEB-SERVICES package, 105/128 internal, 18/64 external> at the bottom of your screen. 
+
+;; Now you are ready to go.
+;; You can start by evaluating the different example functions contained in the start.lisp file, such as (request-words-api "singer") for example, and try to play around and change the different request you want to make. 
 
 ;; +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ;; 3. Functionalities
@@ -105,6 +109,7 @@
 ;; 3.2. Some example of searches for APIs related to a certain area
 ;; -------------------------------------------------------------------------------------------------------------
 
+
 ;; 3.2.1. MealDB API (https://www.themealdb.com/api.php)
 
 (request-mealDB "Carbonara") ;; Search for a Recipe in the MealDB
@@ -115,6 +120,7 @@
 
 (request-mealDB-filter :ingredient "Tuna") ;; Search for a recipe in the MealDB with a main ingredient X
 (request-mealDB-hungry-random) ;; Search for a random recipes to have some inspiration 
+
 
 ;; 3.2.2. Mediastack API (https://mediastack.com/documentation)
 
@@ -128,15 +134,18 @@
 ;; 3.3. Some example of searches for KG APIs
 ;; -------------------------------------------------------------------------------------------------------------
 
+
 ;; 3.3.1. MediaWiki API (https://www.wikidata.org/wiki/Wikidata:WikiProject_Documentation)
 
 (request-wikipedia "Steve McQueen") ;; Function to search for a token in Wikipedia. To query just insert as an argument the string you are looking for. 
+
 
 ;; 3.3.2. Wikidata API(https://www.wikidata.org/wiki/Wikidata:WikiProject_Documentation)
 
 (request-wikidata-entity "Steve McQueen") ;; Function to search for a token in Wikidata. To use it, just insert as an argument the string you are looking for. 
 
 (request-wikidata-URI "Q159347") ;; Function to get all statements for a particular URI in Wikidata. To use it, just insert as an argument the URI you are looking for. For more information about URI in Wikidata, please see https://www.wikidata.org/wiki/Help:Statements 
+
 
 ;; 3.3.3. Google Knowledge Graph API (https://developers.google.com/knowledge-graph)
 

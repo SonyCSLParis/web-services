@@ -29,14 +29,6 @@ The APIs accessible with this package are :
 
 The goal of this package is to interface Babel with different web services APIs. The different APIs can be queried using some specific functions which send a request to the APIs specified and encode the results into a Lisp list. 
 
-### Dependencies
-
-To use the package, you would need to install the three dependencies of this package:
-
-  * Drakma (can be installed using Quicklisp, see https://edicl.github.io/drakma/)
-  * Yason (can be installed using Quicklisp, see https://github.com/phmarek/yason)
-  * Cl-ppcre (can be installed using Quicklisp, see http://edicl.github.io/cl-ppcre/)
-
 ### Getting your own API Keys
 
 The different APIs can be queried using some specific helper functions which send a request to the APIs specified and encode the results into a Lisp list. 
@@ -55,7 +47,19 @@ For the Words API: https://www.wordsapi.com for the Words Dictionary API.
 
        * For the Google Knowledge Graph API: https://developers.google.com/knowledge-graph/how-tos/authorizing
 
-Once you obtained them, you need to copy paste them in the api_keys.lisp file that you can find in the main directory and evaluate them by pressing ctrl+x+e.
+Once you obtained them, you need to copy paste them in the api_keys.lisp file that you can find in the main directory and save your edits. 
+
+### Getting Started
+
+To use the package, you would need to : 
+  
+    * open the "web-services.asd" file in your editor and evaluate it, starting by (in-package :asdf) and later by (defsystem :web-services).
+
+    * open the "package.lisp" file in your editor and evaluate it, making sure to starting by loading the dependencies of this packages by evaluate (ql:quickload :drakma) and (ql:quickload :yason). 
+
+    * open the "start.lisp" file in your editor. First, evaluate the (ql:quickload :web-services), you should see :=> (:WEB-SERVICES) at the bottom of your screen. Secondly, evaluate (in-package :web-services), you should see => #<The WEB-SERVICES package, 105/128 internal, 18/64 external> at the bottom of your screen. 
+    Now you are ready to go.
+    You can start by evaluating the different example functions contained in the start.lisp file, such as (request-words-api "singer") for example, and try to play around and change the different request you want to make. 
 
 ## Functionalities
 
