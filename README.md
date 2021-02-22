@@ -9,18 +9,16 @@ The APIs accessible with this package are :
         * 1.2. Merriam-Webster Dictionary API (https://dictionaryapi.com/)
         * 1.3. Datamuse API (https://www.datamuse.com/api/).
          
-      2. Food API: 
-        * 2.1. Meal DB API (https://www.themealdb.com/api.php),
+      2. Domain Specific API: 
+        * 2.1. For Food : Meal DB API (https://www.themealdb.com/api.php),
+        * 2.2. For News : Mediastack (https://mediastack.com/).
 
       3. KG APIs: 
         * 3.1. MediaWiki API(https://www.mediawiki.org/wiki/API:Main_page), 
         * 3.2. Wikidata API(https://www.wikidata.org/wiki/Wikidata:Data_access),
         * 3.3. Google Knowledge Graph API (https://developers.google.com/knowledge-graph), 
-        * 3.4. VUA API (https://stories.datalegend.net), 
+        * 3.4. VUA Catasto Datastories (https://stories.datalegend.net), 
 
-      4. News API: 
-        * 4.1. Mediastack (https://mediastack.com/).
-       
 ## Contributors:
 
     Dr. Remi van Trijp
@@ -34,15 +32,15 @@ The Lisp-APIs code depends on:
   * Yason (can be installed using Quicklisp, see https://github.com/phmarek/yason)
   * Cl-ppcre (can be installed using Quicklisp, see http://edicl.github.io/cl-ppcre/)
 
-## 1. Interfacing Common Lisp with Web Services
+## 1. Interfacing Babel with Web Services
 
 ### 1.1 Package
 
 The different APIs can be queried using some specific helper functions which send a request to the APIs specified and encode the results into a Lisp list. 
 
-Please note, for the Google Knowledge Graph APIs, the Mediastack APIs and the Merriam-Webster Dictionary API, you have to specify your personal "API key" to send the request. 
+Please note, for the Google Knowledge Graph APIs, the Mediastack APIs, the Words API, the MealDB API and the Merriam-Webster Dictionary API, you have to specify your personal "API key" to send the request. 
 
-For information about they can be obtained, please see : 
+For information about they can be obtained, please see :
 
 * https://dictionaryapi.com/register/index for the Merriam-Webster Dictionary,
 * https://developers.google.com/knowledge-graph/how-tos/authorizing for the Google Knowledge Graph API,
@@ -50,7 +48,7 @@ For information about they can be obtained, please see :
 * https://www.themealdb.com/api.php for the MealDB API.
 * https://www.wordsapi.com for the Words Dictionary API.
 
-Once you obtained them, you need to copy paste them in the api_keys.lisp file and save them by pressing ctrl+x+e.
+Once you obtained them, you need to copy paste them in the api_keys.lisp file that you can find in the main directory and evaluate them by pressing ctrl+x+e.
 
 #### 1.Dictionaries and Thesaurus:
 
@@ -85,10 +83,10 @@ specialized medical, Spanish, ESL, and student-friendly vocabulary.
     * (request-merriam-webster-elementary-dictionary "singer") 
       function to search for a particular token in the Merriam-Wbster Elementary Dictionary API. To search, just insert as argument the token whose definition you are looking for. 
 
-   * (request-merriam-webster-intermediate-thesaurus "singer") 
+    * (request-merriam-webster-intermediate-thesaurus "singer") 
       function to search for a particular token in the Merriam-Webster Intermediate Thesaurus API. To search, just insert as argument the token whose definition you are looking for. 
 
-   * (request-merriam-webster-school-dictionary "singer") 
+    * (request-merriam-webster-school-dictionary "singer") 
       function to search for a particular token in the Merriam-Webster School Dictionary API. To search, just insert as argument the token whose definition you are looking for. 
     
 ##### 1.3. Datamuse API (http://www.datamuse.com/api/?ref=producthunt):
@@ -112,7 +110,10 @@ The Datamuse API is a word-finding query engine for developers. You can use it i
     
     * (request-datamuse :frequent-noun "yellow")
        Search the most used nouns with a particular adjective in Datamuse
-    
+ 
+     * (request-datamuse :spelled-similarly "yellow")
+       Search the most words spelled similarly to another one in Datamuse
+   
     * (request-datamuse :frequent-follow "drink")
       Search all the tokens that more likely follow a token-1 in Datamuse
     
@@ -134,18 +135,12 @@ The Datamuse API is a word-finding query engine for developers. You can use it i
     
     * (request-mealDB-filter :country "Italian")
       Search for all the meals traditional of a particular country
-    
-    (request-hungry-random-mealDB): I am hungry, what should I eat tonight?
-    
-#### 2.2. Mediastack (https://mediastack.com/documentation)
 
-    * (request-live-news-Mediastack "Barcelona" :categories "sport" :languages "it" :countries "it" :limit "2" :sort "published_asc")
+    * (request-mealDB-hungry-random) 
+     Search for a random recipes to have some inspiration
+        
+#### 2.2. Mediastack API (https://mediastack.com/documentation)
 
-      Search for the full set of available real-time news articles can be accessed using a simple API request to the mediastack API's news endpoint. Please note that account subscribed to the Free Plan will receive live news only with a 30-minute delay.
-    
-    * (request-historical-news-Mediastack "Barcelona" :date "29-01-20" :sources "cnn" :categories "sport" :countries "us" :languages "en" :limit "2":sort "published_asc"): 
-    
-      If you are subscribed to the Standard Plan or higher, you will be able to access historical news data by specifying a historical date using the API's date parameter in YYYY-MM-DD format.
 
 ### 3. KG APIs :
 
@@ -171,5 +166,5 @@ The Datamuse API is a word-finding query engine for developers. You can use it i
 
 Data accessible in in the linked data version of the Florentine Catasto of 1427 available on druid. 
 
-    * (vua-kg-api-request)
-       Function to access a saved SPARQL query on the Catasto dataset. The endpoint to call is shown under "API Variable",    
+    * (request-catasto)
+       Function to access a saved SPARQL query on the Catasto dataset. The endpoint to call is shown under "API Variable".
