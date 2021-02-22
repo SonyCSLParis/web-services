@@ -24,10 +24,16 @@
 ;; The goal of this package is to interface Babel with different web services APIs. The different APIs can be queried using some specific functions which send a request to the APIs specified and encode the results into a Lisp list.
 
 ;; +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-;; 1.1. Getting your own API Keys
+;; 1. Getting Started
 ;; +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-;; Please note, in order to use some functionalities of this package, you would need to have some API keys. This would be necessary to request data from the Words API, the Merriam-Webster Dictionary API, the MealDB API, the Mediastack API and the Google Knowledge Graph APIs. For these APIs you will you have to specify your personal "API key" to send the request.
+;; To use the package, you would need to : 
+  
+    ;; -  Open the "web-services.asd" file in your editor and evaluate it, starting by (in-package :asdf) and later by (defsystem :web-services).
+
+    ;; -  open the "package.lisp" file in your editor and evaluate it, making sure to starting by loading the dependencies of this packages by evaluate (ql:quickload :drakma) and (ql:quickload :yason).
+
+    ;; Please note, in order to use some functionalities of this package, you would need to have some API keys. This would be necessary to request data from the Words API, the Merriam-Webster Dictionary API, the MealDB API, the Mediastack API and the Google Knowledge Graph APIs. For these APIs you will you have to specify your personal "API key" to send the request.
 
 ;; For information about they can be obtained, please see :
 
@@ -43,27 +49,21 @@
 
 ;; Once you obtained them, you need to copy paste them in the api_keys.lisp file that you can find in the main directory and save your edits.
 
-;; +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-;; 1.2. Getting Started
-;; +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-
-;; To use the package, you would need to : 
-  
-    ;; -  Open the "web-services.asd" file in your editor and evaluate it, starting by (in-package :asdf) and later by (defsystem :web-services).
-
-    ;; -  open the "package.lisp" file in your editor and evaluate it, making sure to starting by loading the dependencies of this packages by evaluate (ql:quickload :drakma) and (ql:quickload :yason). 
-
-    ;; -  open the "start.lisp" file in your editor. First, evaluate the (ql:quickload :web-services), you should see :=> (:WEB-SERVICES) at the bottom of your screen. Secondly, evaluate (in-package :web-services), you should see => #<The WEB-SERVICES package, 105/128 internal, 18/64 external> at the bottom of your screen. 
-
 ;; Now you are ready to go.
 ;; You can start by evaluating the different example functions contained in the start.lisp file, such as (request-words-api "singer") for example, and try to play around and change the different request you want to make. 
 
 ;; +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-;; 3. Functionalities
+;; 2. Functionalities
 ;; +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 ;; Here, you can find a description of the different functions available in the package and how you could use them with some specific examples. If you comments, remarks, please feel free to reach out to martina.galletti@sony.com
+
+;; Please replace these API keys with your own:
+(set-api-keys :google-knowledge-graph "AIzaSyDR9MVg0_Zh6QrKD3M7SzZqQJ9Tn9I7GxY"
+              :merriam-webster "8fe92f45-0f31-4ec1-8b3f-c11cb403d657"
+              :words "ef0b0b01fbmshe99d52e360999bcp116ad7jsn90dcbb775019"
+              :mediastack "357acde6d8d40889c97558fc6581649e"
+              :MealDB "1")
 
 ;; -------------------------------------------------------------------------
 ;; 3.1. Some example of searches for dictionaries and thesaurus
@@ -73,7 +73,6 @@
 ;; 3.1.1. Words API (https://www.wordsapi.com/docs/)
 
 (request-words-api "singer") ;; request a definition from the words API
-
 
 ;; 3.1.2. Merriam Webster APIs (https://www.dictionaryapi.com/products/json, https://dictionaryapi.com/products/api-collegiate-thesaurus)
 
@@ -108,15 +107,13 @@
 
 ;; 3.2.1. MealDB API (https://www.themealdb.com/api.php)
 
-(request-mealDB "Carbonara") ;; Search for a Recipe in the MealDB
+(request-mealDB-s "Carbonara") ;; Search for a Recipe in the MealDB
 
 (request-mealDB-filter :category "Seafood") ;; Search for all the meals in a particular category
 
 (request-mealDB-filter :country "Italian") ;;Search for all the meals traditional of a particular country
 
-(request-mealDB-filter :ingredient "Tuna") ;; Search for a recipe in the MealDB with a main ingredient X
-
-(request-mealDB-hungry-random) ;; Search for a random recipes to have some inspiration 
+(request-mealDB-random-meal) ;; Search for a random recipes to have some inspiration 
 
 
 ;; 3.2.2. Mediastack API (https://mediastack.com/documentation)

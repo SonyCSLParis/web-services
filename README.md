@@ -173,12 +173,12 @@ The Datamuse API is a word-finding query engine for developers. You can use it i
 
 ### 3. KG APIs :
 
-#### 3.1. MediaWiki API(https://www.wikidata.org/wiki/Wikidata:WikiProject_Documentation): 
+#### 3.1. MediaWiki API (https://www.wikidata.org/wiki/Wikidata:WikiProject_Documentation): 
 
     * (search-wikipedia "Steve McQueen")
       Function to search for a token in Wikipedia. To query just insert as an argument the string you are looking for. 
  
-#### 3.2. Wikidata API(https://www.wikidata.org/wiki/Wikidata:WikiProject_Documentation):
+#### 3.2. Wikidata API (https://www.wikidata.org/wiki/Wikidata:WikiProject_Documentation):
 
     * (search-entity-in-wikidata "Steve McQueen" ) 
       Function to search for a token in Wikidata. To use it, just insert as an argument the string you are looking for. 

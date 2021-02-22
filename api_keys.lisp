@@ -15,7 +15,6 @@
 ;;=========================================================================
 
 (in-package :web-services)
-(import '(get-api-entry get-api-key reset-api-keys set-api-key set-api-keys))
 
 ;; Interface for handling API-KEYS:
 ;; -------------------------------------------------------------------------
@@ -52,10 +51,4 @@
       (set-api-key (first args) (second args))
       (eval (cons 'set-api-keys (subseq args 2))))))
 
-;; Please replace these API keys with your own:
-(set-api-keys :google-knowledge-graph "AIzaSyDR9MVg0_Zh6QrKD3M7SzZqQJ9Tn9I7GxY"
-              :merriam-webster "8fe92f45-0f31-4ec1-8b3f-c11cb403d657"
-              :words "ef0b0b01fbmshe99d52e360999bcp116ad7jsn90dcbb775019"
-              :mediastack "357acde6d8d40889c97558fc6581649e"
-              :MealDB "1")
 
