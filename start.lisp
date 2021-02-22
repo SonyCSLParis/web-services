@@ -79,15 +79,12 @@
 ;; 3.1.2. Merriam Webster APIs (https://www.dictionaryapi.com/products/json, https://dictionaryapi.com/products/api-collegiate-thesaurus)
 
 ;;request a definition from the Merriam-Webster dictionary 
-(request-merriam-webster-dictionary "singer")
-
-;;request a definition from the Merriam-Webster thesaurus 
-(request-merriam-webster-thesaurus "singer")
-
+(request-merriam-webster "collegiate" "singer")
 
 ;; 3.1.3. Datamuse API (http://www.datamuse.com/api/?ref=producthunt)
 
 (request-datamuse :related-to "duck" :start-by "b*" :limit "2") ;;  Search all tokens semantically related to a particular token and start by a given letter in Datamuse. Return a fixed number of results.  
+
 (request-datamuse :rhyme "vice") ;; Search all tokens semantically related to a particular token in Datamuse.
 
 (request-datamuse :rhyme "vice" :related-to "food") ;; Search a token semantically related to another particular token in Datamuse.

@@ -19,6 +19,7 @@
 (in-package :web-services)
 
 (export '(request-merriam-webster))
+(import '(clean-request))
 
 ;; ---------------------------------------------------------------------------------------------------------------------------------------------------
 ;; Merriam Webster
@@ -38,9 +39,6 @@
                  :additional-headers additional-headers
                  :parameters `(("key" . ,(get-api-key :merriam-webster))
                                ,@parameters))))
-;; Example:
-;; --------
-;; (request-merriam-webster "collegiate" "singer")
 
 ;; Remi: All of the helper functions were doing the exact same thing but only changed which ressource was
 ;;       used. So I defined the following macro, which generates the defuns so we don't have to write them
@@ -79,4 +77,4 @@
 
 
 ;; And you can always test what a macro creates by calling macroexpand-1 as follows:
-;; (macroexpand-1 '(define-merriam-webster-helper-functions ((request-merriam-webster-collegiate-dictionary "collegiate"))))
+;;(macroexpand-1 '(define-merriam-webster-helper-functions ((request-merriam-webster-collegiate-dictionary "collegiate"))))
