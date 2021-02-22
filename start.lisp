@@ -24,7 +24,7 @@
 ;; The goal of this package is to interface Babel with different web services APIs. The different APIs can be queried using some specific functions which send a request to the APIs specified and encode the results into a Lisp list. 
 
 ;; +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-;; 1.2. Installation
+;; 1.1. Installation
 ;; +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 ;; After you obtained your API-keys, you need to install the three dependencies of this package:
@@ -33,10 +33,10 @@
    ;; Yason (can be installed using Quicklisp, see https://github.com/phmarek/yason)
    ;; Cl-ppcre (can be installed using Quicklisp, see http://edicl.github.io/cl-ppcre/)
 
-;;
+;; 
 
 ;; +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-;; 1.1 Getting your own API Keys
+;; 1.2. Getting your own API Keys
 ;; +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 ;; Please note, in order to use some functionalities of this package, you would need to have some API keys. This would be necessary to request data from the Words API, the Merriam-Webster Dictionary API, the MealDB API, the Mediastack API and the Google Knowledge Graph APIs. For these APIs you will you have to specify your personal "API key" to send the request.
@@ -116,12 +116,12 @@
 (request-mealDB-filter :ingredient "Tuna") ;; Search for a recipe in the MealDB with a main ingredient X
 (request-mealDB-hungry-random) ;; Search for a random recipes to have some inspiration 
 
+;; 3.2.2. Mediastack API (https://mediastack.com/documentation)
 
-;; 3.2.2. MealDB API (https://mediastack.com/documentation)
-
-;; newspapers - Mediastack 
 (request-Mediastack-live-news "Barcelona" :categories "sport" :languages "it" :countries "it" :limit "2" :sort "published_asc") ;; it won't work for now because we have a free plan --> upgrade to use it
-(request-Mediastack-historical-news "Barcelona" :date "29-01-20" :sources "cnn" :categories "sport" :countries "us" :languages "en" :limit "2":sort "published_asc") ;; it won't work for now because we have a free plan --> upgrade to use it. 
+;; Search for all the News related to the Barcelona footbal team published across Italian news outlets in the category sport and which has as language italian. For efficiency, you can limit your request to a certain number of results (for example, here the :limit is set at 2).
+(request-Mediastack-historical-news "Barcelona" :date "29-01-21" :sources "cnn" :categories "sport" :countries "us" :languages "en" :limit "2":sort "published_asc") ;; it won't work for now because we have a free plan --> upgrade to use it.
+;; Search for all the News related to the Barcelona footbal team published by the CNN at a certain date (here 29 January 2021) in the category sport and which has as language english. For efficiency, you can limit your request to a certain number of results. 
 
 
 ;; -------------------------------------------------------------------------------------------------------------
@@ -130,20 +130,19 @@
 
 ;; 3.3.1. MediaWiki API (https://www.wikidata.org/wiki/Wikidata:WikiProject_Documentation)
 
-(request-wikipedia "Steve McQueen")
+(request-wikipedia "Steve McQueen") ;; Function to search for a token in Wikipedia. To query just insert as an argument the string you are looking for. 
 
 ;; 3.3.2. Wikidata API(https://www.wikidata.org/wiki/Wikidata:WikiProject_Documentation)
 
-(request-wikidata-entity "Steve McQueen") ;; function to search for a token in Wikidata. To use it, just insert as an argument the string you are looking for.
+(request-wikidata-entity "Steve McQueen") ;; Function to search for a token in Wikidata. To use it, just insert as an argument the string you are looking for. 
 
-(request-wikidata-URI "Q159347") ;; function to get all statements for a particular URI in Wikidata. To use it, just insert as an argument the URI you are looking for. For more information about URI in Wikidata, please see https://www.wikidata.org/wiki/Help:Statements 
-
+(request-wikidata-URI "Q159347") ;; Function to get all statements for a particular URI in Wikidata. To use it, just insert as an argument the URI you are looking for. For more information about URI in Wikidata, please see https://www.wikidata.org/wiki/Help:Statements 
 
 ;; 3.3.3. Google Knowledge Graph API (https://developers.google.com/knowledge-graph)
 
-(request-google-knowledge-graph "Steve McQueen" :types "person") ;; function to search a token in the Google Knowledge Graph APIs while specifying the type. To use it, just insert as an argument the string you are looking for.
+(request-google-knowledge-graph "Steve McQueen" :types "person") ;;Function to search a token in the Google Knowledge Graph APIs while specifying the type. To use it, just insert as an argument the string you are looking for.
 
 
 ;; 3.3.4. Catasto Datastories (https://stories.datalegend.net/catasto/)
 
-(request-catasto) ;; function to access a saved SPARQL query on the Catasto dataset. The endpoint to call is shown under "API Variable".
+(request-catasto) ;; Function to access a saved SPARQL query on the Catasto dataset. The endpoint to call is shown under "API Variable".

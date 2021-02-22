@@ -49,7 +49,7 @@ For the Words API: https://www.wordsapi.com for the Words Dictionary API.
 
        * For the Merriam-Webster Dictionary: https://dictionaryapi.com/register/index
 
-       * For the Mediastack API: https://mediastack.com/quickstart for the Mediastack API.
+       * For the Mediastack API: https://mediastack.com/quickstart for the Mediastack API. For using all the functionalities of this API, the free basic plan is not enough. Please make sure you are using the Standard Plan or higher.
 
        * For the MealDB API:  https://www.themealdb.com/api.php for the MealDB API.
 
@@ -151,6 +151,12 @@ The Datamuse API is a word-finding query engine for developers. You can use it i
      Search for a random recipes to have some inspiration
         
 #### 2.2. Mediastack API (https://mediastack.com/documentation)
+
+    * (request-Mediastack-live-news "Barcelona" :categories "sport" :languages "it" :countries "it" :limit "2" :sort "published_asc") 
+     Search for all the News related to the Barcelona footbal team published across Italian news outlets in the category sport and which has as language italian. For efficiency, you can limit your request to a certain number of results (for example, here the :limit is set at 2).
+
+    * (request-Mediastack-historical-news "Barcelona" :date "29-01-20" :sources "cnn" :categories "sport" :countries "us" :languages "en" :limit "2":sort "published_asc")
+    Search for all the News related to the Barcelona footbal team published by the CNN at a certain date (here 29 January 2021) in the category sport and which has as language english. For efficiency, you can limit your request to a certain number of results. 
 
 
 ### 3. KG APIs :
