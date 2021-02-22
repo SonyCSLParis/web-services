@@ -37,7 +37,7 @@ Please note, in order to use some functionalities of this package, you would nee
 
 For information about they can be obtained, please see :
 
-For the Words API: https://www.wordsapi.com for the Words Dictionary API.
+       * For the Words API: https://www.wordsapi.com for the Words Dictionary API.
 
        * For the Merriam-Webster Dictionary: https://dictionaryapi.com/register/index
 
