@@ -72,14 +72,13 @@
 
 ;; 3.1.1. Words API (https://www.wordsapi.com/docs/)
 
-;; request a definition from the words API
-(request-words-api "singer")
+(request-words-api "singer") ;; request a definition from the words API
 
 
 ;; 3.1.2. Merriam Webster APIs (https://www.dictionaryapi.com/products/json, https://dictionaryapi.com/products/api-collegiate-thesaurus)
 
-;;request a definition from the Merriam-Webster dictionary 
-(request-merriam-webster "collegiate" "singer")
+(request-merriam-webster "collegiate" "singer") ;;request a definition from the Merriam-Webster Collegiate dictionary 
+
 
 ;; 3.1.3. Datamuse API (http://www.datamuse.com/api/?ref=producthunt)
 
@@ -116,6 +115,7 @@
 (request-mealDB-filter :country "Italian") ;;Search for all the meals traditional of a particular country
 
 (request-mealDB-filter :ingredient "Tuna") ;; Search for a recipe in the MealDB with a main ingredient X
+
 (request-mealDB-hungry-random) ;; Search for a random recipes to have some inspiration 
 
 
@@ -137,9 +137,9 @@
 (request-wikipedia "Steve McQueen") ;; Function to search for a token in Wikipedia. To query just insert as an argument the string you are looking for. 
 
 
-;; 3.3.2. Wikidata API(https://www.wikidata.org/wiki/Wikidata:WikiProject_Documentation)
+;; 3.3.2. Wikidata API (https://www.wikidata.org/wiki/Wikidata:WikiProject_Documentation)
 
-(request-wikidata-entity "Steve McQueen") ;; Function to search for a token in Wikidata. To use it, just insert as an argument the string you are looking for. 
+(request-wikidata-entity "Steve McQueen" :language "en") ;; Function to search for a token in Wikidata. To use it, just insert as an argument the string you are looking for. 
 
 (request-wikidata-URI "Q159347") ;; Function to get all statements for a particular URI in Wikidata. To use it, just insert as an argument the URI you are looking for. For more information about URI in Wikidata, please see https://www.wikidata.org/wiki/Help:Statements 
 
