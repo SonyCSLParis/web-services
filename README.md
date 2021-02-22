@@ -54,17 +54,21 @@ To use the package, you would need to :
   
     * Open the "web-services.asd" file in your editor. 
 
-    Start by evaluating (in-package :asdf). If it works you should see "=> #<The ASDF/INTERFACE package, 23/32 internal, 230/256 external>" at the bottom of your screen.  
+    Start by evaluating (in-package :asdf). 
+    If it works you should see "=> #<The ASDF/INTERFACE package, 23/32 internal, 230/256 external>" at the bottom of your screen.  
 
-    Later evaluate the (defsystem :web-services). If it works, you should see "=> #<ASDF/SYSTEM:SYSTEM "web-services">" at the bottom of your screen
+    Later evaluate the (defsystem :web-services). 
+    If it works, you should see "=> #<ASDF/SYSTEM:SYSTEM "web-services">" at the bottom of your screen
 
 
     * Open the "package.lisp" file in your editor. 
 
-    Start by loading the dependencies of this package by evaluating (ql:quickload :drakma), (ql:quickload :yason), (ql:quickload :utils). 
+    Start by loading the dependencies of this package by evaluating (ql:quickload :drakma), 
+    (ql:quickload :yason), (ql:quickload :utils). 
     If it works, you should see respectively "=> (:DRAKMA)", "=> (:YASON)" and "=> (:UTILs)"" at the bottom of your screen. 
 
-    Secondly, evaluate (in-package :common-lisp-user). If it works, you should see "=> #<The COMMON-LISP-USER package, 74/128 internal, 1/4 external>" at the bottom of your screen.
+    Secondly, evaluate (in-package :common-lisp-user). 
+    If it works, you should see "=> #<The COMMON-LISP-USER package, 74/128 internal, 1/4 external>" at the bottom of your screen.
 
 
     * Open the "start.lisp" file in your editor. 
@@ -154,10 +158,15 @@ The Datamuse API is a word-finding query engine for developers. You can use it i
 #### 2.2. Mediastack API (https://mediastack.com/documentation)
 
     * (request-Mediastack-live-news "Barcelona" :categories "sport" :languages "it" :countries "it" :limit "2" :sort "published_asc") 
-      Search for all the News related to the Barcelona football team published across Italian news outlets in the category sport and which has as language Italian. For efficiency, you can limit your request to a certain number of results (for example, here the :limit is set at 2).
+      Search for all the News related to the Barcelona football team published across Italian news outlets 
+      in the category sport and which has as language Italian. 
+      For efficiency, you can limit your request to a certain number of results (for example, 
+      here the :limit is set at 2).
 
     * (request-Mediastack-historical-news "Barcelona" :date "29-01-20" :sources "cnn" :categories "sport" :countries "us" :languages "en" :limit "2":sort "published_asc")
-     Search for all the News related to the Barcelona football team published by CNN at a certain date (here 29 January 2021) in the category sport and which has as language English. For efficiency, you can limit your request to a certain number of results. 
+     Search for all the News related to the Barcelona football team published by CNN at a certain date (here 29 January 2021) 
+     in the category sport and which has as language English. 
+     For efficiency, you can limit your request to a certain number of results. 
 
 
 ### 3. KG APIs :
@@ -173,16 +182,20 @@ The Datamuse API is a word-finding query engine for developers. You can use it i
       Function to search for a token in Wikidata. To use it, just insert as an argument the string you are looking for. 
     
     * (get-wikidata-entity "Q159347")
-      Function to get all statements for a particular URI in Wikidata. To use it, just insert as an argument the URI you are looking for. For more information about URI in Wikidata, please see https://www.wikidata.org/wiki/Help:Statements 
+      Function to get all statements for a particular URI in Wikidata. 
+      To use it, just insert as an argument the URI you are looking for. 
+      For more information about URI in Wikidata, please see https://www.wikidata.org/wiki/Help:Statements 
     
 #### 3.3. Google Knowledge Graph API (https://developers.google.com/knowledge-graph): 
 
     * (request-google-knowledge-graph "Steve McQueen" :types "person")
-      Function to search a token in the Google Knowledge Graph APIs while specifying the type. To use it, just insert as an argument the string you are looking for.
+      Function to search a token in the Google Knowledge Graph APIs while specifying the type. 
+      To use it, just insert as an argument the string you are looking for.
 
 #### 3.4. Catasto Datastories (https://stories.datalegend.net/catasto/): 
 
 Data that are accessible in the linked data version of the Florentine Catasto of 1427 available on Druid. 
 
     * (request-catasto)
-       Function to access a saved SPARQL query on the Catasto dataset. The endpoint to call is shown under "API Variable".
+       Function to access a saved SPARQL query on the Catasto dataset. 
+       The endpoint to call is shown under "API Variable".
