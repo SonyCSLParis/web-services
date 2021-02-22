@@ -18,39 +18,29 @@
 (in-package :web-services)
 
 ;; +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-;; 1. Introduction and Installation.
-;; +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-;; The goal of this package is to interface Babel with different web services APIs. The different APIs can be queried using some specific functions which send a request to the APIs specified and encode the results into a Lisp list.
-
-;; +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ;; 1. Getting Started
 ;; +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 ;; To use the package, you would need to : 
-  
-    ;; -  Open the "web-services.asd" file in your editor and evaluate it, starting by (in-package :asdf) and later by (defsystem :web-services).
 
-    ;; -  open the "package.lisp" file in your editor and evaluate it, making sure to starting by loading the dependencies of this packages by evaluate (ql:quickload :drakma) and (ql:quickload :yason).
+    ;; Open the "web-services.asd" file in your editor.
+    ;; Start by evaluating (in-package :asdf).
+    ;; Later evaluate the (defsystem :web-services).
 
-    ;; Please note, in order to use some functionalities of this package, you would need to have some API keys. This would be necessary to request data from the Words API, the Merriam-Webster Dictionary API, the MealDB API, the Mediastack API and the Google Knowledge Graph APIs. For these APIs you will you have to specify your personal "API key" to send the request.
+    ;; Open the "package.lisp" file in your editor.
+    ;; Start by evaluating (ql:quickload :drakma), (ql:quickload :yason), (ql:quickload :utils).
+    ;; Secondly, evaluate (in-package :common-lisp-user). 
 
-;; For information about they can be obtained, please see :
+    ;; Please note, in order to use some functionalities of this package, you would need to have your API keys. This would be necessary to request data from the Words API, the Merriam-Webster Dictionary API, the MealDB API, the Mediastack API and the Google Knowledge Graph APIs. For information on how to obtain them, please see the "Getting your own API Keys" section at https://github.com/SonyCSLParis/web-services
 
-       ;; For the Words API: https://www.wordsapi.com for the Words Dictionary API.
-
-       ;; For the Merriam-Webster Dictionary: https://dictionaryapi.com/register/index
-
-       ;; For the Mediastack API: https://mediastack.com/quickstart for the Mediastack API.
-
-       ;; For the MealDB API:  https://www.themealdb.com/api.php for the MealDB API.
-
-       ;; For the Google Knowledge Graph API: https://developers.google.com/knowledge-graph/how-tos/authorizing
-
-;; Once you obtained them, you need to copy paste them in the api_keys.lisp file that you can find in the main directory and save your edits.
+;; Please replace these API keys with yours:
+(set-api-keys :google-knowledge-graph "AIzaSyDR9MVg0_Zh6QrKD3M7SzZqQJ9Tn9I7GxY"
+              :merriam-webster "8fe92f45-0f31-4ec1-8b3f-c11cb403d657"
+              :words "ef0b0b01fbmshe99d52e360999bcp116ad7jsn90dcbb775019"
+              :mediastack "357acde6d8d40889c97558fc6581649e"
+              :MealDB "1")
 
 ;; Now you are ready to go.
-;; You can start by evaluating the different example functions contained in the start.lisp file, such as (request-words-api "singer") for example, and try to play around and change the different request you want to make. 
 
 ;; +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ;; 2. Functionalities
@@ -58,12 +48,6 @@
 
 ;; Here, you can find a description of the different functions available in the package and how you could use them with some specific examples. If you comments, remarks, please feel free to reach out to martina.galletti@sony.com
 
-;; Please replace these API keys with your own:
-(set-api-keys :google-knowledge-graph "AIzaSyDR9MVg0_Zh6QrKD3M7SzZqQJ9Tn9I7GxY"
-              :merriam-webster "8fe92f45-0f31-4ec1-8b3f-c11cb403d657"
-              :words "ef0b0b01fbmshe99d52e360999bcp116ad7jsn90dcbb775019"
-              :mediastack "357acde6d8d40889c97558fc6581649e"
-              :MealDB "1")
 
 ;; -------------------------------------------------------------------------
 ;; 3.1. Some example of searches for dictionaries and thesaurus
