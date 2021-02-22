@@ -16,7 +16,7 @@
 
 (in-package :web-services)
 
-(export '(set-api-key set-api-keys get-api-keys reset-api-keys))
+(export '(*api-keys* get-api-entry get-api-key reset-api-keys set-api-key set-api-keys))
 
 ;; Interface for handling API-KEYS:
 ;; -------------------------------------------------------------------------
@@ -26,7 +26,7 @@
 (defun get-api-entry (service &optional (keychain *api-keys*))
   "Function that knows how to find a service and its API from the keychain."
   (assoc service keychain))
-;; (get-api-entry :google-knowledge-graph)
+;;(get-api-entry :google-knowledge-graph)
 
 (defun get-api-key (service &optional (keychain *api-keys*))
   "Central function that retrieves API keys using a service name."

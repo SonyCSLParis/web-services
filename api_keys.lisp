@@ -15,6 +15,8 @@
 ;;=========================================================================
 
 (in-package :web-services)
+(import '(get-api-entry get-api-key reset-api-keys set-api-key set-api-keys))
+
 
 ;; Please replace these API keys with your own:
 (set-api-keys :google-knowledge-graph "AIzaSyDR9MVg0_Zh6QrKD3M7SzZqQJ9Tn9I7GxY"

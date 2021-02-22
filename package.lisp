@@ -15,6 +15,7 @@
 ;;=========================================================================
 (ql:quickload :drakma)
 (ql:quickload :yason)
+(ql:quickload :utils)
 
 (in-package :common-lisp-user)
 (defpackage :web-services
