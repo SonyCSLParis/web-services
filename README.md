@@ -53,17 +53,34 @@ Once you obtained them, you need to copy paste them in the api_keys.lisp file th
 
 To use the package, you would need to : 
   
-    * open the "web-services.asd" file in your editor and evaluate it, starting by (in-package :asdf) and later by (defsystem :web-services).
+    * Open the "web-services.asd" file in your editor. 
 
-    * open the "package.lisp" file in your editor and evaluate it, making sure to starting by loading the dependencies of this packages by evaluate (ql:quickload :drakma) and (ql:quickload :yason). 
+    Start by evaluating (in-package :asdf). If it works you should see "=> #<The ASDF/INTERFACE package, 23/32 internal, 230/256 external>" at the bottom of your screen.  
 
-    * open the "start.lisp" file in your editor. First, evaluate the (ql:quickload :web-services), you should see :=> (:WEB-SERVICES) at the bottom of your screen. Secondly, evaluate (in-package :web-services), you should see => #<The WEB-SERVICES package, 105/128 internal, 18/64 external> at the bottom of your screen. 
-    Now you are ready to go.
-    You can start by evaluating the different example functions contained in the start.lisp file, such as (request-words-api "singer") for example, and try to play around and change the different request you want to make. 
+    Later evaluate the (defsystem :web-services). If it works, you should see "=> #<ASDF/SYSTEM:SYSTEM "web-services">" at the bottom of your screen
+
+
+    * Open the "package.lisp" file in your editor. 
+
+    Start by loading the dependencies of this packages by evaluating (ql:quickload :drakma), (ql:quickload :yason), (ql:quickload :utils). If it works, you should see respectively "=> (:DRAKMA)", "=> (:YASON)" and "=> (:UTILs)"" at the bottom of your screen. 
+
+    Secondly, evaluate (in-package :common-lisp-user). If it works, yous should see "=> #<The COMMON-LISP-USER package, 74/128 internal, 1/4 external>" at the bottom of your screen.
+
+
+    * Open the "start.lisp" file in your editor. 
+
+    First, evaluate the (ql:quickload :web-services). 
+    You should see :=> (:WEB-SERVICES) at the bottom of your screen. 
+
+    Secondly, evaluate (in-package :web-services).
+    You should see => #<The WEB-SERVICES package, 105/128 internal, 18/64 external> at the bottom of your screen. 
+
+
+Now you are ready to go. You can start by evaluating the different example functions contained in the start.lisp file, such as (request-words-api "singer"), and try to play around and change the different request you want to make. 
 
 ## Functionalities
 
-Here, you can find a description of the different functions available in the package and how you could use them with some specific examples. If you comments, remarks, please feel free to reach out to martina.galletti@sony.com
+Here, you can find a description of the different functions available in the package and how you could use them with some specific examples. If you have comments, remarks, please feel free to reach out to martina.galletti@sony.com
 
 #### 1.Dictionaries and Thesaurus:
 
