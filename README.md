@@ -24,7 +24,6 @@ The APIs accessible with this package are :
     Martina Galletti - martina.galletti@sony.com 
     Dr. Remi van Trijp - remi.vantrijp@sony.com
 
-    
 ## Introduction and Installation
 
 The goal of this package is to interface Babel with different web services APIs. The different APIs can be queried using some specific functions which send a request to the APIs specified and encode the results into a Lisp list. 
@@ -83,6 +82,7 @@ Now you are ready to go. You can start by evaluating the different example funct
 
 Here, you can find a description of the different functions available in the package and how you could use them with some specific examples. If you have comments, remarks, please feel free to reach out to martina.galletti@sony.com
 
+
 #### 1.Dictionaries and Thesaurus:
 
 #####  1.1. Words API (https://www.wordsapi.com/docs/): 
@@ -131,6 +131,7 @@ The Datamuse API is a word-finding query engine for developers. You can use it i
     * (request-datamuse :frequent-follow "drink" :start-by "w*")
        Search for all the tokens that more likely follow a word-1 and start with a particular letter in Datamuse.
 
+
 ### 2. Open access APIs related to a certain area: 
 
 #### 2.1. Meal DB API (https://www.themealdb.com/api.php)
@@ -148,8 +149,8 @@ The Datamuse API is a word-finding query engine for developers. You can use it i
       Search for all the meals traditional of a particular country
 
     * (request-mealDB-hungry-random) 
-     Search for random recipes to have some inspiration
-        
+     Search for random recipes to have some inspiration        
+
 #### 2.2. Mediastack API (https://mediastack.com/documentation)
 
     * (request-Mediastack-live-news "Barcelona" :categories "sport" :languages "it" :countries "it" :limit "2" :sort "published_asc") 
