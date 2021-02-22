@@ -94,7 +94,8 @@ Here, you can find a description of the different functions available in the pac
 It's an API for the English Language which enables you to find definitions, related words, and more, with a simple RESTful API. 
 
     * (request-words-api "singer") 
-    Function to search for a particular token in Words API. To search, just insert as an argument the token whose definition you are looking for. 
+    Function to search for a particular token in Words API. 
+    To search, just insert as an argument the token whose definition you are looking for. 
  
 ##### 1.2. Merriam-Webster Dictionary and Thesaurus API (https://www.dictionaryapi.com/products/json, https://dictionaryapi.com/products/api-collegiate-thesaurus):   
 
@@ -109,7 +110,8 @@ specialized medical, Spanish, ESL, and student-friendly vocabulary.
 The Datamuse API is a word-finding query engine for developers. You can use it in your apps to find words that match a given set of constraints and that are likely in a given context. You can specify a wide variety of constraints on meaning, spelling, sound, and vocabulary in your queries, in any combination. Search all the tokens that rhyme with a certain token in Datamuse.
 
     * (request-datamuse :related-to "duck" :start-by "b*" :limit "2")
-      Search all tokens semantically related to a particular token and start with a given letter in Datamuse. Return a fixed number of results. 
+      Search all tokens semantically related to a particular token and start with a given letter in Datamuse. 
+      Return a fixed number of results. 
      
     * (request-datamuse :rhyme "vice")
       Search all tokens semantically related to a particular token in Datamuse.
@@ -160,8 +162,8 @@ The Datamuse API is a word-finding query engine for developers. You can use it i
     * (request-Mediastack-live-news "Barcelona" :categories "sport" :languages "it" :countries "it" :limit "2" :sort "published_asc") 
       Search for all the News related to the Barcelona football team published across Italian news outlets 
       in the category sport and which has as language Italian. 
-      For efficiency, you can limit your request to a certain number of results (for example, 
-      here the :limit is set at 2).
+      For efficiency, you can limit your request to a certain number of results 
+      (for example, here the :limit is set at 2).
 
     * (request-Mediastack-historical-news "Barcelona" :date "29-01-20" :sources "cnn" :categories "sport" :countries "us" :languages "en" :limit "2":sort "published_asc")
      Search for all the News related to the Barcelona football team published by CNN at a certain date (here 29 January 2021) 
