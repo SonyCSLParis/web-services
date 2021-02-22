@@ -35,20 +35,24 @@ To use the package, you would need to :
     * Open the "web-services.asd" file in your editor. 
 
     Start by evaluating (in-package :asdf). 
-    If it works you should see "=> #<The ASDF/INTERFACE package, 23/32 internal, 230/256 external>" at the bottom of your screen.  
+    If it works you should see "=> #<The ASDF/INTERFACE package, 23/32 internal, 230/256 external>" 
+    at the bottom of your screen.  
 
     Later evaluate the (defsystem :web-services). 
-    If it works, you should see "=> #<ASDF/SYSTEM:SYSTEM "web-services">" at the bottom of your screen
+    If it works, you should see "=> #<ASDF/SYSTEM:SYSTEM "web-services">" 
+    at the bottom of your screen
 
 
     * Open the "package.lisp" file in your editor. 
 
     Start by loading the dependencies of this package by evaluating (ql:quickload :drakma), 
     (ql:quickload :yason), (ql:quickload :utils). 
-    If it works, you should see respectively "=> (:DRAKMA)", "=> (:YASON)" and "=> (:UTILs)"" at the bottom of your screen. 
+    If it works, you should see respectively "=> (:DRAKMA)", "=> (:YASON)" and "=> (:UTILs)"" 
+    at the bottom of your screen. 
 
     Secondly, evaluate (in-package :common-lisp-user). 
-    If it works, you should see "=> #<The COMMON-LISP-USER package, 74/128 internal, 1/4 external>" at the bottom of your screen.
+    If it works, you should see "=> #<The COMMON-LISP-USER package, 74/128 internal, 1/4 external>" 
+    at the bottom of your screen.
 
 
     * Open the "start.lisp" file in your editor. 
@@ -57,7 +61,8 @@ To use the package, you would need to :
     You should see :=> (:WEB-SERVICES) at the bottom of your screen. 
 
     Secondly, evaluate (in-package :web-services).
-    You should see => #<The WEB-SERVICES package, 105/128 internal, 18/64 external> at the bottom of your screen. 
+    You should see => #<The WEB-SERVICES package, 105/128 internal, 18/64 external> 
+    at the bottom of your screen. 
 
 
 #### Getting your own API Keys
@@ -70,7 +75,9 @@ For information about they can be obtained, please see :
 
        * For the Merriam-Webster Dictionary: https://dictionaryapi.com/register/index
 
-       * For the Mediastack API: https://mediastack.com/quickstart for the Mediastack API. For using all the functionalities of this API, the free basic plan is not enough. Please make sure you are using the Standard Plan or higher.
+       * For the Mediastack API: https://mediastack.com/quickstart for the Mediastack API. 
+         For using all the functionalities of this API, the free basic plan is not enough. 
+         Please make sure you are using the Standard Plan or higher.
 
        * For the MealDB API:  https://www.themealdb.com/api.php for the MealDB API.
 
