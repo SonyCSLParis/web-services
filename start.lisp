@@ -18,35 +18,48 @@
 (in-package :web-services)
 
 ;; +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-;; 1. Introduction and the explanation of goal of the package.
+;; 1. Introduction and Installation.
 ;; +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 ;; The goal of this package is to interface Babel with different web services APIs. The different APIs can be queried using some specific functions which send a request to the APIs specified and encode the results into a Lisp list. 
 
-;; Please note, for the Google Knowledge Graph APIs, the Mediastack APIs, the Words API, the MealDB API and the Merriam-Webster Dictionary API, you have to specify your personal "API key" to send the request. For information about they can be obtained, please see : 
+;; +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+;; 1.2. Installation
+;; +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+;; After you obtained your API-keys, you need to install the three dependencies of this package:
+
+   ;; Drakma (can be installed using Quicklisp, see https://edicl.github.io/drakma/)
+   ;; Yason (can be installed using Quicklisp, see https://github.com/phmarek/yason)
+   ;; Cl-ppcre (can be installed using Quicklisp, see http://edicl.github.io/cl-ppcre/)
+
+;;
+
+;; +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+;; 1.1 Getting your own API Keys
+;; +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+;; Please note, in order to use some functionalities of this package, you would need to have some API keys. This would be necessary to request data from the Words API, the Merriam-Webster Dictionary API, the MealDB API, the Mediastack API and the Google Knowledge Graph APIs. For these APIs you will you have to specify your personal "API key" to send the request.
+
+;; For information about they can be obtained, please see :
+
+       ;; For the Words API: https://www.wordsapi.com for the Words Dictionary API.
 
        ;; For the Merriam-Webster Dictionary: https://dictionaryapi.com/register/index
-
-       ;; For the Google Knowledge Graph API: https://developers.google.com/knowledge-graph/how-tos/authorizing
 
        ;; For the Mediastack API: https://mediastack.com/quickstart for the Mediastack API.
 
        ;; For the MealDB API:  https://www.themealdb.com/api.php for the MealDB API.
 
-       ;; For the Words API: https://www.wordsapi.com for the Words Dictionary API.
+       ;; For the Google Knowledge Graph API: https://developers.google.com/knowledge-graph/how-tos/authorizing
 
 ;; Once you obtained them, you need to copy paste them in the api_keys.lisp file that you can find in the main directory and evaluate them by pressing ctrl+x+e.
 
 ;; +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-;; 2. Installation
+;; 3. Functionalities
 ;; +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-
-
-
-;; +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-;; 3. Functionality (interface to your package, how to use it, examples
-;; +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+;; Here, you can find a description of the different functions available in the package and how you could use them with some specific examples. If you comments, remarks, please feel free to reach out to martina.galletti@sony.com
 
 ;; -------------------------------------------------------------------------
 ;; 3.1. Some example of searches for dictionaries and thesaurus
