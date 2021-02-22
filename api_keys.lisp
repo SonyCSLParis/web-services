@@ -16,9 +16,6 @@
 
 (in-package :web-services)
 
-;; Interface for handling API-KEYS:
-;; -------------------------------------------------------------------------
-
 (defparameter *api-keys* nil "Keychain for APIs.")
 
 (defun get-api-entry (service &optional (keychain *api-keys*))
