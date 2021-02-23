@@ -94,7 +94,7 @@ To use the package, you would need to :
     If it works, you should see "=> #<The WEB-SERVICES package, 105/128 internal, 18/64 external>"
     at the bottom of your screen. 
 
-Now you are ready to go. Start by evaluating the (ql:quickload :web-services) and (in-package :web-services). Then try out the different functions available in the package.
+Now you are ready to go. You can try out the different functions available in the package.
 
 ## Functionalities
 
