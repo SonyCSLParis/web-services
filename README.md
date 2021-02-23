@@ -28,6 +28,26 @@ The APIs accessible with this package are :
 
 The goal of this package is to interface Babel with different web services APIs. The different APIs can be queried using some specific functions which send a request to the APIs specified and encode the results into a Lisp list. 
 
+### Getting your own API Keys
+
+Please note, to use some functionalities of this package, you would need to have some API keys. This would be necessary to request data from the Words API, the Merriam-Webster Dictionary API, the MealDB API, the Mediastack API, and the Google Knowledge Graph APIs. For these APIs, you will have to specify your personal "API key" to send the request.  
+
+For information about they can be obtained, please see :
+
+       * For the Words API: https://www.wordsapi.com for the Words Dictionary API.
+
+       * For the Merriam-Webster Dictionary: https://dictionaryapi.com/register/index
+
+       * For the Mediastack API: https://mediastack.com/quickstart for the Mediastack API. 
+         For using all the functionalities of this API, the free basic plan is not enough. 
+         Please make sure you are using the Standard Plan or higher.
+
+       * For the MealDB API:  https://www.themealdb.com/api.php for the MealDB API.
+
+       * For the Google Knowledge Graph API: https://developers.google.com/knowledge-graph/how-tos/authorizing
+
+Once you obtained them, you need to copy-paste them in the api_keys.lisp file (at "set-api-keys") and save them.
+
 ### Getting Started
 
 To use the package, you would need to : 
@@ -41,7 +61,6 @@ To use the package, you would need to :
     Later evaluate the (defsystem :web-services). 
     If it works, you should see "=> #<ASDF/SYSTEM:SYSTEM "web-services">" 
     at the bottom of your screen
-
 
     * Open the "package.lisp" file in your editor. 
 
@@ -64,28 +83,7 @@ To use the package, you would need to :
     You should see => #<The WEB-SERVICES package, 105/128 internal, 18/64 external> 
     at the bottom of your screen. 
 
-
-#### Getting your own API Keys
-
-Please note, to use some functionalities of this package, you would need to have some API keys. This would be necessary to request data from the Words API, the Merriam-Webster Dictionary API, the MealDB API, the Mediastack API, and the Google Knowledge Graph APIs. For these APIs, you will have to specify your personal "API key" to send the request.  
-
-For information about they can be obtained, please see :
-
-       * For the Words API: https://www.wordsapi.com for the Words Dictionary API.
-
-       * For the Merriam-Webster Dictionary: https://dictionaryapi.com/register/index
-
-       * For the Mediastack API: https://mediastack.com/quickstart for the Mediastack API. 
-         For using all the functionalities of this API, the free basic plan is not enough. 
-         Please make sure you are using the Standard Plan or higher.
-
-       * For the MealDB API:  https://www.themealdb.com/api.php for the MealDB API.
-
-       * For the Google Knowledge Graph API: https://developers.google.com/knowledge-graph/how-tos/authorizing
-
-Once you obtained them, you need to copy-paste them in the start.lisp file (at "set-api-keys") and evaluate the function.
-
-Now you are ready to go. 
+Now you are ready to go.
 
 ## Functionalities
 

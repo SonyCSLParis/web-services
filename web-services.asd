@@ -18,10 +18,9 @@
   :description "A system querying APIs in Common Lisp"
   :depends-on (:utils :drakma :yason :cl-ppcre :test-framework)
   :components ((:file "package")
+               (:file "general_request")
+               (:file "helper_keys")
                (:file "api_keys")
-   ;; All files
-   (:module helper
-    :components ((:file "general_request")))           
    ;; Helper functions
    (:module dictionaries
     :components ((:file "datamuse")

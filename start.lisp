@@ -13,7 +13,6 @@
 ;; See the License for the specific language governing permissions and
 ;; limitations under the License.
 ;;=========================================================================
-
 (ql:quickload :web-services)
 (in-package :web-services)
 
@@ -33,13 +32,6 @@
 
     ;; Please note, in order to use some functionalities of this package, you would need to have your API keys. This would be necessary to request data from the Words API, the Merriam-Webster Dictionary API, the MealDB API, the Mediastack API and the Google Knowledge Graph APIs. For information on how to obtain them, please see the "Getting your own API Keys" section at https://github.com/SonyCSLParis/web-services
 
-;; Please replace these API keys with yours:
-(set-api-keys :google-knowledge-graph "AIzaSyDR9MVg0_Zh6QrKD3M7SzZqQJ9Tn9I7GxY"
-              :merriam-webster "8fe92f45-0f31-4ec1-8b3f-c11cb403d657"
-              :words "ef0b0b01fbmshe99d52e360999bcp116ad7jsn90dcbb775019"
-              :mediastack "357acde6d8d40889c97558fc6581649e"
-              :MealDB "1")
-
 ;; Now you are ready to go.
 
 ;; +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -48,11 +40,9 @@
 
 ;; Here, you can find a description of the different functions available in the package and how you could use them with some specific examples. If you comments, remarks, please feel free to reach out to martina.galletti@sony.com
 
-
 ;; -------------------------------------------------------------------------
 ;; 3.1. Some example of searches for dictionaries and thesaurus
 ;; -------------------------------------------------------------------------
-
 
 ;; 3.1.1. Words API (https://www.wordsapi.com/docs/)
 
