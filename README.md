@@ -158,7 +158,8 @@ The Datamuse API is a word-finding query engine for developers. You can use it i
 
 #### 2.1. Food : Meal DB API (https://www.themealdb.com/api.php)
 
-Relevant module: "food"
+Relevant module: "food".
+The MealDB API is an open, crowd-sourced database of Recipes from around the world.
 
     * (request-mealDB "Carbonara")
       Search for a Recipe in the MealDB
@@ -177,7 +178,8 @@ Relevant module: "food"
 
 #### 2.2. News : Mediastack API (https://mediastack.com/documentation)
 
-Relevant module: "news"
+Relevant module: "news".
+The Mediastack API is a Free, Simple REST API for Live News & Blog Articles. It offers scalable JSON API delivering worldwide news, headlines and blog articles in real-time
 
     * (request-Mediastack-live-news "Barcelona" :categories "sport" :languages "it" :countries "it" :limit "2" :sort "published_asc") 
       Search for all the News related to the Barcelona football team published across Italian news outlets 
@@ -195,12 +197,16 @@ Relevant module: "news"
 
 Relevant module: "kg"
 
-#### 3.1. MediaWiki API (https://www.wikidata.org/wiki/Wikidata:WikiProject_Documentation): 
+#### 3.1. MediaWiki API (https://www.mediawiki.org/wiki/API:Main_page): 
+
+The MediaWiki Action API is a web service that allows access to some wiki-features like authentication, page operations, and search. It can provide meta information about the wiki and the logged-in user. 
 
     * (search-wikipedia "Steve McQueen")
       Function to search for a token in Wikipedia. To query just insert as an argument the string you are looking for. 
  
 #### 3.2. Wikidata API (https://www.wikidata.org/wiki/Wikidata:WikiProject_Documentation):
+
+Wikidata is a free and open knowledge base that can be read and edited by both humans and machines. Wikidata acts as central storage for the structured data of its Wikimedia sister projects including Wikipedia, Wikivoyage, Wiktionary, Wikisource, and others. 
 
     * (search-entity-in-wikidata "Steve McQueen" ) 
       Function to search for a token in Wikidata. To use it, just insert as an argument the string you are looking for. 
@@ -211,6 +217,8 @@ Relevant module: "kg"
       For more information about URI in Wikidata, please see https://www.wikidata.org/wiki/Help:Statements 
     
 #### 3.3. Google Knowledge Graph API (https://developers.google.com/knowledge-graph): 
+
+The Knowledge Graph Search API lets you find entities in the Google Knowledge Graph. The API uses standard schema.org types and is compliant with the JSON-LD specification.
 
     * (request-google-knowledge-graph "Steve McQueen" :types "person")
       Function to search a token in the Google Knowledge Graph APIs while specifying the type. 
