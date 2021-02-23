@@ -99,7 +99,7 @@ Now you are ready to go. You can try out the different functions available in th
 
 ## Functionalities
 
-Here, you can find a description of the different functions available in the package and how you could use them with some specific examples. If you have comments, remarks, please feel free to reach out to martina.galletti@sony.com
+Here, you can find a description of the different functions available in the package and how you could use them with some specific examples. If you have comments, remarks, please feel free to contact us directly at martina.galletti@sony.com or remi.vantrijp@sony.com 
 
 #### 1.Dictionaries and Thesaurus:
 
