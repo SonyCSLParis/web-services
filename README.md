@@ -55,7 +55,7 @@ To use the package, you would need to :
     * Open the "web-services.asd" file in your editor. 
 
     Start by evaluating (in-package :asdf). 
-    If it works you should see "=> #<The ASDF/INTERFACE package, 23/32 internal, 230/256 external>" 
+    If it works, you should see "=> #<The ASDF/INTERFACE package, 23/32 internal, 230/256 external>" 
     at the bottom of your screen.  
 
     Later evaluate the (defsystem :web-services). 
@@ -73,14 +73,13 @@ To use the package, you would need to :
     If it works, you should see "=> #<The COMMON-LISP-USER package, 74/128 internal, 1/4 external>" 
     at the bottom of your screen.
 
-
     * Open the "start.lisp" file in your editor. 
 
     First, evaluate the (ql:quickload :web-services). 
-    You should see :=> (:WEB-SERVICES) at the bottom of your screen. 
+    If it works, you should see ":=> (:WEB-SERVICES)"" at the bottom of your screen. 
 
     Secondly, evaluate (in-package :web-services).
-    You should see => #<The WEB-SERVICES package, 105/128 internal, 18/64 external> 
+    If it works, you should see "=> #<The WEB-SERVICES package, 105/128 internal, 18/64 external>"
     at the bottom of your screen. 
 
 Now you are ready to go.
