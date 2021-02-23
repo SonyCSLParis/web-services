@@ -1,6 +1,6 @@
 # Web-Services
 
-A Package to search for data in different open-access APIs in Common Lisp. 
+A package to request data from different APIs in Common Lisp. 
 
 ## Contributors:
 
@@ -197,7 +197,7 @@ The Mediastack API is a Free, Simple REST API for Live News & Blog Articles. It 
 
 Relevant module: "kg"
 
-#### 3.1. MediaWiki API (https://www.mediawiki.org/wiki/API:Main_page): 
+#### 3.1. Wikipedia API (https://en.wikipedia.org/w/api.php): 
 
 The MediaWiki Action API is a web service that allows access to some wiki-features like authentication, page operations, and search. It can provide meta information about the wiki and the logged-in user. 
 
