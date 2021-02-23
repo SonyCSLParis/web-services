@@ -74,16 +74,17 @@ To use the package, you would need to :
 
     * Open the "package.lisp" file in your editor. 
 
-    Start by loading the dependencies of this package by evaluating (ql:quickload :drakma), 
+    Start by loading the dependencies of this package.
+    You can do that by evaluating (ql:quickload :drakma), 
     (ql:quickload :yason), (ql:quickload :utils). 
-    If it works, you should see respectively "=> (:DRAKMA)", "=> (:YASON)" and "=> (:UTILs)"" 
+    If it works, you should see respectively "=> (:DRAKMA)", "=> (:YASON)" and "=> (:UTILs)"
     at the bottom of your screen. 
 
     Secondly, evaluate (in-package :common-lisp-user). 
     If it works, you should see "=> #<The COMMON-LISP-USER package, 74/128 internal, 1/4 external>" 
     at the bottom of your screen.
 
-    Finally evaluate (defpackage :web-services).
+    Finally, evaluate (defpackage :web-services).
 
     * Open the "start.lisp" file in your editor. 
 
