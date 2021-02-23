@@ -23,7 +23,7 @@ The APIs accessible with this package are (for now) :
         * 2.2. For News : Mediastack (https://mediastack.com/).
 
       3. KG APIs: 
-        * 3.1. MediaWiki API (https://www.mediawiki.org/wiki/API:Main_page), 
+        * 3.1. Wikipedia API (https://en.wikipedia.org/w/api.php?), 
         * 3.2. Wikidata API (https://www.wikidata.org/wiki/Wikidata:Data_access),
         * 3.3. Google Knowledge Graph API (https://developers.google.com/knowledge-graph), 
         * 3.4. VUA Catasto Datastories (https://stories.datalegend.net), 
@@ -199,7 +199,7 @@ Relevant module: "kg"
 
 #### 3.1. Wikipedia API (https://en.wikipedia.org/w/api.php): 
 
-The MediaWiki Action API is a web service that allows access to some wiki-features like authentication, page operations, and search. It can provide meta information about the wiki and the logged-in user. 
+The MediaWiki Action API is a web service that allows access to some wiki-features. 
 
     * (search-wikipedia "Steve McQueen")
       Function to search for a token in Wikipedia. To query just insert as an argument the string you are looking for. 
