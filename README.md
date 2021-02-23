@@ -1,8 +1,17 @@
 # Web-Services
 
-A Package to search for particular entities or URI in different open-access APIs in Common Lisp. 
+A Package to search for data in different open-access APIs in Common Lisp. 
 
-The APIs accessible with this package are : 
+## Contributors:
+
+    Martina Galletti - martina.galletti@sony.com 
+    Dr. Remi van Trijp - remi.vantrijp@sony.com
+
+## Introduction 
+
+The goal of this package is to interface Babel with different web services APIs. The different APIs can be queried using some specific functions which send a request to the APIs specified and encode the results into a Lisp list. 
+
+The APIs accessible with this package are (for now) : 
 
       1. Dictionaries and Thesaurus:
         * 1.1. Words API (https://www.wordsapi.com/),
@@ -19,14 +28,15 @@ The APIs accessible with this package are :
         * 3.3. Google Knowledge Graph API (https://developers.google.com/knowledge-graph), 
         * 3.4. VUA Catasto Datastories (https://stories.datalegend.net), 
 
-## Contributors:
+## Dependencies
 
-    Martina Galletti - martina.galletti@sony.com 
-    Dr. Remi van Trijp - remi.vantrijp@sony.com
+This tool depends on:
 
-## Introduction and Installation
+    * Drakma (can be installed using Quicklisp, or see https://edicl.github.io/drakma/)
+    * Yason (can be installed using Quicklisp, or see https://github.com/phmarek/yason)
+    * A running internet connection
 
-The goal of this package is to interface Babel with different web services APIs. The different APIs can be queried using some specific functions which send a request to the APIs specified and encode the results into a Lisp list. 
+## Installation 
 
 ### Getting your own API Keys
 
@@ -73,6 +83,8 @@ To use the package, you would need to :
     If it works, you should see "=> #<The COMMON-LISP-USER package, 74/128 internal, 1/4 external>" 
     at the bottom of your screen.
 
+    Finally evaluate (defpackage :web-services).
+
     * Open the "start.lisp" file in your editor. 
 
     First, evaluate the (ql:quickload :web-services). 
@@ -82,14 +94,15 @@ To use the package, you would need to :
     If it works, you should see "=> #<The WEB-SERVICES package, 105/128 internal, 18/64 external>"
     at the bottom of your screen. 
 
-Now you are ready to go.
+Now you are ready to go. Start by evaluating the (ql:quickload :web-services) and (in-package :web-services). Then try out the different functions available in the package.
 
 ## Functionalities
 
 Here, you can find a description of the different functions available in the package and how you could use them with some specific examples. If you have comments, remarks, please feel free to reach out to martina.galletti@sony.com
 
-
 #### 1.Dictionaries and Thesaurus:
+
+Relevant module: "dictionaries"
 
 #####  1.1. Words API (https://www.wordsapi.com/docs/): 
 
@@ -142,7 +155,9 @@ The Datamuse API is a word-finding query engine for developers. You can use it i
 
 ### 2. Open access APIs related to a certain area: 
 
-#### 2.1. Meal DB API (https://www.themealdb.com/api.php)
+#### 2.1. Food : Meal DB API (https://www.themealdb.com/api.php)
+
+Relevant module: "food"
 
     * (request-mealDB "Carbonara")
       Search for a Recipe in the MealDB
@@ -159,7 +174,9 @@ The Datamuse API is a word-finding query engine for developers. You can use it i
     * (request-mealDB-hungry-random) 
      Search for random recipes to have some inspiration        
 
-#### 2.2. Mediastack API (https://mediastack.com/documentation)
+#### 2.2. News : Mediastack API (https://mediastack.com/documentation)
+
+Relevant module: "news"
 
     * (request-Mediastack-live-news "Barcelona" :categories "sport" :languages "it" :countries "it" :limit "2" :sort "published_asc") 
       Search for all the News related to the Barcelona football team published across Italian news outlets 
@@ -174,6 +191,8 @@ The Datamuse API is a word-finding query engine for developers. You can use it i
 
 
 ### 3. KG APIs :
+
+Relevant module: "kg"
 
 #### 3.1. MediaWiki API (https://www.wikidata.org/wiki/Wikidata:WikiProject_Documentation): 
 

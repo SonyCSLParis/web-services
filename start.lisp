@@ -13,8 +13,6 @@
 ;; See the License for the specific language governing permissions and
 ;; limitations under the License.
 ;;=========================================================================
-(ql:quickload :web-services)
-(in-package :web-services)
 
 ;; +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ;; 1. Getting Started
@@ -34,24 +32,31 @@
     ;; Finally evaluate (defpackage :web-services).
 
 ;; Now you are ready to go.
+;; Start by evaluating the (ql:quickload :web-services) and (in-package :web-services). Then try out the different functions available in the package.
+
+(ql:quickload :web-services)
+(in-package :web-services)
 
 ;; +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ;; 2. Functionalities
 ;; +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-;; Here, you can find a description of the different functions available in the package and how you could use them with some specific examples. If you comments, remarks, please feel free to reach out to martina.galletti@sony.com
+;; Here, you can find a description of the different functions available in the package and how you could use them with some specific examples. If you have comments, remarks, please feel free to reach out to martina.galletti@sony.com
 
 ;; -------------------------------------------------------------------------
 ;; 3.1. Some example of searches for dictionaries and thesaurus
 ;; -------------------------------------------------------------------------
 
+
 ;; 3.1.1. Words API (https://www.wordsapi.com/docs/)
 
 (request-words-api "singer") ;; request a definition from the words API
 
+
 ;; 3.1.2. Merriam Webster APIs (https://www.dictionaryapi.com/products/json, https://dictionaryapi.com/products/api-collegiate-thesaurus)
 
 (request-merriam-webster "collegiate" "singer") ;;request a definition from the Merriam-Webster Collegiate dictionary 
+
 
 ;; 3.1.3. Datamuse API (http://www.datamuse.com/api/?ref=producthunt)
 
