@@ -20,17 +20,18 @@
 ;; 1. Getting Started
 ;; +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
+;; Please note, in order to use some functionalities of this package, you would need to have your API keys. This would be necessary to request data from the Words API, the Merriam-Webster Dictionary API, the MealDB API, the Mediastack API and the Google Knowledge Graph APIs. For information on how to obtain them, please see the "Getting your own API Keys" section at https://github.com/SonyCSLParis/web-services. Once you obtained them, you need to copy-paste them in the api_keys.lisp file (in the "set-api-keys" function) and save them. If you have them already, you can continue tothe next steps. 
+
 ;; To use the package, you would need to : 
 
-    ;; Open the "web-services.asd" file in your editor.
+;; Open the "web-services.asd" file in your editor.
     ;; Start by evaluating (in-package :asdf).
     ;; Later evaluate the (defsystem :web-services).
 
-    ;; Open the "package.lisp" file in your editor.
+;; Open the "package.lisp" file in your editor.
     ;; Start by evaluating (ql:quickload :drakma), (ql:quickload :yason), (ql:quickload :utils).
-    ;; Secondly, evaluate (in-package :common-lisp-user). 
-
-    ;; Please note, in order to use some functionalities of this package, you would need to have your API keys. This would be necessary to request data from the Words API, the Merriam-Webster Dictionary API, the MealDB API, the Mediastack API and the Google Knowledge Graph APIs. For information on how to obtain them, please see the "Getting your own API Keys" section at https://github.com/SonyCSLParis/web-services
+    ;; Secondly, evaluate (in-package :common-lisp-user).
+    ;; Finally evaluate (defpackage :web-services).
 
 ;; Now you are ready to go.
 
@@ -51,7 +52,6 @@
 ;; 3.1.2. Merriam Webster APIs (https://www.dictionaryapi.com/products/json, https://dictionaryapi.com/products/api-collegiate-thesaurus)
 
 (request-merriam-webster "collegiate" "singer") ;;request a definition from the Merriam-Webster Collegiate dictionary 
-
 
 ;; 3.1.3. Datamuse API (http://www.datamuse.com/api/?ref=producthunt)
 
