@@ -23,14 +23,14 @@ The APIs accessible with this package are (for now) :
         * 2.2. For News : Mediastack (https://mediastack.com/).
 
       3. KG APIs: 
-        * 3.1. MediaWiki API(https://www.mediawiki.org/wiki/API:Main_page), 
-        * 3.2. Wikidata API(https://www.wikidata.org/wiki/Wikidata:Data_access),
+        * 3.1. MediaWiki API (https://www.mediawiki.org/wiki/API:Main_page), 
+        * 3.2. Wikidata API (https://www.wikidata.org/wiki/Wikidata:Data_access),
         * 3.3. Google Knowledge Graph API (https://developers.google.com/knowledge-graph), 
         * 3.4. VUA Catasto Datastories (https://stories.datalegend.net), 
 
 ## Dependencies
 
-This tool depends on:
+This package depends on:
 
     * Drakma (can be installed using Quicklisp, or see https://edicl.github.io/drakma/)
     * Yason (can be installed using Quicklisp, or see https://github.com/phmarek/yason)
@@ -56,7 +56,7 @@ For information about they can be obtained, please see :
 
        * For the Google Knowledge Graph API: https://developers.google.com/knowledge-graph/how-tos/authorizing
 
-Once you obtained them, you need to copy-paste them in the api_keys.lisp file (at "set-api-keys") and save them.
+Once you obtained them, you will need to copy-paste them in the "api_keys.lisp" file in the main directory of this package (at "set-api-keys") and save them.
 
 ### Getting Started
 
@@ -99,7 +99,7 @@ Now you are ready to go. You can try out the different functions available in th
 
 ## Functionalities
 
-Here, you can find a description of the different functions available in the package and how you could use them with some specific examples. If you have comments, remarks, please feel free to contact us directly at martina.galletti@sony.com or remi.vantrijp@sony.com 
+Here, you can find a description of the different functions available in the package and how you could use them with some specific examples. If you have suggestions or remarks, please feel free to contact us directly at martina.galletti@sony.com or remi.vantrijp@sony.com 
 
 #### 1.Dictionaries and Thesaurus:
 
