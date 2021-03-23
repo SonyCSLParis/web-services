@@ -4,14 +4,12 @@ A package to request data from different APIs in Common Lisp.
 
 ## Contributors:
 
-    Martina Galletti - martina.galletti@sony.com
-     
+    Martina Galletti - martinagalletti@sony.com
     Dr. Remi van Trijp - remi.vantrijp@sony.com
 
 ## Introduction 
 
 The goal of this package is to interface Babel with different web services APIs. The different APIs can be queried using some specific functions which send a request to the APIs specified and encode the results into a Lisp list. 
-
 
 The APIs accessible with this package are (for now) : 
 
