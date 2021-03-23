@@ -39,11 +39,14 @@ This package depends on:
     * Yason (can be installed using Quicklisp, or see https://github.com/phmarek/yason)
     * A running internet connection
 
+
 ## Installation 
 
 ### Getting your own API Keys
 
+
 Please note, to use some functionalities of this package, you would need to have some API keys. This would be necessary to request data from the Words API, the Merriam-Webster Dictionary API, the MealDB API, the Mediastack API, and the Google Knowledge Graph APIs. For these APIs, you will have to specify your personal "API key" to send the request.  
+
 
 For information about they can be obtained, please see :
 
