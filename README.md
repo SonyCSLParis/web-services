@@ -12,6 +12,7 @@ A package to request data from different APIs in Common Lisp.
 
 The goal of this package is to interface Babel with different web services APIs. The different APIs can be queried using some specific functions which send a request to the APIs specified and encode the results into a Lisp list. 
 
+
 The APIs accessible with this package are (for now) : 
 
       1. Dictionaries and Thesaurus:
@@ -28,6 +29,7 @@ The APIs accessible with this package are (for now) :
         * 3.2. Wikidata API (https://www.wikidata.org/wiki/Wikidata:Data_access),
         * 3.3. Google Knowledge Graph API (https://developers.google.com/knowledge-graph), 
         * 3.4. VUA Catasto Datastories (https://stories.datalegend.net), 
+
 
 ## Dependencies
 
