@@ -39,7 +39,6 @@ This package depends on:
     * Yason (can be installed using Quicklisp, or see https://github.com/phmarek/yason)
     * A running internet connection
 
-
 ## Installation 
 
 ### Getting your own API Keys
