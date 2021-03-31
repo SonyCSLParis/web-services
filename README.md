@@ -4,8 +4,9 @@ A package to request data from different APIs in Common Lisp.
 
 ## Contributors:
 
-    Martina Galletti - martinagalletti@sony.com
-    Dr. Remi van Trijp - remi.vantrijp@sony.com
+    - Martina Galletti - martinagalletti@sony.com
+
+    - Dr. Remi van Trijp - remi.vantrijp@sony.com
 
 ## Introduction 
 
