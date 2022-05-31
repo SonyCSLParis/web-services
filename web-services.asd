@@ -36,8 +36,9 @@
                  (:file "google_kg")
                  (:file "wikipedia_wikidata")))
    ;; All Knowledge Graph Api
-   (:module news
-    :components ((:file "mediastack")))
    ;; All news
+   (:module news
+    :components ((:file "mediastack")
+                 (:file "guardian")))
    ))
 

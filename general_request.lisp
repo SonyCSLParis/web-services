@@ -27,15 +27,28 @@
 (defun clean-request (request &optional (replacement-string "%20"))
   (regex-replace-all " " request replacement-string))
 
-(defun request-api (api-url &key (content-type "application/json")
-                          additional-headers parameters)
+(defun request-api (api-url &key 
+                            (method :get)
+                            (content-type "application/json")
+                            additional-headers parameters
+                            (lisp-format :alist))
   "Interfacing with an API and encode the result in Lisp List"
   (let ((stream (http-request api-url
                               :additional-headers additional-headers
                               :parameters parameters
-                              :method :get
+                              :method method
                               :content-type content-type
                               :want-stream t)))
     (setf (flexi-streams:flexi-stream-external-format stream) :utf-8)
-    (yason:parse stream :object-as :alist)))
+    (yason:parse stream :object-as lisp-format)))
 
+;; Helper functions:
+;; -----------------------------------------------------------------------------------------------------------
+(defun handle-parameters (parameters)
+  "Helper function for turning correctly formatting keywords into drakma parameters."
+  (if (null parameters)
+    nil
+    (cons (cons (format nil "~(~a~)" (first parameters))
+                (second parameters))
+          (handle-parameters (cddr parameters)))))
+;; (handle-parameters '(:action "search" :language "en"))
