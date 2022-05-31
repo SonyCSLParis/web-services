@@ -5,6 +5,7 @@
               :merriam-webster ""
               :words ""
               :mediastack ""
-              :MealDB "")
+              :MealDB ""
+              :guardian "")
 
 ;; For information on how to obtain them, please see the "Getting your own API Keys" section at https://github.com/SonyCSLParis/web-services

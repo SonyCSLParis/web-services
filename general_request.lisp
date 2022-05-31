@@ -18,7 +18,7 @@
 
 (in-package :web-services)
 
-(export '(clean-request))
+(export '(request-api))
 
 ;; +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ;; General Functions for all APIs
