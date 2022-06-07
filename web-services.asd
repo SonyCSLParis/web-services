@@ -22,23 +22,23 @@
                (:file "general_request")
                (:file "helper_keys")
                (:file "api_keys")
-   ;; Helper functions
-   (:module dictionaries
-    :components ((:file "datamuse")
-                 (:file "merriam_webster")
-                 (:file "words")))
-   ;; All Dictionaries and Thesaurus api
-   (:module food
-    :components ((:file "meal_db")))
-   ;; All food-related Api
-   (:module kg
-    :components ((:file "catasto")
-                 (:file "google_kg")
-                 (:file "wikipedia_wikidata")))
-   ;; All Knowledge Graph Api
-   ;; All news
-   (:module news
-    :components ((:file "mediastack")
-                 (:file "guardian")))
-   ))
-
+               ;; Helper functions
+               (:module dictionaries
+                :components ((:file "datamuse")
+                             (:file "merriam_webster")
+                             (:file "words")))
+               ;; All Dictionaries and Thesaurus api
+               (:module food
+                :components ((:file "meal_db")))
+               ;; All food-related Api
+               (:module kg
+                :components ((:file "catasto")
+                             (:file "google_kg")
+                             (:file "wikipedia_wikidata")))
+               ;; All Knowledge Graph Api
+               ;; All news
+               (:module news
+                :components ((:file "mediastack")
+                             (:file "news-api")
+                             (:file "guardian")
+                             (:file "nytimes")))))

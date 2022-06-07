@@ -14,26 +14,10 @@
 
 (export '(guardian-api))
 
-(defun guardian-api (api-endpoint &rest parameters
-                                  &key &allow-other-keys)
-  "General function for making http-requests to The Guardian."
-  ;; Get the keywords that are not part of the request:
-  (destructuring-bind (&whole whole
-                              &key (method :get method-p)
-                              (content-type "application/json" content-type-p)
-                              (lisp-format :alist lisp-format-p)
-                              (api-key (get-api-key :guardian) api-key-p)
-                              &allow-other-keys)
-      parameters
-    ;; Remove them from the http-request:
-    (dolist (indicator '(:method :content-type :lisp-format :api-key))
-      (remf whole indicator))
-    ;; Perform the request:
-    (request-api (format nil "https://content.guardianapis.com/~a?" api-endpoint)
-                 :parameters (handle-parameters (append whole (list :api-key api-key)))
-                 :method method
-                 :content-type content-type
-                 :lisp-format lisp-format)))
+(defmacro guardian-api (api-endpoint &rest parameters
+                                     &key &allow-other-keys)
+  `(news-api (format nil "~a~a" (get-base-uri :guardian) ,api-endpoint)
+             ,@parameters :api-key (get-api-key :guardian))) 
 
 ;;;;; Examples:
 ;;;;; --------------------------------------------------------------------------------------
